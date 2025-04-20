@@ -51,11 +51,11 @@ const data = {
         },
         {
           title: "Distribution",
-          url: "#",
+          url: "/distribution",
         },
         {
           title: "Beautiful Defaults",
-          url: "#",
+          url: "/beautiful-defaults",
         },
       ],
     },

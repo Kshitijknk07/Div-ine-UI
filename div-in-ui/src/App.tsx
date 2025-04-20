@@ -6,6 +6,8 @@ import GettingStartedPage from "./components/HomePage/GettingStarted/GettingStar
 import { OpenCodePage } from "./components/HomePage/OpenCode/OpenCodePage";
 import { ComponentsPage } from "./components/HomePage/Components/ComponentsPage";
 import { CompositionPage } from "./components/HomePage/Composition/CompositionPage";
+import { DistributionPage } from "./components/HomePage/Distribution/DistributionPage";
+import { BeautifulDefaultsPage } from "./components/HomePage/BeautifulDefaults/BeautifulDefaultsPage";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/open-code" element={<OpenCodePage />} />
         <Route path="/components" element={<ComponentsPage />} />
         <Route path="/composition" element={<CompositionPage />} />
+        <Route path="/distribution" element={<DistributionPage />} />
+        <Route path="/beautiful-defaults" element={<BeautifulDefaultsPage />} />
       </Routes>
     </BrowserRouter>
   );
