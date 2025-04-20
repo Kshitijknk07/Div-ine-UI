@@ -166,7 +166,7 @@ export function SidebarPage({
           <SidebarMenuItem>
             <div className="flex items-center gap-3 p-4">
               <div className="font-bold text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                DIV-INE-UI
+                Div-ine-ui
               </div>
             </div>
           </SidebarMenuItem>
