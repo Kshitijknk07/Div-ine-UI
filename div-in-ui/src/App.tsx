@@ -10,6 +10,7 @@ import { DistributionPage } from "./components/HomePage/Distribution/Distributio
 import { BeautifulDefaultsPage } from "./components/HomePage/BeautifulDefaults/BeautifulDefaultsPage";
 import { VitePage } from "./components/HomePage/Installation/VitePage";
 import { NextJSPage } from "./components/HomePage/Installation/NextJSPage";
+import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupPage";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/beautiful-defaults" element={<BeautifulDefaultsPage />} />
         <Route path="/installation/vite" element={<VitePage />} />
         <Route path="/installation/nextjs" element={<NextJSPage />} />
+        <Route path="/installation/manual" element={<ManualSetupPage />} />
       </Routes>
     </BrowserRouter>
   );

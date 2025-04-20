@@ -73,7 +73,7 @@ const data = {
         },
         {
           title: "Manual Setup",
-          url: "#",
+          url: "/installation/manual",
         },
       ],
     },
