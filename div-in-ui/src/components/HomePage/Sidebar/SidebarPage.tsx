@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 import {
   Sidebar,
@@ -12,6 +14,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 
 const data = {
   navMain: [
@@ -67,58 +70,6 @@ const data = {
           title: "Cards",
           url: "#",
         },
-        {
-          title: "Modals",
-          url: "#",
-        },
-        {
-          title: "Forms",
-          url: "#",
-        },
-        {
-          title: "Tables",
-          url: "#",
-        },
-        {
-          title: "Accordions",
-          url: "#",
-        },
-        {
-          title: "Dropdowns",
-          url: "#",
-        },
-        {
-          title: "Tabs",
-          url: "#",
-        },
-        {
-          title: "Alerts",
-          url: "#",
-        },
-        {
-          title: "Loaders",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
       ],
     },
     {
@@ -131,18 +82,6 @@ const data = {
         },
         {
           title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
           url: "#",
         },
       ],
@@ -163,57 +102,75 @@ const data = {
 export function SidebarPage({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const [activeSection, setActiveSection] = useState<string | null>(
+    "Getting Started"
+  );
+  const [activePage, setActivePage] = useState<string>("Introduction");
+
+  const toggleSection = (title: string) => {
+    setActiveSection(activeSection === title ? null : title);
+  };
+
   return (
     <Sidebar
       variant="floating"
-      style={{
-        background: "#eae0d5",
-        color: "#250902",
-      }}
-      className="group"
+      className="group bg-[#000300] text-white border-r border-[#faff00]/20 shadow-xl h-screen"
       {...props}
     >
-      <SidebarHeader>
+      <SidebarHeader className="border-b border-[#faff00]/20 pb-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <div className="flex items-center gap-3 p-4">
-              <div
-                className="font-bold text-3xl"
-                style={{
-                  background: "linear-gradient(90deg, #250902, #250902)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Div-ine-ui
+            <div className="flex items-center p-3">
+              <div className="flex items-center">
+                <span className="text-[#faff00] mr-1 text-xl font-bold">
+                  Div
+                </span>
+                <span className="text-white text-xl font-bold">-ine UI</span>
               </div>
             </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="overflow-y-auto scrollbar-hide group-hover:scrollbar-show transition-all duration-300">
+      <SidebarContent className="overflow-hidden h-[calc(100vh-4rem)] py-2">
         <SidebarGroup>
           <SidebarMenu className="gap-1">
-            {data.navMain.map((item) => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
-                  <a
-                    href={item.url}
-                    className="font-medium hover:bg-[#250902]/10 transition-colors px-3 py-2 rounded-lg flex items-center gap-2"
-                    style={{ color: "#250902" }}
-                  >
-                    {item.title}
-                  </a>
+            {data.navMain.map((section) => (
+              <SidebarMenuItem
+                key={section.title}
+                className="transition-all duration-200"
+              >
+                <SidebarMenuButton
+                  onClick={() => toggleSection(section.title)}
+                  className={cn(
+                    "font-medium hover:bg-[#faff00]/10 transition-colors px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-white text-sm",
+                    activeSection === section.title &&
+                      "bg-[#faff00]/10 text-[#faff00]"
+                  )}
+                >
+                  <span>{section.title}</span>
+                  <span className="transition-transform duration-200">
+                    {activeSection === section.title ? (
+                      <ChevronDown className="h-3.5 w-3.5" />
+                    ) : (
+                      <ChevronRight className="h-3.5 w-3.5" />
+                    )}
+                  </span>
                 </SidebarMenuButton>
-                {item.items?.length ? (
-                  <SidebarMenuSub className="ml-4 border-l border-[#250902]/20 px-2">
-                    {item.items.map((item) => (
+                {section.items?.length && activeSection === section.title && (
+                  <SidebarMenuSub className="ml-3 border-l border-[#faff00]/20 pl-2 mt-1 mb-1 overflow-hidden">
+                    {section.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
-                        <SidebarMenuSubButton asChild>
+                        <SidebarMenuSubButton
+                          asChild
+                          onClick={() => setActivePage(item.title)}
+                        >
                           <a
                             href={item.url}
-                            className="hover:bg-[#250902]/10 transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2"
-                            style={{ color: "#250902" }}
+                            className={cn(
+                              "hover:bg-[#faff00]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-white/80 hover:text-[#faff00] text-xs",
+                              activePage === item.title &&
+                                "bg-[#faff00]/10 text-[#faff00]"
+                            )}
                           >
                             {item.title}
                           </a>
@@ -221,7 +178,7 @@ export function SidebarPage({
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub>
-                ) : null}
+                )}
               </SidebarMenuItem>
             ))}
           </SidebarMenu>
