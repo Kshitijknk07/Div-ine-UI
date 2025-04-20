@@ -160,12 +160,26 @@ export function SidebarPage({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="floating" {...props}>
+    <Sidebar
+      variant="floating"
+      style={{
+        background: "#eae0d5",
+        color: "#250902",
+      }}
+      {...props}
+    >
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="flex items-center gap-3 p-4">
-              <div className="font-bold text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div
+                className="font-bold text-3xl"
+                style={{
+                  background: "linear-gradient(90deg, #250902, #250902)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
                 Div-ine-ui
               </div>
             </div>
@@ -180,19 +194,21 @@ export function SidebarPage({
                 <SidebarMenuButton asChild>
                   <a
                     href={item.url}
-                    className="font-medium hover:bg-accent/10 transition-colors px-3 py-2 rounded-lg flex items-center gap-2"
+                    className="font-medium hover:bg-[#250902]/10 transition-colors px-3 py-2 rounded-lg flex items-center gap-2"
+                    style={{ color: "#250902" }}
                   >
                     {item.title}
                   </a>
                 </SidebarMenuButton>
                 {item.items?.length ? (
-                  <SidebarMenuSub className="ml-4 border-l border-accent/20 px-2">
+                  <SidebarMenuSub className="ml-4 border-l border-[#250902]/20 px-2">
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton asChild>
                           <a
                             href={item.url}
-                            className="hover:bg-accent/10 transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2"
+                            className="hover:bg-[#250902]/10 transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2"
+                            style={{ color: "#250902" }}
                           >
                             {item.title}
                           </a>
