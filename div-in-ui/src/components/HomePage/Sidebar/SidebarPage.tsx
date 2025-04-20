@@ -114,15 +114,15 @@ export function SidebarPage({
   return (
     <Sidebar
       variant="floating"
-      className="group bg-[#000300] text-white border-r border-[#faff00]/20 shadow-xl h-screen"
+      className="group bg-gradient-to-b from-[#070814] to-[#09092d] text-white border-r border-[#a2a3f5]/20 shadow-lg h-screen"
       {...props}
     >
-      <SidebarHeader className="border-b border-[#faff00]/20 pb-2">
+      <SidebarHeader className="border-b border-[#a2a3f5]/20 pb-2">
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="flex items-center p-3">
               <div className="flex items-center">
-                <span className="text-[#faff00] mr-1 text-xl font-bold">
+                <span className="text-[#678aee] mr-1 text-xl font-bold">
                   Div
                 </span>
                 <span className="text-white text-xl font-bold">-ine UI</span>
@@ -142,22 +142,22 @@ export function SidebarPage({
                 <SidebarMenuButton
                   onClick={() => toggleSection(section.title)}
                   className={cn(
-                    "font-medium hover:bg-[#faff00]/10 transition-colors px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-white text-sm",
+                    "font-medium hover:bg-[#678aee]/10 transition-colors px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-white text-sm",
                     activeSection === section.title &&
-                      "bg-[#faff00]/10 text-[#faff00]"
+                      "bg-[#678aee]/15 text-[#a2a3f5]"
                   )}
                 >
                   <span>{section.title}</span>
                   <span className="transition-transform duration-200">
                     {activeSection === section.title ? (
-                      <ChevronDown className="h-3.5 w-3.5" />
+                      <ChevronDown className="h-3.5 w-3.5 text-[#a2a3f5]" />
                     ) : (
-                      <ChevronRight className="h-3.5 w-3.5" />
+                      <ChevronRight className="h-3.5 w-3.5 text-[#bfc9f2]" />
                     )}
                   </span>
                 </SidebarMenuButton>
                 {section.items?.length && activeSection === section.title && (
-                  <SidebarMenuSub className="ml-3 border-l border-[#faff00]/20 pl-2 mt-1 mb-1 overflow-hidden">
+                  <SidebarMenuSub className="ml-3 border-l border-[#a2a3f5]/20 pl-2 mt-1 mb-1 overflow-hidden">
                     {section.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton
@@ -167,9 +167,9 @@ export function SidebarPage({
                           <a
                             href={item.url}
                             className={cn(
-                              "hover:bg-[#faff00]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-white/80 hover:text-[#faff00] text-xs",
+                              "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs",
                               activePage === item.title &&
-                                "bg-[#faff00]/10 text-[#faff00]"
+                                "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
                             )}
                           >
                             {item.title}

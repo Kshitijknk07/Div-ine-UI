@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 export function IntroductionPage() {
   return (
     <SidebarProvider
-      className="bg-[#000300] text-white w-full"
+      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -16,31 +16,31 @@ export function IntroductionPage() {
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-[#000300] text-white w-full h-screen overflow-y-auto">
+          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
             <div className="w-full mx-auto py-6 animate-fade-in-up">
-              <Card className="bg-[#000300] border-0 border-b border-[#faff00]/20 shadow-lg overflow-hidden w-full rounded-none">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#faff00]/80 to-[#faff00]/20"></div>
+              <Card className="bg-[#070814]/30 backdrop-blur-sm border-0 border-b border-[#a2a3f5]/20 shadow-lg overflow-hidden w-full rounded-none">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#678aee]/80 to-[#ffc2e1]/60"></div>
 
                 <CardHeader className="pb-0 pt-6 px-6 sm:px-8">
-                  <Badge className="w-fit mx-auto mb-4 px-3 py-1 bg-[#faff00]/10 text-[#faff00] border-[#faff00]/20 hover:bg-[#faff00]/20">
+                  <Badge className="w-fit mx-auto mb-4 px-3 py-1 bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
                     Documentation
                   </Badge>
 
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-center">
-                    <span className="text-[#faff00]">Div</span>-ine UI
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">Div</span>-ine UI
                   </h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 py-6">
-                  <div className="prose max-w-none text-white/80 space-y-6">
+                  <div className="prose max-w-none text-[#bfc9f2]/90 space-y-6">
                     <p className="text-base sm:text-lg leading-relaxed">
-                      <span className="text-[#faff00]">Div</span>-ine UI is a
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI is a
                       set of beautifully-designed, accessible components and a
                       code distribution platform. Works with your favorite
                       frameworks and AI models. Open Source. Open Code.
                     </p>
 
-                    <p className="text-base sm:text-lg leading-relaxed text-[#faff00]/90 font-medium">
+                    <p className="text-base sm:text-lg leading-relaxed text-[#ffc2e1] font-medium">
                       This is not a component library. It is how you build your
                       component library.
                     </p>
@@ -61,54 +61,54 @@ export function IntroductionPage() {
                     </p>
 
                     <p className="text-base leading-relaxed">
-                      This is what <span className="text-[#faff00]">Div</span>
+                      This is what <span className="text-[#a2a3f5]">Div</span>
                       -ine UI aims to solve. It is built around the following
                       principles:
                     </p>
 
                     <ul className="space-y-2 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#faff00] font-medium">
+                        <span className="text-[#678aee] font-medium">
                           Open Code:
                         </span>{" "}
                         The top layer of your component code is open for
                         modification.
                       </li>
                       <li>
-                        <span className="text-[#faff00] font-medium">
+                        <span className="text-[#678aee] font-medium">
                           Composition:
                         </span>{" "}
                         Every component uses a common, composable interface,
                         making them predictable.
                       </li>
                       <li>
-                        <span className="text-[#faff00] font-medium">
+                        <span className="text-[#678aee] font-medium">
                           Distribution:
                         </span>{" "}
                         A flat-file schema and command-line tool make it easy to
                         distribute components.
                       </li>
                       <li>
-                        <span className="text-[#faff00] font-medium">
+                        <span className="text-[#678aee] font-medium">
                           Beautiful Defaults:
                         </span>{" "}
                         Carefully chosen default styles, so you get great design
                         out-of-the-box.
                       </li>
                       <li>
-                        <span className="text-[#faff00] font-medium">
+                        <span className="text-[#678aee] font-medium">
                           AI-Ready:
                         </span>{" "}
                         Open code for LLMs to read, understand, and improve.
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-white">
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5]">
                       Open Code
                     </h2>
-
+                    
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#faff00]">Div</span>-ine UI hands
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI hands
                       you the actual component code. You have full control to
                       customize and extend the components to your needs. This
                       means:
@@ -134,17 +134,17 @@ export function IntroductionPage() {
                       In a typical library, if you need to change a button's
                       behavior, you have to override styles or wrap the
                       component. With{" "}
-                      <span className="text-[#faff00]">Div</span>-ine UI, you
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI, you
                       simply edit the button code directly.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-white">
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5]">
                       Composition
                     </h2>
 
                     <p className="text-base leading-relaxed">
                       Every component in{" "}
-                      <span className="text-[#faff00]">Div</span>-ine UI shares
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI shares
                       a common, composable interface. If a component does not
                       exist, we bring it in, make it composable, and adjust its
                       style to match and work with the rest of the design
@@ -157,12 +157,12 @@ export function IntroductionPage() {
                       APIs for every new component. Even for third-party ones.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-white">
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5]">
                       Distribution
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#faff00]">Div</span>-ine UI is also
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI is also
                       a code distribution system. It defines a schema for
                       components and a CLI to distribute them.
                     </p>
@@ -184,12 +184,12 @@ export function IntroductionPage() {
                       components based on existing schema.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-white">
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5]">
                       Beautiful Defaults
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#faff00]">Div</span>-ine UI comes
+                      <span className="text-[#a2a3f5]">Div</span>-ine UI comes
                       with a large collection of components that have carefully
                       chosen default styles. They are designed to look good on
                       their own and to work well together as a consistent
@@ -212,12 +212,12 @@ export function IntroductionPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-white">
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5]">
                       AI-Ready Architecture
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      The design of <span className="text-[#faff00]">Div</span>
+                      The design of <span className="text-[#a2a3f5]">Div</span>
                       -ine UI makes it easy for AI tools to work with your code.
                       Its open code and consistent API allow AI models to read,
                       understand, and even generate new components.
@@ -230,8 +230,8 @@ export function IntroductionPage() {
                     </p>
 
                     <div className="flex justify-center mt-8">
-                      <Button className="bg-[#faff00] hover:bg-[#faff00]/90 text-[#000300] rounded-full px-6 py-2 font-medium text-base">
-                        Start Building
+                      <Button className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base">
+                        Start Building 
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>
