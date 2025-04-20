@@ -1,10 +1,6 @@
 # Div-ine UI
 
 <p align="center">
-  <img src="public/logo.svg" alt="Div-ine UI Logo" width="180" height="180" style="margin-bottom: 20px;" />
-</p>
-
-<p align="center">
   <strong>A magical, component-driven UI system for modern React applications</strong>
 </p>
 
@@ -16,10 +12,6 @@
   <a href="#customization">Customization</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
-</p>
-
-<p align="center">
-  <img src="public/demo.png" alt="Div-ine UI Demo" width="800" style="margin: 40px 0; border-radius: 8px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);" />
 </p>
 
 ## Introduction
