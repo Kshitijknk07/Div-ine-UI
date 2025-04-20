@@ -43,11 +43,11 @@ const data = {
       items: [
         {
           title: "Open Code",
-          url: "#",
+          url: "/open-code",
         },
         {
           title: "Composition",
-          url: "#",
+          url: "/composition",
         },
         {
           title: "Distribution",
@@ -99,7 +99,7 @@ const data = {
         },
         {
           title: "All Components",
-          url: "#",
+          url: "/components",
         },
       ],
     },
