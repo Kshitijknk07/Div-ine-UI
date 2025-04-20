@@ -21,7 +21,7 @@ const data = {
       items: [
         {
           title: "Introduction",
-          url: "#",
+          url: "/home",
         },
         {
           title: "Installation",
@@ -55,6 +55,10 @@ const data = {
       title: "Components",
       url: "#",
       items: [
+        {
+          title: "Introduction",
+          url: "/home",
+        },
         {
           title: "Buttons",
           url: "#",

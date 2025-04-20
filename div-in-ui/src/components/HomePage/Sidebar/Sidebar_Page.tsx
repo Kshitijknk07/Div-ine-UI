@@ -1,4 +1,4 @@
-import { SidebarPage } from "./Sidebar/SidebarPage";
+import { SidebarPage } from "./SidebarPage";
 import {
   SidebarInset,
   SidebarProvider,

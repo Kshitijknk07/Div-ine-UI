@@ -1,4 +1,4 @@
-import Sidebar_Page from "@/components/HomePage/Sidebar_Page";
+import Sidebar_Page from "@/components/HomePage/Sidebar/Sidebar_Page";
 
 const HeroSection = () => {
   return (
@@ -7,4 +7,5 @@ const HeroSection = () => {
     </>
   );
 };
+
 export default HeroSection;
