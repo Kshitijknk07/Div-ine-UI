@@ -25,45 +25,174 @@ export function ComponentsPage() {
     {
       name: "Button",
       description:
-        "A button component that can be used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.",
+        "A versatile button component with support for multiple variants, sizes, icons, and loading states. Designed for both functionality and aesthetic appeal.",
       code: `import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@/lib/utils";
+import { forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { cn } from "@/lib/utils";
+
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 active:translate-y-[1px]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        default: 
+          "bg-gradient-to-r from-primary to-primary/90 text-primary-foreground shadow-md hover:shadow-lg hover:from-primary/95 hover:to-primary/85",
+        outline: 
+          "border border-input bg-background/40 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground",
+        solid: 
+          "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: 
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        success: 
+          "bg-green-600 text-white hover:bg-green-700",
+        secondary: 
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: 
+          "hover:bg-accent hover:text-accent-foreground",
+        link: 
+          "text-primary underline-offset-4 hover:underline",
+        soft: 
+          "bg-primary/10 text-primary hover:bg-primary/20",
+        glossy: 
+          "bg-gradient-to-b from-white/10 to-white/5 border border-white/20 backdrop-blur-sm text-white shadow-inner",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
+        default: "h-9 px-4 py-2 rounded-md",
+        sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        xl: "h-12 rounded-lg px-10 text-base",
+        icon: "h-9 w-9 rounded-md",
+        pill: "h-9 px-6 rounded-full",
+        "sm-pill": "h-8 px-4 rounded-full text-xs",
+        "lg-pill": "h-11 px-8 rounded-full",
+        "xl-pill": "h-12 px-10 rounded-full text-base",
       },
+      animation: {
+        none: "",
+        pulse: "animate-pulse",
+        bounce: "animate-bounce",
+        glow: "animate-glow",
+      },
+      iconPosition: {
+        none: "",
+        left: "flex-row",
+        right: "flex-row-reverse"
+      }
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      animation: "none",
+      iconPosition: "none"
     },
+    compoundVariants: [
+      {
+        iconPosition: ["left", "right"],
+        className: "gap-2"
+      }
+    ]
   }
-);`,
-      usage: `import { Button } from "@/components/ui/button"
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  loading?: boolean;
+  icon?: React.ReactNode;
+}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ 
+    className, 
+    variant, 
+    size, 
+    animation,
+    iconPosition,
+    loading = false,
+    icon,
+    children,
+    disabled,
+    ...props 
+  }, ref) => {
+    // Handle loading state
+    const isDisabled = disabled || loading;
+    
+    return (
+      <button
+        className={cn(
+          buttonVariants({ 
+            variant, 
+            size, 
+            animation,
+            iconPosition: icon ? (iconPosition || "left") : "none"
+          }), 
+          className
+        )}
+        ref={ref}
+        disabled={isDisabled}
+        {...props}
+      >
+        {loading && (
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </span>
+        )}
+        {icon && iconPosition !== "right" && <span className={loading ? "invisible" : ""}>{icon}</span>}
+        <span className={loading ? "invisible" : ""}>{children}</span>
+        {icon && iconPosition === "right" && <span className={loading ? "invisible" : ""}>{icon}</span>}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";
+
+export { Button, buttonVariants };`,
+      usage: `import { Button } from "@/components/ui/button";
+import { Mail, ArrowRight } from "lucide-react";
 
 export function ButtonExample() {
   return (
-    <Button variant="default">Click me</Button>
-  )
+    <div className="flex flex-col gap-4">
+      {/* Basic usage */}
+      <Button>Default Button</Button>
+      
+      {/* With icon */}
+      <Button icon={<Mail className="h-4 w-4" />}>
+        Email Us
+      </Button>
+      
+      {/* Icon position right */}
+      <Button 
+        icon={<ArrowRight className="h-4 w-4" />} 
+        iconPosition="right"
+        variant="solid"
+      >
+        Next Step
+      </Button>
+      
+      {/* Variants */}
+      <div className="flex gap-2">
+        <Button variant="outline">Outline</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
+      </div>
+    </div>
+  );
 }`,
-      preview: <Button>Click me</Button>,
+      preview: (
+        <div className="flex flex-wrap gap-2">
+          <Button>Default</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="solid">Solid</Button>
+        </div>
+      ),
     },
     {
       name: "Badge",

@@ -11,6 +11,7 @@ import { BeautifulDefaultsPage } from "./components/HomePage/BeautifulDefaults/B
 import { VitePage } from "./components/HomePage/Installation/VitePage";
 import { NextJSPage } from "./components/HomePage/Installation/NextJSPage";
 import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupPage";
+import { ButtonPage } from "./components/HomePage/Components/ButtonPage";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/installation/vite" element={<VitePage />} />
         <Route path="/installation/nextjs" element={<NextJSPage />} />
         <Route path="/installation/manual" element={<ManualSetupPage />} />
+        <Route path="/components/button" element={<ButtonPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -83,7 +83,7 @@ const data = {
       items: [
         {
           title: "Button",
-          url: "#",
+          url: "/components/button",
         },
         {
           title: "Card",
