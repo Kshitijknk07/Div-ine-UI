@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function GettingStartedPage() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -20,6 +20,12 @@ export function GettingStartedPage() {
     "divinity summon components"
   );
   const [magicAnimation, setMagicAnimation] = useState(false);
+
+  // Magic CLI base name for all commands
+  const [cliBase, setCliBase] = useState("divine-wand");
+
+  // Magic command verb for actions (conjure, summon, enchant, etc.)
+  const [commandVerb, setCommandVerb] = useState("conjure");
 
   const magicCommands = [
     "divinity summon components",
@@ -33,12 +39,20 @@ export function GettingStartedPage() {
     "div-enchant build ui",
   ];
 
-  // Generate a random magic command
+  // Generate a random magic command and update all related commands
   const generateMagicCommand = () => {
     setMagicAnimation(true);
     const randomCommand =
       magicCommands[Math.floor(Math.random() * magicCommands.length)];
     setMagicCommand(randomCommand);
+
+    // Extract CLI base and command verb from the random command
+    const parts = randomCommand.split(" ");
+    const newCliBase = parts[0]; // e.g., "divine-wand", "divinity", "div-genesis"
+    const newCommandVerb = parts.length > 1 ? parts[1] : "conjure"; // e.g., "summon", "manifest", "create"
+
+    setCliBase(newCliBase);
+    setCommandVerb(newCommandVerb);
 
     // Reset animation after it completes
     setTimeout(() => {
@@ -96,6 +110,16 @@ export function GettingStartedPage() {
       }, 600);
     }
   };
+
+  // Generate commands based on the current magic command pattern
+  const getInstallCommand = () => `npm install -g ${cliBase}-cli`;
+  const getViteInitCommand = () => `${cliBase} ${commandVerb} components`;
+  const getNextInitCommand = () =>
+    `${cliBase} ${commandVerb === "conjure" ? "enchant" : commandVerb} --next`;
+  const getComponentsCommand = () =>
+    `${cliBase} ${commandVerb} mystical-button arcane-card enchanted-sidebar magical-badge`;
+  const getManualComponentCommand = () =>
+    `${cliBase} ${commandVerb} button card sidebar`;
 
   return (
     <SidebarProvider
@@ -214,10 +238,7 @@ export function GettingStartedPage() {
                           Enchanted Shell
                         </Badge>
                       </div>
-                      <CodeBlock
-                        id="install-cli"
-                        code="npm install -g divine-wand-cli"
-                      />
+                      <CodeBlock id="install-cli" code={getInstallCommand()} />
                     </div>
 
                     {/* Interactive Installation Simulator */}
@@ -341,10 +362,7 @@ export function GettingStartedPage() {
                         <p className="text-base leading-relaxed mt-4">
                           Cast the divine spell to initialize your UI:
                         </p>
-                        <CodeBlock
-                          id="vite-init"
-                          code="divine-wand conjure components"
-                        />
+                        <CodeBlock id="vite-init" code={getViteInitCommand()} />
                         <p className="text-base leading-relaxed mt-4">
                           Awaken your magical creation:
                         </p>
@@ -369,10 +387,7 @@ export function GettingStartedPage() {
                         <p className="text-base leading-relaxed mt-4">
                           Infuse divine power into your Next.js project:
                         </p>
-                        <CodeBlock
-                          id="next-init"
-                          code="divine-wand enchant --next"
-                        />
+                        <CodeBlock id="next-init" code={getNextInitCommand()} />
                         <p className="text-base leading-relaxed mt-4">
                           Bring your creation to life:
                         </p>
@@ -388,7 +403,7 @@ export function GettingStartedPage() {
                         </p>
                         <CodeBlock
                           id="manual-deps"
-                          code="npm install tailwindcss postcss autoprefixer divine-ui-components"
+                          code={`npm install tailwindcss postcss autoprefixer ${cliBase}-components`}
                         />
                         <p className="text-base leading-relaxed mt-4">
                           Prepare your magical parchment (config):
@@ -424,7 +439,7 @@ export function GettingStartedPage() {
                         </p>
                         <CodeBlock
                           id="manual-component"
-                          code="divine-wand summon button card sidebar"
+                          code={getManualComponentCommand()}
                         />
                       </TabsContent>
                     </Tabs>
@@ -440,7 +455,7 @@ export function GettingStartedPage() {
 
                     <CodeBlock
                       id="add-component"
-                      code="divine-wand summon mystical-button arcane-card enchanted-sidebar magical-badge"
+                      code={getComponentsCommand()}
                     />
 
                     <p className="text-base leading-relaxed mt-4">
