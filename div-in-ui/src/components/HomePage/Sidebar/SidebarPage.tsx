@@ -114,7 +114,7 @@ export function SidebarPage({
   return (
     <Sidebar
       variant="floating"
-      className="group bg-gradient-to-b from-[#070814] to-[#09092d] text-white border-r border-[#a2a3f5]/20 shadow-lg h-screen"
+      className="group bg-gradient-to-b from-[#070814] to-[#09092d] text-white border-0 shadow-xl h-screen"
       {...props}
     >
       <SidebarHeader className="border-b border-[#a2a3f5]/20 pb-2">
