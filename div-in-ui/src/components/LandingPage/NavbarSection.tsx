@@ -4,7 +4,11 @@ import { useState } from "react";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Components", href: "/components" },
-  { name: "GitHub", href: "https://github.com/your-repo", external: true },
+  {
+    name: "GitHub",
+    href: "https://github.com/Kshitijknk07/Div-ine-UI",
+    external: true,
+  },
 ];
 
 export function NavbarSection() {
