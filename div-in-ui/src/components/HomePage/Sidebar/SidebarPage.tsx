@@ -14,7 +14,6 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
-// This is sample data.
 const data = {
   navMain: [
     {
@@ -22,76 +21,43 @@ const data = {
       url: "#",
       items: [
         {
+          title: "Introduction",
+          url: "#",
+        },
+        {
           title: "Installation",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "CLI",
+          url: "#",
+        }
+      ],
+    },
+    {
+      title: "Installation",
+      url: "#",
+      items: [
+        {
+          title: "Vite",
+          url: "#",
+        },
+        {
+          title: "Next.js",
+          url: "#",
+        },
+        {
+          title: "Manual Setup",
           url: "#",
         },
       ],
     },
     {
-      title: "Building Your Application",
+      title: "Components",
       url: "#",
       items: [
         {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
+          title: "Buttons",
           url: "#",
         },
         {
@@ -191,7 +157,7 @@ export function SidebarPage({
                   <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
-                        <SidebarMenuSubButton asChild isActive={item.isActive}>
+                        <SidebarMenuSubButton asChild>
                           <a href={item.url}>{item.title}</a>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>

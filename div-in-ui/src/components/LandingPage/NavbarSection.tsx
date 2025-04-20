@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -34,6 +35,15 @@ export function NavbarSection() {
             div-ine-ui
           </span>
         </a>
+        {/* Search (Desktop) */}
+        <div className="hidden md:flex flex-1 justify-center px-6">
+          <Input
+            type="search"
+            placeholder="Search documentation..."
+            className="max-w-xs"
+            aria-label="Search"
+          />
+        </div>
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -77,6 +87,15 @@ export function NavbarSection() {
           }}
           className="md:hidden border-t border-transparent px-6 py-4 animate-fade-in-down"
         >
+          {/* Search (Mobile) */}
+          <div className="mb-4">
+            <Input
+              type="search"
+              placeholder="Search documentation..."
+              className="w-full"
+              aria-label="Search"
+            />
+          </div>
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.name}>
