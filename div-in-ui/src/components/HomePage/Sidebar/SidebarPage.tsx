@@ -1,5 +1,4 @@
 import * as React from "react";
-import { GalleryVerticalEnd } from "lucide-react";
 
 import {
   Sidebar,
@@ -31,7 +30,7 @@ const data = {
         {
           title: "CLI",
           url: "#",
-        }
+        },
       ],
     },
     {
@@ -58,6 +57,42 @@ const data = {
       items: [
         {
           title: "Buttons",
+          url: "#",
+        },
+        {
+          title: "Cards",
+          url: "#",
+        },
+        {
+          title: "Modals",
+          url: "#",
+        },
+        {
+          title: "Forms",
+          url: "#",
+        },
+        {
+          title: "Tables",
+          url: "#",
+        },
+        {
+          title: "Accordions",
+          url: "#",
+        },
+        {
+          title: "Dropdowns",
+          url: "#",
+        },
+        {
+          title: "Tabs",
+          url: "#",
+        },
+        {
+          title: "Alerts",
+          url: "#",
+        },
+        {
+          title: "Loaders",
           url: "#",
         },
         {
@@ -129,36 +164,38 @@ export function SidebarPage({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <GalleryVerticalEnd className="size-4" />
-                </div>
-                <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v1.0.0</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
+            <div className="flex items-center gap-3 p-4">
+              <div className="font-bold text-3xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                DIV-INE-UI
+              </div>
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarMenu className="gap-2">
+          <SidebarMenu className="gap-1">
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className="font-medium">
+                  <a
+                    href={item.url}
+                    className="font-medium hover:bg-accent/10 transition-colors px-3 py-2 rounded-lg flex items-center gap-2"
+                  >
                     {item.title}
                   </a>
                 </SidebarMenuButton>
                 {item.items?.length ? (
-                  <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
+                  <SidebarMenuSub className="ml-4 border-l border-accent/20 px-2">
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton asChild>
-                          <a href={item.url}>{item.title}</a>
+                          <a
+                            href={item.url}
+                            className="hover:bg-accent/10 transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2"
+                          >
+                            {item.title}
+                          </a>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
