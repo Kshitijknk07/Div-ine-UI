@@ -1,6 +1,7 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { useLocation, Link } from "react-router-dom";
 
 import {
   Sidebar,
@@ -19,19 +20,41 @@ import { cn } from "@/lib/utils";
 const data = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "Introduction",
       url: "#",
       items: [
         {
-          title: "Introduction",
+          title: "Overview",
           url: "/home",
         },
         {
-          title: "Installation",
+          title: "Philosophy",
+          url: "/philosophy",
+        },
+        {
+          title: "Getting Started",
+          url: "/getting-started",
+        },
+      ],
+    },
+    {
+      title: "Core Principles",
+      url: "#",
+      items: [
+        {
+          title: "Open Code",
           url: "#",
         },
         {
-          title: "CLI",
+          title: "Composition",
+          url: "#",
+        },
+        {
+          title: "Distribution",
+          url: "#",
+        },
+        {
+          title: "Beautiful Defaults",
           url: "#",
         },
       ],
@@ -59,29 +82,41 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Introduction",
-          url: "/home",
-        },
-        {
-          title: "Buttons",
+          title: "Button",
           url: "#",
         },
         {
-          title: "Cards",
+          title: "Card",
+          url: "#",
+        },
+        {
+          title: "Sidebar",
+          url: "#",
+        },
+        {
+          title: "Badge",
+          url: "#",
+        },
+        {
+          title: "All Components",
           url: "#",
         },
       ],
     },
     {
-      title: "Architecture",
+      title: "Resources",
       url: "#",
       items: [
         {
-          title: "Accessibility",
+          title: "Documentation",
           url: "#",
         },
         {
-          title: "Fast Refresh",
+          title: "Examples",
+          url: "#",
+        },
+        {
+          title: "Schema Reference",
           url: "#",
         },
       ],
@@ -94,18 +129,59 @@ const data = {
           title: "Contribution Guide",
           url: "#",
         },
+        {
+          title: "GitHub",
+          url: "#",
+        },
+        {
+          title: "Discord",
+          url: "#",
+        },
       ],
     },
   ],
 };
 
+// Helper function to find the page title by URL
+const findPageTitleByUrl = (
+  url: string
+): { title: string; section: string } | null => {
+  for (const section of data.navMain) {
+    for (const item of section.items) {
+      if (item.url === url) {
+        return { title: item.title, section: section.title };
+      }
+    }
+  }
+  return null;
+};
+
 export function SidebarPage({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState<string | null>(
-    "Getting Started"
+    "Introduction"
   );
-  const [activePage, setActivePage] = useState<string>("Introduction");
+  const [activePage, setActivePage] = useState<string>("Overview");
+
+  // Update active page and section based on current URL
+  useEffect(() => {
+    const pathname = location.pathname;
+
+    // Handle default paths
+    if (pathname === "/" || pathname === "") {
+      setActivePage("Overview");
+      setActiveSection("Introduction");
+      return;
+    }
+
+    const pageInfo = findPageTitleByUrl(pathname);
+    if (pageInfo) {
+      setActivePage(pageInfo.title);
+      setActiveSection(pageInfo.section);
+    }
+  }, [location.pathname]);
 
   const toggleSection = (title: string) => {
     setActiveSection(activeSection === title ? null : title);
@@ -162,18 +238,35 @@ export function SidebarPage({
                       <SidebarMenuSubItem key={item.title}>
                         <SidebarMenuSubButton
                           asChild
-                          onClick={() => setActivePage(item.title)}
+                          onClick={() => {
+                            setActivePage(item.title);
+                            if (item.url !== "#") {
+                              setActiveSection(section.title);
+                            }
+                          }}
                         >
-                          <a
-                            href={item.url}
-                            className={cn(
-                              "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs",
-                              activePage === item.title &&
-                                "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
-                            )}
-                          >
-                            {item.title}
-                          </a>
+                          {item.url === "#" ? (
+                            <span
+                              className={cn(
+                                "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs cursor-pointer",
+                                activePage === item.title &&
+                                  "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
+                              )}
+                            >
+                              {item.title}
+                            </span>
+                          ) : (
+                            <Link
+                              to={item.url}
+                              className={cn(
+                                "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs",
+                                activePage === item.title &&
+                                  "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
+                              )}
+                            >
+                              {item.title}
+                            </Link>
+                          )}
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}

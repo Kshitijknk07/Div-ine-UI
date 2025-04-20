@@ -40,7 +40,7 @@ export function IntroductionPage() {
                       </span>{" "}
                       is a set of beautifully-designed, accessible components
                       and a code distribution platform. Works with your favorite
-                      frameworks and AI models. Open Source. Open Code.
+                      frameworks. Open Source. Open Code.
                     </p>
 
                     <p className="text-lg sm:text-xl leading-relaxed text-[#ffc2e1] font-medium text-center">
@@ -103,12 +103,6 @@ export function IntroductionPage() {
                         - Carefully chosen default styles, so you get great
                         design out-of-the-box.
                       </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          AI-Ready
-                        </span>{" "}
-                        - Open code for LLMs to read, understand, and improve.
-                      </li>
                     </ul>
 
                     <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
@@ -140,10 +134,10 @@ export function IntroductionPage() {
                       </li>
                       <li>
                         <span className="text-[#bfc9f2] font-medium">
-                          AI Integration
+                          Complete Control
                         </span>
-                        : Access to the code makes it straightforward for LLMs
-                        to read, understand, and even improve your components.
+                        : Access to the code gives you full control over every
+                        aspect of your components.
                       </li>
                     </ul>
 
@@ -174,8 +168,8 @@ export function IntroductionPage() {
 
                     <p className="text-base leading-relaxed">
                       A shared, composable interface means it's predictable for
-                      both your team and LLMs. You are not learning different
-                      APIs for every new component. Even for third-party ones.
+                      your team. You are not learning different APIs for every
+                      new component. Even for third-party ones.
                     </p>
 
                     <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
@@ -207,8 +201,8 @@ export function IntroductionPage() {
 
                     <p className="text-base leading-relaxed">
                       You can use the schema to distribute your components to
-                      other projects or have AI generate completely new
-                      components based on existing schema.
+                      other projects and create completely new components based
+                      on existing schema.
                     </p>
 
                     <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
@@ -249,26 +243,6 @@ export function IntroductionPage() {
                         override and extend the defaults.
                       </li>
                     </ul>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      AI-Ready Architecture
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      The design of{" "}
-                      <span className="text-[#a2a3f5] font-medium">
-                        Div-ine UI
-                      </span>{" "}
-                      makes it easy for AI tools to work with your code. Its
-                      open code and consistent API allow AI models to read,
-                      understand, and even generate new components.
-                    </p>
-
-                    <p className="text-base leading-relaxed">
-                      An AI model can learn how your components work and suggest
-                      improvements or even create new components that integrate
-                      with your existing design.
-                    </p>
 
                     <div className="flex justify-center mt-10">
                       <Button className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base">
