@@ -170,6 +170,7 @@ export function SidebarPage({
         background: "#eae0d5",
         color: "#250902",
       }}
+      className="group"
       {...props}
     >
       <SidebarHeader>
@@ -190,7 +191,7 @@ export function SidebarPage({
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="overflow-y-auto scrollbar-hide group-hover:scrollbar-show transition-all duration-300">
         <SidebarGroup>
           <SidebarMenu className="gap-1">
             {data.navMain.map((item) => (
