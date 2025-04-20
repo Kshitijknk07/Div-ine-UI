@@ -39,22 +39,19 @@ export function GettingStartedPage() {
     "div-enchant build ui",
   ];
 
-  // Generate a random magic command and update all related commands
   const generateMagicCommand = () => {
     setMagicAnimation(true);
     const randomCommand =
       magicCommands[Math.floor(Math.random() * magicCommands.length)];
     setMagicCommand(randomCommand);
 
-    // Extract CLI base and command verb from the random command
     const parts = randomCommand.split(" ");
-    const newCliBase = parts[0]; // e.g., "divine-wand", "divinity", "div-genesis"
-    const newCommandVerb = parts.length > 1 ? parts[1] : "conjure"; // e.g., "summon", "manifest", "create"
+    const newCliBase = parts[0];
+    const newCommandVerb = parts.length > 1 ? parts[1] : "conjure";
 
     setCliBase(newCliBase);
     setCommandVerb(newCommandVerb);
 
-    // Reset animation after it completes
     setTimeout(() => {
       setMagicAnimation(false);
     }, 1000);
@@ -87,7 +84,6 @@ export function GettingStartedPage() {
     );
   };
 
-  // Fun installation progress simulation
   const [installProgress, setInstallProgress] = useState(0);
   const [installationStarted, setInstallationStarted] = useState(false);
   const [installComplete, setInstallComplete] = useState(false);
@@ -159,7 +155,6 @@ export function GettingStartedPage() {
 
                     <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
 
-                    {/* Magic Command Generator */}
                     <div className="bg-gradient-to-r from-[#121231] to-[#1E1E3F] rounded-xl p-6 border border-[#a2a3f5]/20 shadow-lg relative overflow-hidden">
                       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJzdGFycyIgd2lkdGg9IjcwIiBoZWlnaHQ9IjcwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMSIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjc3RhcnMpIi8+PC9zdmc+')] opacity-30"></div>
 

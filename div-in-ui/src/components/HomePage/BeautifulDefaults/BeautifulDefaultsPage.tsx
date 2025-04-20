@@ -315,7 +315,6 @@ export function BeautifulDefaultsPage() {
   );
 }
 
-// Custom component for design principles
 function DesignPrinciple({
   number,
   title,

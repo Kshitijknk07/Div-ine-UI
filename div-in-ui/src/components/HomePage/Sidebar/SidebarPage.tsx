@@ -65,11 +65,11 @@ const data = {
       items: [
         {
           title: "Vite",
-          url: "#",
+          url: "/installation/vite",
         },
         {
           title: "Next.js",
-          url: "#",
+          url: "/installation/nextjs",
         },
         {
           title: "Manual Setup",
