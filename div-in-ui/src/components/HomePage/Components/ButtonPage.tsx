@@ -5,23 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code } from "@/components/ui/code";
-import {
-  BookOpen,
-  Code as CodeIcon,
-  Copy,
-  Layers,
-  Check,
-  FileCode,
-  ExternalLink,
-} from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { ExternalLink, Mail, Trash2 } from "lucide-react";
 
 export function ButtonPage() {
   const buttonCode = `import * as React from "react";
@@ -178,17 +162,9 @@ export function ButtonDemo() {
       {/* Loading state */}
       <Button loading>Processing</Button>
       
-      {/* Variant */}
+      {/* Destructive variant */}
       <Button variant="destructive" icon={<Trash2 className="h-4 w-4" />}>
-        Delete Item
-      </Button>
-      
-      {/* Size */}
-      <Button size="lg">Large Button</Button>
-      
-      {/* Pill shape */}
-      <Button size="pill" variant="secondary">
-        Pill Button
+        Delete
       </Button>
     </div>
   );
@@ -209,386 +185,104 @@ export function ButtonDemo() {
               <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
                   <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
-                    Component
+                    Button Components
                   </Badge>
-
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
                       Button
-                    </span>{" "}
-                    Component
+                    </span>
                   </h1>
+                  <p className="text-center text-[#bfc9f2] text-lg max-w-2xl mx-auto mt-2">
+                    Discover a range of button components designed for modern
+                    UIs. Each button is customizable, responsive, and
+                    accessible.
+                  </p>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-8">
+                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
                     <p className="text-lg sm:text-xl leading-relaxed text-center">
-                      A versatile button component with support for multiple
-                      variants, sizes, icons, and loading states. Designed for
-                      both functionality and aesthetic appeal.
+                      The{" "}
+                      <span className="text-[#a2a3f5] font-medium">Button</span>{" "}
+                      component is versatile and can be used in various
+                      contexts.
                     </p>
 
-                    <div className="my-8 flex flex-wrap gap-3 justify-center">
-                      <Button variant="default">Default</Button>
-                      <Button variant="outline">Outline</Button>
-                      <Button variant="solid">Solid</Button>
-                      <Button variant="destructive">Destructive</Button>
-                      <Button variant="success">Success</Button>
-                      <Button variant="secondary">Secondary</Button>
-                      <Button variant="ghost">Ghost</Button>
-                      <Button variant="link">Link</Button>
-                      <Button variant="soft">Soft</Button>
-                      <Button variant="glossy">Glossy</Button>
+                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+
+                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                      Examples
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6">
+                      {/* Basic Button */}
+                      <Button className="bg-gradient-to-br from-[#23244a]/80 to-[#070814]/60 border-[#a2a3f5]/30 shadow-xl hover:shadow-2xl transition-shadow duration-300 group relative overflow-hidden">
+                        Basic Button
+                      </Button>
+                      {/* Button with Icon */}
+                      <Button
+                        icon={<Mail className="h-4 w-4" />}
+                        className="bg-gradient-to-br from-[#23244a]/80 to-[#070814]/60 border-[#a2a3f5]/30 shadow-xl hover:shadow-2xl transition-shadow duration-300 group relative overflow-hidden"
+                      >
+                        Email Us
+                      </Button>
+                      {/* Destructive Button */}
+                      <Button
+                        variant="destructive"
+                        icon={<Trash2 className="h-4 w-4" />}
+                        className="bg-gradient-to-br from-[#23244a]/80 to-[#070814]/60 border-[#a2a3f5]/30 shadow-xl hover:shadow-2xl transition-shadow duration-300 group relative overflow-hidden"
+                      >
+                        Delete
+                      </Button>
                     </div>
 
-                    <Tabs defaultValue="preview" className="w-full">
-                      <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 bg-[#0d101e]/70 rounded-lg mb-2">
-                        <TabsTrigger
-                          value="preview"
-                          className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md flex items-center gap-2"
-                        >
-                          <Layers className="h-4 w-4" />
-                          <span>Preview</span>
-                        </TabsTrigger>
+                    <Tabs defaultValue="code" className="w-full mt-8">
+                      <TabsList className="grid w-full grid-cols-2 bg-[#0d101e]/70 rounded-lg mb-2">
                         <TabsTrigger
                           value="code"
-                          className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md flex items-center gap-2"
+                          className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md"
                         >
-                          <CodeIcon className="h-4 w-4" />
-                          <span>Code</span>
+                          Component Code
                         </TabsTrigger>
                         <TabsTrigger
                           value="usage"
-                          className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md flex items-center gap-2"
+                          className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md"
                         >
-                          <BookOpen className="h-4 w-4" />
-                          <span>Usage</span>
+                          Usage Example
                         </TabsTrigger>
                       </TabsList>
 
-                      <TabsContent value="preview" className="mt-4">
-                        <div className="space-y-8">
-                          {/* Button Variants */}
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[#a2a3f5]">
-                              Variants
-                            </h3>
-                            <div className="flex flex-wrap gap-4 p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70">
-                              <Button variant="default">Default</Button>
-                              <Button variant="outline">Outline</Button>
-                              <Button variant="solid">Solid</Button>
-                              <Button variant="destructive">Destructive</Button>
-                              <Button variant="success">Success</Button>
-                              <Button variant="secondary">Secondary</Button>
-                              <Button variant="ghost">Ghost</Button>
-                              <Button variant="link">Link</Button>
-                              <Button variant="soft">Soft</Button>
-                              <Button variant="glossy">Glossy</Button>
-                            </div>
-                          </div>
-
-                          {/* Button Sizes */}
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[#a2a3f5]">
-                              Sizes
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70">
-                              <Button size="sm">Small</Button>
-                              <Button size="default">Default</Button>
-                              <Button size="lg">Large</Button>
-                              <Button size="xl">Extra Large</Button>
-                            </div>
-                          </div>
-
-                          {/* Pill Buttons */}
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[#a2a3f5]">
-                              Pill Shapes
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70">
-                              <Button size="sm-pill">Small Pill</Button>
-                              <Button size="pill">Pill</Button>
-                              <Button size="lg-pill">Large Pill</Button>
-                              <Button size="xl-pill">XL Pill</Button>
-                            </div>
-                          </div>
-
-                          {/* Icon Buttons */}
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[#a2a3f5]">
-                              With Icons
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70">
-                              <Button icon={<Copy className="h-4 w-4" />}>
-                                Copy
-                              </Button>
-                              <Button
-                                icon={<Check className="h-4 w-4" />}
-                                iconPosition="right"
-                                variant="success"
-                              >
-                                Confirm
-                              </Button>
-                              <Button size="icon" variant="ghost">
-                                <Copy className="h-4 w-4" />
-                              </Button>
-                            </div>
-                          </div>
-
-                          {/* States */}
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-semibold text-[#a2a3f5]">
-                              States
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70">
-                              <Button disabled>Disabled</Button>
-                              <Button loading>Loading</Button>
-                              <Button animation="pulse" variant="destructive">
-                                Pulse
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </TabsContent>
-
-                      <TabsContent value="code" className="mt-4">
-                        <div className="bg-[#0d101e]/40 rounded-lg p-4 border-l-4 border-[#678aee]">
-                          <div className="flex items-start">
-                            <div className="flex-shrink-0 mt-1">
-                              <FileCode className="h-5 w-5 text-[#678aee]" />
-                            </div>
-                            <div className="ml-3">
-                              <h3 className="text-sm font-medium text-[#a2a3f5]">
-                                Component Code
-                              </h3>
-                              <div className="mt-2 text-sm text-[#bfc9f2]">
-                                <p>
-                                  This is the full implementation of our custom
-                                  Button component with support for variants,
-                                  sizes, icons, and loading states.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <Code
-                          filename="button.tsx"
-                          language="tsx"
-                          className="mt-4"
-                        >
+                      <TabsContent value="code" className="mt-2">
+                        <Code filename="button.tsx" language="tsx">
                           {buttonCode}
                         </Code>
                       </TabsContent>
 
-                      <TabsContent value="usage" className="mt-4">
-                        <div className="bg-[#0d101e]/40 rounded-lg p-4 border-l-4 border-[#678aee]">
-                          <div className="flex">
-                            <div className="flex-shrink-0">
-                              <BookOpen className="h-5 w-5 text-[#678aee]" />
-                            </div>
-                            <div className="ml-3">
-                              <h3 className="text-sm font-medium text-[#a2a3f5]">
-                                Usage Examples
-                              </h3>
-                              <div className="mt-2 text-sm text-[#bfc9f2]">
-                                <p>
-                                  Here are examples of how to use the Button
-                                  component with different props and
-                                  configurations.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <Code
-                          filename="button-demo.tsx"
-                          language="tsx"
-                          className="mt-4"
-                        >
+                      <TabsContent value="usage" className="mt-2">
+                        <Code filename="example.tsx" language="tsx">
                           {buttonUsageCode}
                         </Code>
                       </TabsContent>
                     </Tabs>
 
-                    <div className="mt-12">
-                      <h2 className="text-2xl font-bold text-[#a2a3f5] mb-4">
-                        API Reference
-                      </h2>
-                      <div className="overflow-hidden rounded-md border border-[#a2a3f5]/20">
-                        <Table>
-                          <TableHeader className="bg-[#0d101e]/80">
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableHead className="text-[#a2a3f5]">
-                                Prop
-                              </TableHead>
-                              <TableHead className="text-[#a2a3f5]">
-                                Type
-                              </TableHead>
-                              <TableHead className="text-[#a2a3f5]">
-                                Default
-                              </TableHead>
-                              <TableHead className="text-[#a2a3f5] w-[50%]">
-                                Description
-                              </TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                variant
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'default' | 'outline' | 'solid' |
-                                  'destructive' | 'success' | 'secondary' |
-                                  'ghost' | 'link' | 'soft' | 'glossy'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'default'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                Changes the visual style of the button.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                size
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'default' | 'sm' | 'lg' | 'xl' | 'icon' |
-                                  'pill' | 'sm-pill' | 'lg-pill' | 'xl-pill'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'default'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                Changes the size of the button. The 'icon' size
-                                makes a square button suitable for just an icon.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                icon
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  ReactNode
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  undefined
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                Optional icon to display within the button.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                iconPosition
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'left' | 'right'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'left'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                Controls the position of the icon within the
-                                button.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                loading
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  boolean
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  false
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                When true, displays a loading spinner and hides
-                                the button content.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="border-b border-[#a2a3f5]/20 hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                animation
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'none' | 'pulse' | 'bounce' | 'glow'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  'none'
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                Adds CSS animations to the button for visual
-                                effects.
-                              </TableCell>
-                            </TableRow>
-                            <TableRow className="hover:bg-[#0d101e]/50">
-                              <TableCell className="font-mono text-sm">
-                                asChild
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  boolean
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                <code className="bg-[#070814]/60 rounded px-1 py-0.5 text-xs">
-                                  false
-                                </code>
-                              </TableCell>
-                              <TableCell className="text-[#bfc9f2]">
-                                When true, button styling is applied to its
-                                child component instead.
-                              </TableCell>
-                            </TableRow>
-                          </TableBody>
-                        </Table>
-                      </div>
-                    </div>
-
                     <div className="bg-[#678aee]/10 rounded-lg p-6 border border-[#a2a3f5]/20 mt-12">
                       <h3 className="text-lg font-semibold text-[#a2a3f5] mb-2">
-                        Accessibility
+                        Accessibility & Best Practices
                       </h3>
-                      <p className="text-[#bfc9f2] mb-4">
-                        The Button component follows WAI-ARIA guidelines to
-                        ensure accessibility:
-                      </p>
                       <ul className="space-y-2 ml-6 list-disc text-[#bfc9f2]">
-                        <li>Properly handles disabled states</li>
                         <li>
-                          Maintains focus indicators for keyboard navigation
+                          Use semantic HTML (button, a, etc) for structure.
                         </li>
                         <li>
-                          Sets appropriate ARIA attributes in loading states
+                          Ensure sufficient color contrast for text and
+                          backgrounds.
                         </li>
-                        <li>Supports keyboard activation</li>
+                        <li>
+                          Provide clear focus states for all interactive
+                          elements.
+                        </li>
+                        <li>Support keyboard navigation and screen readers.</li>
+                        <li>Keep content concise and meaningful.</li>
                       </ul>
                       <div className="mt-4">
                         <Button

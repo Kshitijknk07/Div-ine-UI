@@ -2,8 +2,6 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function IntroductionPage() {
   return (
@@ -243,13 +241,6 @@ export function IntroductionPage() {
                         override and extend the defaults.
                       </li>
                     </ul>
-
-                    <div className="flex justify-center mt-10">
-                      <Button className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base">
-                        Start Building
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </div>
                   </div>
                 </CardContent>
               </Card>

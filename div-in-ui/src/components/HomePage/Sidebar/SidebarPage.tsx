@@ -87,7 +87,7 @@ const data = {
         },
         {
           title: "Card",
-          url: "#",
+          url: "/components/card",
         },
         {
           title: "Sidebar",

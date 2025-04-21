@@ -580,13 +580,13 @@ export default App;`}
                         documentation or component reference.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-3">
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30">
+                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
                           Component Reference
-                          <ExternalLink className="w-4 h-4 ml-2" />
+                          <ExternalLink className="w-4 h-4" />
                         </Button>
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30">
+                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
                           Advanced Customization
-                          <ExternalLink className="w-4 h-4 ml-2" />
+                          <ExternalLink className="w-4 h-4" />
                         </Button>
                       </div>
                     </div>
@@ -596,9 +596,12 @@ export default App;`}
                         className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base"
                         asChild
                       >
-                        <a href="/components">
+                        <a
+                          href="/components"
+                          className="flex items-center gap-3"
+                        >
                           Explore Components
-                          <ArrowRight className="w-4 h-4 ml-2" />
+                          <ArrowRight className="w-4 h-4" />
                         </a>
                       </Button>
                     </div>

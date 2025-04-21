@@ -136,13 +136,13 @@ export function HeroSection() {
           integration.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <Button
             asChild
             size="lg"
-            className="rounded-full gap-2 px-8 bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] border-0 text-white font-medium shadow-lg hover:shadow-xl transition-all"
+            className="w-full sm:w-auto rounded-full gap-2 px-8 bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] border-0 text-white font-medium shadow-lg hover:shadow-xl transition-all"
           >
-            <Link to="/home">
+            <Link to="/home" className="flex items-center justify-center gap-2">
               Get Started
               <ArrowRight className="w-4 h-4" />
             </Link>
@@ -152,14 +152,15 @@ export function HeroSection() {
             asChild
             variant="outline"
             size="lg"
-            className="rounded-full gap-2 px-8 text-[#bfc9f2] border-[#a2a3f5]/30 bg-[#678aee]/10 hover:bg-[#678aee]/20 hover:border-[#a2a3f5]/50"
+            className="w-full sm:w-auto rounded-full px-8 text-[#bfc9f2] border-[#a2a3f5]/30 bg-[#678aee]/10 hover:bg-[#678aee]/20 hover:border-[#a2a3f5]/50"
           >
             <a
               href="https://github.com/Kshitijknk07/Div-ine-UI"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2"
             >
-              <Github className="w-4 h-4 mr-2" />
+              <Github className="w-4 h-4" />
               GitHub
             </a>
           </Button>

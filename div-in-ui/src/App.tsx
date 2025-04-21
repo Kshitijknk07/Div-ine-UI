@@ -12,6 +12,7 @@ import { VitePage } from "./components/HomePage/Installation/VitePage";
 import { NextJSPage } from "./components/HomePage/Installation/NextJSPage";
 import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupPage";
 import { ButtonPage } from "./components/HomePage/Components/ButtonPage";
+import { CardPage } from "./components/HomePage/Components/CardPage";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/installation/nextjs" element={<NextJSPage />} />
         <Route path="/installation/manual" element={<ManualSetupPage />} />
         <Route path="/components/button" element={<ButtonPage />} />
+        <Route path="/components/card" element={<CardPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -3,12 +3,13 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowRight,
   Copy,
   Check,
   Terminal,
   Sparkles,
   Wand2,
+  Play,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -21,10 +22,8 @@ export function GettingStartedPage() {
   );
   const [magicAnimation, setMagicAnimation] = useState(false);
 
-  // Magic CLI base name for all commands
   const [cliBase, setCliBase] = useState("divine-wand");
 
-  // Magic command verb for actions (conjure, summon, enchant, etc.)
   const [commandVerb, setCommandVerb] = useState("conjure");
 
   const magicCommands = [
@@ -107,7 +106,6 @@ export function GettingStartedPage() {
     }
   };
 
-  // Generate commands based on the current magic command pattern
   const getInstallCommand = () => `npm install -g ${cliBase}-cli`;
   const getViteInitCommand = () => `${cliBase} ${commandVerb} components`;
   const getNextInitCommand = () =>
@@ -254,9 +252,10 @@ export function GettingStartedPage() {
                         {!installationStarted && (
                           <Button
                             onClick={startInstallation}
-                            className="mt-3 bg-[#1d1d3a] hover:bg-[#2a2a4a] text-[#a2a3f5] rounded-md text-xs px-3 py-1"
+                            className="mt-3 bg-[#1d1d3a] hover:bg-[#2a2a4a] text-[#a2a3f5] rounded-md text-xs px-3 py-1 flex items-center justify-center gap-1"
                           >
-                            Run Installation
+                            <Play className="w-3 h-3" />
+                            <span>Run Installation</span>
                           </Button>
                         )}
 
@@ -413,21 +412,21 @@ export function GettingStartedPage() {
                         <CodeBlock
                           id="manual-config"
                           code={`{
-  "$schema": "https://divine-ui.com/schema.json",
-  "style": "mystical",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/index.css",
-    "baseColor": "arcane",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  }
-}`}
+                            "$schema": "https://divine-ui.com/schema.json",
+                            "style": "mystical",
+                            "rsc": false,
+                            "tsx": true,
+                            "tailwind": {
+                              "config": "tailwind.config.js",
+                              "css": "src/index.css",
+                              "baseColor": "arcane",
+                              "cssVariables": true
+                            },
+                            "aliases": {
+                              "components": "@/components",
+                              "utils": "@/lib/utils"
+                            }
+                          }`}
                         />
                         <p className="text-base leading-relaxed mt-4">
                           Summon your first component:
@@ -462,13 +461,13 @@ export function GettingStartedPage() {
                       id="use-component"
                       code={`import { Button } from "@/components/ui/button";
 
-function MagicalComponent() {
-  return (
-    <Button variant="enchanted">
-      ✨ Click to Cast Spell ✨
-    </Button>
-  );
-}`}
+                      function MagicalComponent() {
+                        return (
+                          <Button variant="enchanted">
+                            ✨ Click to Cast Spell ✨
+                          </Button>
+                        );
+                      }`}
                     />
 
                     <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
@@ -494,27 +493,32 @@ function MagicalComponent() {
                     <CodeBlock
                       id="customize-component"
                       code={`// Enhance your button with magical properties
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md...",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground...",
-        destructive: "bg-destructive text-destructive-foreground...",
-        outline: "border border-input bg-transparent...",
-        // Add your enchanted variant
-        enchanted: "bg-gradient-to-r from-[#7d4dff] to-[#00ffaa] text-white font-bold shadow-[0_0_15px_rgba(125,77,255,0.5)] hover:shadow-[0_0_25px_rgba(125,77,255,0.7)] transition-all duration-300",
-      },
-      // ... other magical properties
-    },
-  }
-);`}
+                    const buttonVariants = cva(
+                      "inline-flex items-center justify-center whitespace-nowrap rounded-md...",
+                      {
+                        variants: {
+                          variant: {
+                            default: "bg-primary text-primary-foreground...",
+                            destructive: "bg-destructive text-destructive-foreground...",
+                            outline: "border border-input bg-transparent...",
+                            // Add your enchanted variant
+                            enchanted: "bg-gradient-to-r from-[#7d4dff] to-[#00ffaa] text-white font-bold shadow-[0_0_15px_rgba(125,77,255,0.5)] hover:shadow-[0_0_25px_rgba(125,77,255,0.7)] transition-all duration-300",
+                          },
+                          // ... other magical properties
+                        },
+                      }
+                    );`}
                     />
 
                     <div className="flex justify-center mt-10">
-                      <Button className="bg-gradient-to-r from-[#7d4dff] to-[#00ffaa] hover:from-[#00ffaa] hover:to-[#7d4dff] text-white rounded-full px-6 py-2 font-medium text-base shadow-[0_0_15px_rgba(125,77,255,0.5)] hover:shadow-[0_0_25px_rgba(125,77,255,0.7)] transition-all duration-300">
-                        Begin Your Magical Journey
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                      <Button
+                        className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
+                        asChild
+                      >
+                        <a href="/components">
+                          <span>Explore Components</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
                       </Button>
                     </div>
                   </div>
