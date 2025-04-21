@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 export function PhilosophyPage() {
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -14,25 +14,25 @@ export function PhilosophyPage() {
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
             <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+              <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
+                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
                     Philosophy
                   </Badge>
 
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Our Philosophy
                     </span>
                   </h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
+                  <div className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6">
                     <p className="text-lg sm:text-xl leading-relaxed text-center">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       was built with a fundamental belief: developers should
@@ -40,9 +40,9 @@ export function PhilosophyPage() {
                       sacrificing quality, consistency, or speed.
                     </p>
 
-                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+                    <div className="border-t border-[#00ADB5]/30 pt-4 mt-6"></div>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       The Problem with Traditional Libraries
                     </h2>
 
@@ -53,7 +53,7 @@ export function PhilosophyPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Black Boxes
                         </span>
                         : Most libraries hide their implementation details,
@@ -61,14 +61,14 @@ export function PhilosophyPage() {
                         addressing them directly.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Compromise
                         </span>
                         : You either accept a component as-is or build your own
                         from scratch.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Inconsistency
                         </span>
                         : Mixing multiple libraries leads to inconsistent APIs
@@ -76,7 +76,7 @@ export function PhilosophyPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       A New Approach
                     </h2>
 
@@ -87,27 +87,27 @@ export function PhilosophyPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Transparency
                         </span>
                         : Code should be accessible, readable, and modifiable.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Adaptability
                         </span>
                         : Components should be easy to customize to your exact
                         needs.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Consistency
                         </span>
                         : All components should share a common interface and
                         design language.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Scalability
                         </span>
                         : Your component system should grow with your project
@@ -115,12 +115,12 @@ export function PhilosophyPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Beyond the Traditional Library
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       isn't just a collection of pre-built components—it's a new
@@ -129,21 +129,21 @@ export function PhilosophyPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Component Ownership
                         </span>
                         : When you add a component from Div-ine UI, you own it.
                         It lives in your codebase.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Design System as Code
                         </span>
                         : Your design system is expressed directly in code, not
                         abstracted away in a package.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Distribution, Not Dependency
                         </span>
                         : Components are distributed as code, not as
@@ -151,7 +151,7 @@ export function PhilosophyPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       The Power of Control
                     </h2>
 
@@ -162,28 +162,28 @@ export function PhilosophyPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Debugging becomes simpler
                         </span>
                         : You can see exactly what's happening in your
                         components.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Customization becomes seamless
                         </span>
                         : No more hacking around limitations—just change the
                         code directly.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Learning curves flatten
                         </span>
                         : With consistent patterns, each new component becomes
                         more intuitive.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Maintenance becomes manageable
                         </span>
                         : When you control the code, you control the update
@@ -191,7 +191,7 @@ export function PhilosophyPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Built for the Future
                     </h2>
 
@@ -202,21 +202,21 @@ export function PhilosophyPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Cross-framework compatibility
                         </span>
                         : The principles work across React, Vue, Svelte, and
                         more.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Team collaboration
                         </span>
                         : A shared component system creates a common language
                         for designers and developers.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Sustainable development
                         </span>
                         : Avoid the constant churn of framework and library
