@@ -3,7 +3,8 @@ import { HeroSection } from "../components/LandingPage/Herosection";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="overflow-hidden h-screen w-screen">
+      {" "}
       <NavbarSection />
       <HeroSection />
     </div>

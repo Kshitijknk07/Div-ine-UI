@@ -28,29 +28,29 @@ const navLinks = [
 
 export function NavbarSection() {
   return (
-    <header className="fixed top-0 left-0 w-full z-30 border-b border-[#a2a3f5]/30 bg-[#070814] shadow-lg backdrop-blur-md bg-opacity-80">
+    <header className="fixed top-0 left-0 w-full z-30 border-b border-[#00ADB5] bg-[#222831] shadow-lg backdrop-blur-md bg-opacity-80">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 font-bold text-2xl">
           <div className="flex items-center">
-            <span className="text-[#a2a3f5] mr-1 text-3xl">Div</span>
-            <span className="text-white text-3xl font-extrabold">-ine UI</span>
+            <span className="text-[#00ADB5] mr-1 text-3xl">Div</span>
+            <span className="text-[#00ADB5] text-3xl font-extrabold">
+              -ine UI
+            </span>
           </div>
         </a>
 
-        {/* Desktop Search */}
         <div className="hidden md:flex flex-1 justify-center px-6 max-w-md mx-auto">
           <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#bfc9f2]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#EEEEEE]" />
             <Input
               type="search"
               placeholder="Search documentation..."
-              className="w-full pl-10 bg-[#070814]/50 border-[#a2a3f5]/30 focus:border-[#678aee] placeholder:text-white/50 text-white"
+              className="w-full pl-10 bg-[#393E46] border-[#00ADB5] focus:border-[#00ADB5] placeholder:text-[#7b7b7b] text-[#EEEEEE]"
             />
           </div>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="gap-1">
@@ -61,7 +61,7 @@ export function NavbarSection() {
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "px-4 py-2 rounded-full text-white hover:bg-[#678aee]/20 hover:text-[#a2a3f5] transition-colors",
+                      "px-4 py-2 rounded-full text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors",
                       "font-medium"
                     )}
                   >
@@ -73,13 +73,12 @@ export function NavbarSection() {
           </NavigationMenu>
         </div>
 
-        {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-[#a2a3f5] hover:bg-[#678aee]/20"
+              className="md:hidden text-[#00ADB5] hover:bg-[#00ADB5]/20"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
@@ -87,13 +86,13 @@ export function NavbarSection() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="bg-gradient-to-b from-[#070814] to-[#09092d] border-l-[#a2a3f5]/30 text-white"
+            className="bg-gradient-to-b from-[#222831] to-[#393E46] border-l-[#00ADB5] text-[#EEEEEE]"
           >
             <SheetHeader>
-              <SheetTitle className="text-left text-white">
+              <SheetTitle className="text-left text-[#EEEEEE]">
                 <div className="flex items-center">
-                  <span className="text-[#a2a3f5] mr-1 text-2xl">Div</span>
-                  <span className="text-white text-2xl font-extrabold">
+                  <span className="text-[#00ADB5] mr-1 text-2xl">Div</span>
+                  <span className="text-[#00ADB5] text-2xl font-extrabold">
                     -ine UI
                   </span>
                 </div>
@@ -101,11 +100,11 @@ export function NavbarSection() {
             </SheetHeader>
             <div className="mt-6">
               <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#bfc9f2]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#EEEEEE]" />
                 <Input
                   type="search"
                   placeholder="Search documentation..."
-                  className="w-full pl-10 bg-[#070814]/50 border-[#a2a3f5]/30 focus:border-[#678aee] placeholder:text-white/50 text-white"
+                  className="w-full pl-10 bg-[#393E46] border-[#00ADB5] focus:border-[#00ADB5] placeholder:text-[#7b7b7b] text-[#EEEEEE]"
                 />
               </div>
               <nav className="flex flex-col gap-2">
@@ -115,10 +114,7 @@ export function NavbarSection() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className={cn(
-                      "block px-4 py-3 rounded-md hover:bg-[#678aee]/20 hover:text-[#a2a3f5] transition-colors",
-                      "font-medium"
-                    )}
+                    className="px-4 py-2 rounded-full text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors"
                   >
                     {link.name}
                   </a>

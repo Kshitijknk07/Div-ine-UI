@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 export function IntroductionPage() {
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -14,16 +14,16 @@ export function IntroductionPage() {
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
             <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+              <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
+                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
                     Documentation
                   </Badge>
 
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Div
                     </span>
                     -ine UI
@@ -31,9 +31,9 @@ export function IntroductionPage() {
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
+                  <div className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6">
                     <p className="text-lg sm:text-xl leading-relaxed text-center">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       is a set of beautifully-designed, accessible components
@@ -41,12 +41,12 @@ export function IntroductionPage() {
                       frameworks. Open Source. Open Code.
                     </p>
 
-                    <p className="text-lg sm:text-xl leading-relaxed text-[#ffc2e1] font-medium text-center">
+                    <p className="text-lg sm:text-xl leading-relaxed text-[#00ADB5] font-medium text-center">
                       This is not a component library. It is how you build your
                       component library.
                     </p>
 
-                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+                    <div className="border-t border-[#00ADB5]/30 pt-4 mt-6"></div>
 
                     <p className="text-base leading-relaxed">
                       You know how most traditional component libraries work:
@@ -65,7 +65,7 @@ export function IntroductionPage() {
 
                     <p className="text-base leading-relaxed">
                       This is what{" "}
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       aims to solve. It is built around the following
@@ -74,28 +74,28 @@ export function IntroductionPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#678aee] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Open Code
                         </span>{" "}
                         - The top layer of your component code is open for
                         modification.
                       </li>
                       <li>
-                        <span className="text-[#678aee] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Composition
                         </span>{" "}
                         - Every component uses a common, composable interface,
                         making them predictable.
                       </li>
                       <li>
-                        <span className="text-[#678aee] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Distribution
                         </span>{" "}
                         - A flat-file schema and command-line tool make it easy
                         to distribute components.
                       </li>
                       <li>
-                        <span className="text-[#678aee] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Beautiful Defaults
                         </span>{" "}
                         - Carefully chosen default styles, so you get great
@@ -103,12 +103,12 @@ export function IntroductionPage() {
                       </li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Open Code
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       hands you the actual component code. You have full control
@@ -118,20 +118,20 @@ export function IntroductionPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Full Transparency
                         </span>
                         : You see exactly how each component is built.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Easy Customization
                         </span>
                         : Modify any part of a component to fit your design and
                         functionality requirements.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Complete Control
                         </span>
                         : Access to the code gives you full control over every
@@ -143,19 +143,19 @@ export function IntroductionPage() {
                       In a typical library, if you need to change a button's
                       behavior, you have to override styles or wrap the
                       component. With{" "}
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>
                       , you simply edit the button code directly.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Composition
                     </h2>
 
                     <p className="text-base leading-relaxed">
                       Every component in{" "}
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       shares a common, composable interface. If a component does
@@ -170,12 +170,12 @@ export function IntroductionPage() {
                       new component. Even for third-party ones.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Distribution
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       is also a code distribution system. It defines a schema
@@ -184,14 +184,14 @@ export function IntroductionPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Schema
                         </span>
                         : A flat-file structure that defines the components,
                         their dependencies, and properties.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">CLI</span>:
+                        <span className="text-[#00ADB5] font-medium">CLI</span>:
                         A command-line tool to distribute and install components
                         across projects with cross-framework support.
                       </li>
@@ -203,12 +203,12 @@ export function IntroductionPage() {
                       on existing schema.
                     </p>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
+                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
                       Beautiful Defaults
                     </h2>
 
                     <p className="text-base leading-relaxed">
-                      <span className="text-[#a2a3f5] font-medium">
+                      <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
                       comes with a large collection of components that have
@@ -219,14 +219,14 @@ export function IntroductionPage() {
 
                     <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Good Out-of-the-Box
                         </span>
                         : Your UI has a clean and minimal look without extra
                         work.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Unified Design
                         </span>
                         : Components naturally fit with one another. Each
@@ -234,7 +234,7 @@ export function IntroductionPage() {
                         consistent.
                       </li>
                       <li>
-                        <span className="text-[#bfc9f2] font-medium">
+                        <span className="text-[#00ADB5] font-medium">
                           Easily Customizable
                         </span>
                         : If you want to change something, it's simple to

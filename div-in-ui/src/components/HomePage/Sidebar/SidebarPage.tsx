@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 
 import {
@@ -12,10 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-  SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 
 const data = {
   navMain: [
@@ -190,18 +188,20 @@ export function SidebarPage({
   return (
     <Sidebar
       variant="floating"
-      className="group bg-gradient-to-b from-[#070814] to-[#09092d] text-white border-0 shadow-xl h-screen"
+      className="group bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] border-0 shadow-xl h-screen"
       {...props}
     >
-      <SidebarHeader className="border-b border-[#a2a3f5]/20 pb-2">
+      <SidebarHeader className="border-b border-[#00ADB5]/20 pb-2">
         <SidebarMenu>
           <SidebarMenuItem>
             <div className="flex items-center p-3">
               <div className="flex items-center">
-                <span className="text-[#678aee] mr-1 text-xl font-bold">
+                <span className="text-[#00ADB5] mr-1 text-xl font-bold">
                   Div
                 </span>
-                <span className="text-white text-xl font-bold">-ine UI</span>
+                <span className="text-[#EEEEEE] text-xl font-bold">
+                  -ine UI
+                </span>
               </div>
             </div>
           </SidebarMenuItem>
@@ -217,57 +217,29 @@ export function SidebarPage({
               >
                 <SidebarMenuButton
                   onClick={() => toggleSection(section.title)}
-                  className={cn(
-                    "font-medium hover:bg-[#678aee]/10 transition-colors px-3 py-2 rounded-lg flex items-center justify-between gap-2 text-white text-sm",
-                    activeSection === section.title &&
-                      "bg-[#678aee]/15 text-[#a2a3f5]"
-                  )}
+                  className={`flex items-center justify-between w-full px-4 py-2 text-left text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors ${
+                    activeSection === section.title ? "bg-[#00ADB5]/10" : ""
+                  }`}
                 >
-                  <span>{section.title}</span>
-                  <span className="transition-transform duration-200">
-                    {activeSection === section.title ? (
-                      <ChevronDown className="h-3.5 w-3.5 text-[#a2a3f5]" />
-                    ) : (
-                      <ChevronRight className="h-3.5 w-3.5 text-[#bfc9f2]" />
-                    )}
-                  </span>
+                  {section.title}
+                  <ChevronDown
+                    className={`transition-transform ${
+                      activeSection === section.title ? "rotate-180" : ""
+                    }`}
+                  />
                 </SidebarMenuButton>
-                {section.items?.length && activeSection === section.title && (
-                  <SidebarMenuSub className="ml-3 border-l border-[#a2a3f5]/20 pl-2 mt-1 mb-1 overflow-hidden">
+                {activeSection === section.title && (
+                  <SidebarMenuSub>
                     {section.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
-                        <SidebarMenuSubButton
-                          asChild
-                          onClick={() => {
-                            setActivePage(item.title);
-                            if (item.url !== "#") {
-                              setActiveSection(section.title);
-                            }
-                          }}
+                        <Link
+                          to={item.url}
+                          className={`block px-4 py-2 text-[#7b7b7b] hover:bg-[#00ADB5]/10 hover:text-[#EEEEEE] transition-colors ${
+                            activePage === item.title ? "bg-[#00ADB5]/10" : ""
+                          }`}
                         >
-                          {item.url === "#" ? (
-                            <span
-                              className={cn(
-                                "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs cursor-pointer",
-                                activePage === item.title &&
-                                  "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
-                              )}
-                            >
-                              {item.title}
-                            </span>
-                          ) : (
-                            <Link
-                              to={item.url}
-                              className={cn(
-                                "hover:bg-[#678aee]/10 transition-colors px-2 py-1 rounded-lg flex items-center gap-1 text-[#bfc9f2]/90 hover:text-[#a2a3f5] text-xs",
-                                activePage === item.title &&
-                                  "bg-gradient-to-r from-[#678aee]/20 to-[#ffc2e1]/10 text-[#a2a3f5]"
-                              )}
-                            >
-                              {item.title}
-                            </Link>
-                          )}
-                        </SidebarMenuSubButton>
+                          {item.title}
+                        </Link>
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub>

@@ -98,39 +98,38 @@ const features: FeatureType[] = [
 export function HeroSection() {
   return (
     <section
-      className="relative flex flex-col items-center pt-40 pb-24 px-4 min-h-screen overflow-hidden bg-gradient-to-b from-[#070814] to-[#09092d]"
+      className="relative flex flex-col items-center pt-40 pb-24 px-4 min-h-screen bg-gradient-to-b from-[#222831] to-[#393E46]"
       aria-label="Hero"
     >
-      {/* Background decorative elements */}
       <div
-        className="absolute top-1/3 left-1/4 w-72 h-72 bg-[#a2a3f5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"
+        className="absolute top-1/3 left-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/4 right-1/4 w-72 h-72 bg-[#678aee] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+        className="absolute top-1/4 right-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-[#ffc2e1] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"
+        className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"
         aria-hidden="true"
       />
 
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <Badge
           variant="outline"
-          className="mb-4 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30"
+          className="mb-4 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/10 text-[#00ADB5] border-[#00ADB5]/30"
         >
           v1.0 Now Available
         </Badge>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-[#EEEEEE]">
           Build Beautiful React Apps <br className="hidden sm:inline" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5] inline-block mt-2">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5] inline-block mt-2">
             with Div-ine UI
           </span>
         </h1>
 
-        <p className="max-w-2xl text-lg md:text-xl mb-10 mx-auto text-[#bfc9f2]/90">
+        <p className="max-w-2xl text-lg md:text-xl mb-10 mx-auto text-[#7b7b7b]">
           Accelerate your workflow with a modern, flexible, and accessible React
           component library. Designed for speed, scalability, and seamless
           integration.
@@ -140,7 +139,7 @@ export function HeroSection() {
           <Button
             asChild
             size="lg"
-            className="w-full sm:w-auto rounded-full gap-2 px-8 bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] border-0 text-white font-medium shadow-lg hover:shadow-xl transition-all"
+            className="w-full sm:w-auto rounded-full gap-2 px-8 bg-gradient-to-r from-[#00ADB5] to-[#00ADB5] hover:from-[#00ADB5] hover:to-[#00ADB5] border-0 text-[#222831] font-medium shadow-lg hover:shadow-xl transition-all"
           >
             <Link to="/home" className="flex items-center justify-center gap-2">
               Get Started
@@ -152,7 +151,7 @@ export function HeroSection() {
             asChild
             variant="outline"
             size="lg"
-            className="w-full sm:w-auto rounded-full px-8 text-[#bfc9f2] border-[#a2a3f5]/30 bg-[#678aee]/10 hover:bg-[#678aee]/20 hover:border-[#a2a3f5]/50"
+            className="w-full sm:w-auto rounded-full px-8 text-[#7b7b7b] border-[#00ADB5]/30 bg-[#00ADB5]/10 hover:bg-[#00ADB5]/20 hover:border-[#00ADB5]/50"
           >
             <a
               href="https://github.com/Kshitijknk07/Div-ine-UI"
@@ -170,32 +169,32 @@ export function HeroSection() {
           {features.map((feature, index) => (
             <Card
               key={feature.name}
-              className={`bg-[#070814]/50 border-[#a2a3f5]/20 hover:shadow-lg transition-all group overflow-hidden ${
+              className={`bg-[#393E46]/50 border-[#00ADB5]/20 hover:shadow-lg transition-all group overflow-hidden ${
                 index % 2 === 0
-                  ? "hover:border-[#678aee]/50"
-                  : "hover:border-[#ffc2e1]/50"
+                  ? "hover:border-[#00ADB5]/50"
+                  : "hover:border-[#00ADB5]/50"
               }`}
             >
               <CardContent className="p-6 text-left">
                 <div
                   className={`rounded-full p-3 w-fit mb-4 ${
                     index % 2 === 0
-                      ? "bg-[#678aee]/10 border border-[#678aee]/20"
-                      : "bg-[#ffc2e1]/10 border border-[#ffc2e1]/20"
+                      ? "bg-[#00ADB5]/10 border border-[#00ADB5]/20"
+                      : "bg-[#00ADB5]/10 border border-[#00ADB5]/20"
                   } group-hover:scale-110 transition-transform duration-300`}
                 >
                   <div
                     className={`${
-                      index % 2 === 0 ? "text-[#678aee]" : "text-[#ffc2e1]"
+                      index % 2 === 0 ? "text-[#00ADB5]" : "text-[#00ADB5]"
                     }`}
                   >
                     {feature.icon}
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-white">
+                <h3 className="font-bold text-xl mb-2 text-[#EEEEEE]">
                   {feature.name}
                 </h3>
-                <p className="text-[#bfc9f2]/90">{feature.description}</p>
+                <p className="text-[#7b7b7b]">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
