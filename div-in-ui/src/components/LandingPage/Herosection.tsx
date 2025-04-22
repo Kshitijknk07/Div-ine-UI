@@ -101,23 +101,16 @@ export function HeroSection() {
       className="relative flex flex-col items-center pt-40 pb-24 px-4 min-h-screen bg-gradient-to-b from-[#222831] to-[#393E46]"
       aria-label="Hero"
     >
-      <div
-        className="absolute top-1/3 left-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-1/4 right-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000"
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-[#00ADB5] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+      </div>
 
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <Badge
           variant="outline"
-          className="mb-4 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/10 text-[#00ADB5] border-[#00ADB5]/30"
+          className="mb-4 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/10 text-[#00ADB5] border-[#00ADB5]/30 hover:bg-[#00ADB5]/20"
         >
           v1.0 Now Available
         </Badge>
@@ -166,30 +159,14 @@ export function HeroSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <Card
               key={feature.name}
-              className={`bg-[#393E46]/50 border-[#00ADB5]/20 hover:shadow-lg transition-all group overflow-hidden ${
-                index % 2 === 0
-                  ? "hover:border-[#00ADB5]/50"
-                  : "hover:border-[#00ADB5]/50"
-              }`}
+              className="bg-[#393E46]/50 border-[#00ADB5]/20 hover:border-[#00ADB5]/50 hover:shadow-lg transition-all group overflow-hidden"
             >
               <CardContent className="p-6 text-left">
-                <div
-                  className={`rounded-full p-3 w-fit mb-4 ${
-                    index % 2 === 0
-                      ? "bg-[#00ADB5]/10 border border-[#00ADB5]/20"
-                      : "bg-[#00ADB5]/10 border border-[#00ADB5]/20"
-                  } group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <div
-                    className={`${
-                      index % 2 === 0 ? "text-[#00ADB5]" : "text-[#00ADB5]"
-                    }`}
-                  >
-                    {feature.icon}
-                  </div>
+                <div className="rounded-full p-3 w-fit mb-4 bg-[#00ADB5]/10 border border-[#00ADB5]/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-[#00ADB5]">{feature.icon}</div>
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-[#EEEEEE]">
                   {feature.name}

@@ -1,6 +1,5 @@
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -28,32 +27,23 @@ const navLinks = [
 
 export function NavbarSection() {
   return (
-    <header className="fixed top-0 left-0 w-full z-30 border-b border-[#00ADB5] bg-[#222831] shadow-lg backdrop-blur-md bg-opacity-80">
+    <header className="fixed top-0 left-0 w-full z-30 border-b border-[#00ADB5] bg-[#222831]/95 backdrop-blur-lg">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 font-bold text-2xl">
+        <a href="/" className="flex items-center gap-2">
           <div className="flex items-center">
-            <span className="text-[#00ADB5] mr-1 text-3xl">Div</span>
-            <span className="text-[#00ADB5] text-3xl font-extrabold">
+            <span className="text-[#00ADB5] mr-1 text-2xl font-bold tracking-tighter">
+              Div
+            </span>
+            <span className="text-[#00ADB5] text-2xl font-extrabold tracking-tighter">
               -ine UI
             </span>
           </div>
         </a>
 
-        <div className="hidden md:flex flex-1 justify-center px-6 max-w-md mx-auto">
-          <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#EEEEEE]" />
-            <Input
-              type="search"
-              placeholder="Search documentation..."
-              className="w-full pl-10 bg-[#393E46] border-[#00ADB5] focus:border-[#00ADB5] placeholder:text-[#7b7b7b] text-[#EEEEEE]"
-            />
-          </div>
-        </div>
-
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-6">
           <NavigationMenu>
-            <NavigationMenuList className="gap-1">
+            <NavigationMenuList className="gap-2">
               {navLinks.map((link) => (
                 <NavigationMenuItem key={link.name}>
                   <NavigationMenuLink
@@ -61,8 +51,8 @@ export function NavbarSection() {
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
                     className={cn(
-                      "px-4 py-2 rounded-full text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors",
-                      "font-medium"
+                      "px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors",
+                      "data-[active]:bg-[#00ADB5]/10 data-[active]:text-[#00ADB5]"
                     )}
                   >
                     {link.name}
@@ -78,7 +68,7 @@ export function NavbarSection() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-[#00ADB5] hover:bg-[#00ADB5]/20"
+              className="md:hidden text-[#00ADB5] hover:bg-[#00ADB5]/10"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
@@ -86,7 +76,7 @@ export function NavbarSection() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="bg-gradient-to-b from-[#222831] to-[#393E46] border-l-[#00ADB5] text-[#EEEEEE]"
+            className="bg-[#222831] border-l-[#00ADB5]/20"
           >
             <SheetHeader>
               <SheetTitle className="text-left text-[#EEEEEE]">
@@ -99,14 +89,6 @@ export function NavbarSection() {
               </SheetTitle>
             </SheetHeader>
             <div className="mt-6">
-              <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#EEEEEE]" />
-                <Input
-                  type="search"
-                  placeholder="Search documentation..."
-                  className="w-full pl-10 bg-[#393E46] border-[#00ADB5] focus:border-[#00ADB5] placeholder:text-[#7b7b7b] text-[#EEEEEE]"
-                />
-              </div>
               <nav className="flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <a
@@ -114,7 +96,7 @@ export function NavbarSection() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="px-4 py-2 rounded-full text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors"
+                    className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors"
                   >
                     {link.name}
                   </a>

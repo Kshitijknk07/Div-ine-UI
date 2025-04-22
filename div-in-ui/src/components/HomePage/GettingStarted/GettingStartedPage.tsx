@@ -184,10 +184,10 @@ export function GettingStartedPage() {
                           )}
                         </div>
 
-                        <div className="flex flex-row items-center gap-4 mt-2">
+                        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 mt-2">
                           <Button
                             onClick={generateMagicCommand}
-                            className="flex items-center gap-2 bg-gradient-to-r from-[#a64fe4] to-[#6a82fb] hover:from-[#7e42a8] hover:to-[#5262c1] text-white rounded-lg px-4 py-2 font-medium"
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-[#a64fe4] to-[#6a82fb] hover:from-[#7e42a8] hover:to-[#5262c1] text-white rounded-lg px-4 py-2 font-medium"
                           >
                             <Sparkles className="h-5 w-5" />
                             <span>Generate Magic Command</span>
@@ -197,7 +197,7 @@ export function GettingStartedPage() {
                             onClick={() =>
                               copyToClipboard(magicCommand, "magic-command")
                             }
-                            className="flex items-center gap-2 bg-[#1d1d3a] hover:bg-[#2a2a4a] text-[#a2a3f5] rounded-lg px-4 py-2 font-medium"
+                            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#1d1d3a] hover:bg-[#2a2a4a] text-[#a2a3f5] rounded-lg px-4 py-2 font-medium"
                           >
                             {copied === "magic-command" ? (
                               <>

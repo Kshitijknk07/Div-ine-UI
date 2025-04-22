@@ -1,0 +1,21 @@
+:root {
+  --primary: #678aee;
+  --primary-foreground: #a2a3f5;
+  --secondary: #00ADB5;
+  --background: #070814;
+  --foreground: #bfc9f2;
+  --card: #0d101e;
+  --border: #a2a3f5/30;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl font-extrabold;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl font-bold;
+  }
+  p {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+}

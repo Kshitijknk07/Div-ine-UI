@@ -12,7 +12,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
-  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
 const data = {
@@ -140,7 +139,6 @@ const data = {
   ],
 };
 
-// Helper function to find the page title by URL
 const findPageTitleByUrl = (
   url: string
 ): { title: string; section: string } | null => {
@@ -163,11 +161,9 @@ export function SidebarPage({
   );
   const [activePage, setActivePage] = useState<string>("Overview");
 
-  // Update active page and section based on current URL
   useEffect(() => {
     const pathname = location.pathname;
 
-    // Handle default paths
     if (pathname === "/" || pathname === "") {
       setActivePage("Overview");
       setActiveSection("Introduction");
@@ -199,7 +195,7 @@ export function SidebarPage({
                 <span className="text-[#00ADB5] mr-1 text-xl font-bold">
                   Div
                 </span>
-                <span className="text-[#EEEEEE] text-xl font-bold">
+                <span className="text-[#00ADB5] text-xl font-extrabold">
                   -ine UI
                 </span>
               </div>
@@ -207,47 +203,47 @@ export function SidebarPage({
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="overflow-hidden h-[calc(100vh-4rem)] py-2">
-        <SidebarGroup>
-          <SidebarMenu className="gap-1">
-            {data.navMain.map((section) => (
-              <SidebarMenuItem
-                key={section.title}
-                className="transition-all duration-200"
-              >
-                <SidebarMenuButton
-                  onClick={() => toggleSection(section.title)}
-                  className={`flex items-center justify-between w-full px-4 py-2 text-left text-[#EEEEEE] hover:bg-[#00ADB5]/20 hover:text-[#7b7b7b] transition-colors ${
-                    activeSection === section.title ? "bg-[#00ADB5]/10" : ""
-                  }`}
-                >
-                  {section.title}
-                  <ChevronDown
-                    className={`transition-transform ${
-                      activeSection === section.title ? "rotate-180" : ""
+
+      <SidebarContent className="overflow-y-auto scrollbar-thin scrollbar-thumb-[#00ADB5]/20 scrollbar-track-transparent">
+        {data.navMain.map((section) => (
+          <SidebarGroup key={section.title}>
+            <SidebarMenuButton
+              onClick={() => toggleSection(section.title)}
+              className="flex items-center justify-between p-3 hover:bg-[#00ADB5]/10 transition-colors duration-200"
+            >
+              <span className="text-sm font-medium text-[#EEEEEE]">
+                {section.title}
+              </span>
+              <ChevronDown
+                className={`w-4 h-4 transform transition-transform duration-200 ${
+                  activeSection === section.title ? "rotate-180" : ""
+                }`}
+              />
+            </SidebarMenuButton>
+
+            {activeSection === section.title && (
+              <SidebarMenuSub className="pl-4 transition-all duration-200 ease-in-out">
+                {section.items.map((item) => (
+                  <li
+                    key={item.title}
+                    className={`block px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ease-in-out ${
+                      activePage === item.title
+                        ? "bg-[#00ADB5]/10 text-[#00ADB5]"
+                        : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
                     }`}
-                  />
-                </SidebarMenuButton>
-                {activeSection === section.title && (
-                  <SidebarMenuSub>
-                    {section.items.map((item) => (
-                      <SidebarMenuSubItem key={item.title}>
-                        <Link
-                          to={item.url}
-                          className={`block px-4 py-2 text-[#7b7b7b] hover:bg-[#00ADB5]/10 hover:text-[#EEEEEE] transition-colors ${
-                            activePage === item.title ? "bg-[#00ADB5]/10" : ""
-                          }`}
-                        >
-                          {item.title}
-                        </Link>
-                      </SidebarMenuSubItem>
-                    ))}
-                  </SidebarMenuSub>
-                )}
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
+                  >
+                    <Link
+                      to={item.url}
+                      className="transition-colors duration-200"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </SidebarMenuSub>
+            )}
+          </SidebarGroup>
+        ))}
       </SidebarContent>
     </Sidebar>
   );
