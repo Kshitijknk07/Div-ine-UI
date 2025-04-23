@@ -1,7 +1,16 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import {
+  ChevronDown,
+  Home,
+  Code,
+  Package,
+  Users,
+  FileText,
+} from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 import {
   Sidebar,
@@ -18,6 +27,7 @@ const data = {
   navMain: [
     {
       title: "Introduction",
+      icon: <Home className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -36,6 +46,7 @@ const data = {
     },
     {
       title: "Core Principles",
+      icon: <Code className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -58,6 +69,7 @@ const data = {
     },
     {
       title: "Installation",
+      icon: <Package className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -76,6 +88,7 @@ const data = {
     },
     {
       title: "Components",
+      icon: <Code className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -102,6 +115,7 @@ const data = {
     },
     {
       title: "Resources",
+      icon: <FileText className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -120,6 +134,7 @@ const data = {
     },
     {
       title: "Community",
+      icon: <Users className="w-4 h-4" />,
       url: "#",
       items: [
         {
@@ -160,6 +175,7 @@ export function SidebarPage({
     "Introduction"
   );
   const [activePage, setActivePage] = useState<string>("Overview");
+  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
 
   useEffect(() => {
     const pathname = location.pathname;
@@ -190,7 +206,12 @@ export function SidebarPage({
       <SidebarHeader className="border-b border-[#00ADB5]/20 pb-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <div className="flex items-center p-3">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center p-3"
+            >
               <div className="flex items-center">
                 <span className="text-[#00ADB5] mr-1 text-xl font-bold">
                   Div
@@ -199,7 +220,7 @@ export function SidebarPage({
                   -ine UI
                 </span>
               </div>
-            </div>
+            </motion.div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
@@ -207,41 +228,92 @@ export function SidebarPage({
       <SidebarContent className="overflow-y-auto scrollbar-thin scrollbar-thumb-[#00ADB5]/20 scrollbar-track-transparent">
         {data.navMain.map((section) => (
           <SidebarGroup key={section.title}>
-            <SidebarMenuButton
-              onClick={() => toggleSection(section.title)}
-              className="flex items-center justify-between p-3 hover:bg-[#00ADB5]/10 transition-colors duration-200"
+            <motion.div
+              onHoverStart={() => setHoveredSection(section.title)}
+              onHoverEnd={() => setHoveredSection(null)}
             >
-              <span className="text-sm font-medium text-[#EEEEEE]">
-                {section.title}
-              </span>
-              <ChevronDown
-                className={`w-4 h-4 transform transition-transform duration-200 ${
-                  activeSection === section.title ? "rotate-180" : ""
-                }`}
-              />
-            </SidebarMenuButton>
-
-            {activeSection === section.title && (
-              <SidebarMenuSub className="pl-4 transition-all duration-200 ease-in-out">
-                {section.items.map((item) => (
-                  <li
-                    key={item.title}
-                    className={`block px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ease-in-out ${
-                      activePage === item.title
-                        ? "bg-[#00ADB5]/10 text-[#00ADB5]"
-                        : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
-                    }`}
+              <SidebarMenuButton
+                onClick={() => toggleSection(section.title)}
+                className={cn(
+                  "flex items-center justify-between p-3 transition-all duration-200",
+                  hoveredSection === section.title
+                    ? "bg-[#00ADB5]/10"
+                    : "hover:bg-[#00ADB5]/5"
+                )}
+              >
+                <div className="flex items-center gap-2">
+                  <motion.div
+                    animate={{
+                      color:
+                        hoveredSection === section.title
+                          ? "#00ADB5"
+                          : "#EEEEEE",
+                    }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <Link
-                      to={item.url}
-                      className="transition-colors duration-200"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </SidebarMenuSub>
-            )}
+                    {section.icon}
+                  </motion.div>
+                  <motion.span
+                    animate={{
+                      color:
+                        hoveredSection === section.title
+                          ? "#00ADB5"
+                          : "#EEEEEE",
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm font-medium"
+                  >
+                    {section.title}
+                  </motion.span>
+                </div>
+                <motion.div
+                  animate={{
+                    rotate: activeSection === section.title ? 180 : 0,
+                    color:
+                      hoveredSection === section.title ? "#00ADB5" : "#EEEEEE",
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown className="w-4 h-4" />
+                </motion.div>
+              </SidebarMenuButton>
+            </motion.div>
+
+            <AnimatePresence>
+              {activeSection === section.title && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <SidebarMenuSub className="pl-4">
+                    {section.items.map((item) => (
+                      <motion.li
+                        key={item.title}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className={cn(
+                          "block px-3 py-2 text-sm font-medium rounded-md transition-all duration-200",
+                          activePage === item.title
+                            ? "bg-[#00ADB5]/10 text-[#00ADB5]"
+                            : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
+                        )}
+                      >
+                        <Link
+                          to={item.url}
+                          className="flex items-center gap-2 transition-colors duration-200"
+                        >
+                          {item.title}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </SidebarMenuSub>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </SidebarGroup>
         ))}
       </SidebarContent>

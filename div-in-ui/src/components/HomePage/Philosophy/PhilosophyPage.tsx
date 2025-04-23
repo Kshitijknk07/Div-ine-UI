@@ -2,6 +2,21 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import {
+  Brain,
+  Lightbulb,
+  Target,
+  Heart,
+  Code,
+  Palette,
+  Box,
+  Share2,
+  FileCode,
+  Layers,
+  Package,
+  Sparkles,
+} from "lucide-react";
 
 export function PhilosophyPage() {
   return (
@@ -15,218 +30,292 @@ export function PhilosophyPage() {
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
           <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
-            <div className="w-full animate-fade-in-up">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
+            >
               <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
-                    Philosophy
-                  </Badge>
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
+                      Philosophy
+                    </Badge>
+                  </motion.div>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
+                  >
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
-                      Our Philosophy
+                      Div
                     </span>
-                  </h1>
+                    -ine UI Philosophy
+                  </motion.h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6">
-                    <p className="text-lg sm:text-xl leading-relaxed text-center">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6"
+                  >
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                      className="text-lg sm:text-xl leading-relaxed text-center"
+                    >
                       <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
                       </span>{" "}
-                      was built with a fundamental belief: developers should
-                      have full control over their component code without
-                      sacrificing quality, consistency, or speed.
-                    </p>
+                      is built on a foundation of core principles that guide
+                      every aspect of its design and development.
+                    </motion.p>
 
-                    <div className="border-t border-[#00ADB5]/30 pt-4 mt-6"></div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                      className="border-t border-[#00ADB5]/30 pt-4 mt-6"
+                    ></motion.div>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
-                      The Problem with Traditional Libraries
-                    </h2>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Brain className="w-5 h-5" />
+                      Core Principles
+                    </motion.h2>
 
-                    <p className="text-base leading-relaxed">
-                      The component library ecosystem has followed a pattern for
-                      years:
-                    </p>
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                      className="space-y-6 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Lightbulb className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Simplicity First
+                          </span>{" "}
+                          - We believe in the power of simplicity. Every
+                          component should be intuitive and straightforward to
+                          use.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Target className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Purpose-Driven Design
+                          </span>{" "}
+                          - Every component serves a specific purpose and solves
+                          a real problem.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Heart className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            User-Centric Approach
+                          </span>{" "}
+                          - We design with the end-user in mind, ensuring
+                          accessibility and usability for everyone.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
 
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Black Boxes
-                        </span>
-                        : Most libraries hide their implementation details,
-                        forcing you to work around limitations rather than
-                        addressing them directly.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Compromise
-                        </span>
-                        : You either accept a component as-is or build your own
-                        from scratch.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Inconsistency
-                        </span>
-                        : Mixing multiple libraries leads to inconsistent APIs
-                        and styles.
-                      </li>
-                    </ul>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Code className="w-5 h-5" />
+                      Development Philosophy
+                    </motion.h2>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
-                      A New Approach
-                    </h2>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                      className="text-base leading-relaxed"
+                    >
+                      Our development approach is guided by several key
+                      principles:
+                    </motion.p>
 
-                    <p className="text-base leading-relaxed">
-                      We believe the next generation of UI development should be
-                      built on these principles:
-                    </p>
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.9 }}
+                      className="space-y-4 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <FileCode className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Clean Code
+                          </span>
+                          : We prioritize clean, maintainable code that's easy
+                          to understand and modify.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Layers className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Modular Architecture
+                          </span>
+                          : Components are designed to be independent and
+                          reusable.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Sparkles className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Continuous Improvement
+                          </span>
+                          : We constantly refine and improve our components
+                          based on feedback and new insights.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
 
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Transparency
-                        </span>
-                        : Code should be accessible, readable, and modifiable.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Adaptability
-                        </span>
-                        : Components should be easy to customize to your exact
-                        needs.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Consistency
-                        </span>
-                        : All components should share a common interface and
-                        design language.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Scalability
-                        </span>
-                        : Your component system should grow with your project
-                        without friction.
-                      </li>
-                    </ul>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Palette className="w-5 h-5" />
+                      Design Philosophy
+                    </motion.h2>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
-                      Beyond the Traditional Library
-                    </h2>
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.1 }}
+                      className="text-base leading-relaxed"
+                    >
+                      Our design philosophy focuses on creating components that
+                      are both beautiful and functional:
+                    </motion.p>
 
-                    <p className="text-base leading-relaxed">
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.2 }}
+                      className="space-y-4 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Box className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Minimalist Aesthetics
+                          </span>
+                          : Clean, uncluttered designs that focus on
+                          functionality.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Share2 className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Consistent Language
+                          </span>
+                          : A unified design language across all components.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Package className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Adaptable Design
+                          </span>
+                          : Components that work seamlessly across different
+                          contexts and use cases.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.3 }}
+                      className="text-base leading-relaxed mt-8"
+                    >
+                      These principles guide every decision we make in the
+                      development of{" "}
                       <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
-                      </span>{" "}
-                      isn't just a collection of pre-built components—it's a new
-                      way to think about UI development:
-                    </p>
-
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Component Ownership
-                        </span>
-                        : When you add a component from Div-ine UI, you own it.
-                        It lives in your codebase.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Design System as Code
-                        </span>
-                        : Your design system is expressed directly in code, not
-                        abstracted away in a package.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Distribution, Not Dependency
-                        </span>
-                        : Components are distributed as code, not as
-                        dependencies that lock you in.
-                      </li>
-                    </ul>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
-                      The Power of Control
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      The fundamental principle behind Div-ine UI is control.
-                      When developers have control over their UI components:
-                    </p>
-
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Debugging becomes simpler
-                        </span>
-                        : You can see exactly what's happening in your
-                        components.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Customization becomes seamless
-                        </span>
-                        : No more hacking around limitations—just change the
-                        code directly.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Learning curves flatten
-                        </span>
-                        : With consistent patterns, each new component becomes
-                        more intuitive.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Maintenance becomes manageable
-                        </span>
-                        : When you control the code, you control the update
-                        cycle.
-                      </li>
-                    </ul>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30">
-                      Built for the Future
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Div-ine UI isn't just solving today's problems—it's built
-                      for the future of UI development:
-                    </p>
-
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Cross-framework compatibility
-                        </span>
-                        : The principles work across React, Vue, Svelte, and
-                        more.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Team collaboration
-                        </span>
-                        : A shared component system creates a common language
-                        for designers and developers.
-                      </li>
-                      <li>
-                        <span className="text-[#00ADB5] font-medium">
-                          Sustainable development
-                        </span>
-                        : Avoid the constant churn of framework and library
-                        updates.
-                      </li>
-                    </ul>
-                  </div>
+                      </span>
+                      , ensuring that we create components that are not only
+                      beautiful and functional but also maintainable and
+                      scalable.
+                    </motion.p>
+                  </motion.div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </section>
         </SidebarInset>
       </div>

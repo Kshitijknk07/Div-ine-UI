@@ -3,47 +3,25 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
-import { Code } from "@/components/ui/code";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Code,
+  FileCode,
+  GitBranch,
+  Github,
+  Globe,
+  Lock,
+  Package,
+  Share2,
+  Terminal,
+  Unlock,
+} from "lucide-react";
 
 export function OpenCodePage() {
-  const buttonCode = `import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cn } from "@/lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);`;
-
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -51,173 +29,275 @@ const buttonVariants = cva(
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
-            <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
+            >
+              <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
-                    Open Code
-                  </Badge>
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
+                      Open Code
+                    </Badge>
+                  </motion.div>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
-                      Open
-                    </span>{" "}
-                    Code Philosophy
-                  </h1>
+                  <motion.h1
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
+                  >
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
+                      Div
+                    </span>
+                    -ine UI Open Code
+                  </motion.h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
-                    <p className="text-lg sm:text-xl leading-relaxed text-center">
-                      <span className="text-[#a2a3f5] font-medium">
-                        Open Code
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6"
+                  >
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                      className="text-lg sm:text-xl leading-relaxed text-center"
+                    >
+                      Experience the power of{" "}
+                      <span className="text-[#00ADB5] font-medium">
+                        Div-ine UI
                       </span>{" "}
-                      gives you full control over your components. Unlike
-                      traditional component libraries, we give you the actual
-                      source code to modify, extend, and adapt to your needs.
-                    </p>
+                      with complete access to the source code. Modify, extend,
+                      and customize to your heart's content.
+                    </motion.p>
 
-                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                      className="border-t border-[#00ADB5]/30 pt-4 mt-6"
+                    ></motion.div>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      What is Open Code?
-                    </h2>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Unlock className="w-5 h-5" />
+                      Full Code Access
+                    </motion.h2>
 
-                    <p className="text-base leading-relaxed">
-                      Open Code means that the top layer of your component code
-                      is accessible and modifiable. Instead of black-box
-                      components that you can only style through props or CSS
-                      overrides, you get the actual component code to modify as
-                      needed.
-                    </p>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      Benefits of Open Code
-                    </h2>
-
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Full Transparency
-                        </span>{" "}
-                        - See exactly how each component is built, no mysteries.
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Complete Control
-                        </span>{" "}
-                        - Modify any aspect of a component to match your design
-                        system.
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          No Vendor Lock-in
-                        </span>{" "}
-                        - Your components are yours, not tied to our updates or
-                        decisions.
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Better Learning
-                        </span>{" "}
-                        - Reading and modifying component code improves your
-                        understanding.
-                      </li>
-                    </ul>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      Example: The Button Component
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Below is the actual source code for our Button component.
-                      You can copy this, modify it, and make it your own:
-                    </p>
-
-                    <Code filename="button.tsx" language="tsx">
-                      {buttonCode}
-                    </Code>
-
-                    <p className="text-base leading-relaxed mt-4">
-                      This is just one example. With Div-ine UI, you get access
-                      to the source code for every component, allowing you to
-                      customize them to perfectly fit your project's needs.
-                    </p>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      How to Use Open Code
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Using our Open Code approach is simple:
-                    </p>
-
-                    <ol className="space-y-3 pl-6 list-decimal text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#bfc9f2] font-medium">
-                          Copy the Component Code
-                        </span>
-                        : Use our CLI tool or copy directly from our
-                        documentation.
-                      </li>
-                      <li>
-                        <span className="text-[#bfc9f2] font-medium">
-                          Paste Into Your Project
-                        </span>
-                        : Add the code to your component directory.
-                      </li>
-                      <li>
-                        <span className="text-[#bfc9f2] font-medium">
-                          Customize as Needed
-                        </span>
-                        : Modify the styles, behavior, or structure to match
-                        your requirements.
-                      </li>
-                      <li>
-                        <span className="text-[#bfc9f2] font-medium">
-                          Use Everywhere
-                        </span>
-                        : Import and use your customized component throughout
-                        your application.
-                      </li>
-                    </ol>
-
-                    <div className="bg-[#678aee]/10 rounded-lg p-6 border border-[#a2a3f5]/20 mt-8">
-                      <h3 className="text-lg font-semibold text-[#a2a3f5] mb-2">
-                        New to Component Customization?
-                      </h3>
-                      <p className="text-[#bfc9f2]">
-                        Don't worry! We provide detailed documentation on how to
-                        modify components, as well as examples for common
-                        customizations. Check out our guides to get started.
-                      </p>
-                      <div className="mt-4">
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30">
-                          View Customization Guides
-                          <ExternalLink className="w-4 h-4 ml-2" />
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-center mt-10">
-                      <Button
-                        className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base"
-                        asChild
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                      className="space-y-6 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
                       >
-                        <a href="/components">
-                          Explore Components
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Code className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Complete Transparency
+                          </span>{" "}
+                          - Every component's source code is available for
+                          inspection and modification.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <FileCode className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Direct Modification
+                          </span>{" "}
+                          - Edit components directly in your project without any
+                          abstraction layers.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Lock className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            No Black Boxes
+                          </span>{" "}
+                          - No hidden implementation details or locked
+                          functionality.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
+
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <GitBranch className="w-5 h-5" />
+                      Version Control
+                    </motion.h2>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                      className="text-base leading-relaxed"
+                    >
+                      Manage your component versions with ease:
+                    </motion.p>
+
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.9 }}
+                      className="space-y-4 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Github className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Git Integration
+                          </span>
+                          : Track changes and manage versions using your
+                          preferred version control system.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Package className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Package Management
+                          </span>
+                          : Use npm, yarn, or pnpm to manage dependencies and
+                          updates.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
+
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Globe className="w-5 h-5" />
+                      Community & Collaboration
+                    </motion.h2>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.1 }}
+                      className="text-base leading-relaxed"
+                    >
+                      Join our growing community of developers:
+                    </motion.p>
+
+                    <motion.ul
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.2 }}
+                      className="space-y-4 pl-6 list-none text-base leading-relaxed"
+                    >
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Share2 className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Share Your Modifications
+                          </span>
+                          : Contribute back to the community with your
+                          improvements.
+                        </div>
+                      </motion.li>
+                      <motion.li
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                      >
+                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                          <Terminal className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <span className="text-[#00ADB5] font-medium">
+                            Open Source
+                          </span>
+                          : Everything is open source and available for everyone
+                          to use and improve.
+                        </div>
+                      </motion.li>
+                    </motion.ul>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.3 }}
+                      className="mt-8 p-6 rounded-lg bg-[#00ADB5]/5 border border-[#00ADB5]/20"
+                    >
+                      <div className="flex items-start gap-3">
+                        <Unlock className="w-5 h-5 text-[#00ADB5] mt-1" />
+                        <div>
+                          <h3 className="text-lg font-medium text-[#00ADB5]">
+                            Ready to Dive In?
+                          </h3>
+                          <p className="mt-2 text-[#7b7b7b]">
+                            Explore our GitHub repository to see the source code
+                            and start contributing.
+                          </p>
+                          <Button className="mt-4 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center gap-2">
+                            View on GitHub
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </section>
         </SidebarInset>
       </div>
     </SidebarProvider>
   );
 }
+
+export default OpenCodePage;
