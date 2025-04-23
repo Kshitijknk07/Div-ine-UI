@@ -10,8 +10,12 @@ import {
   Terminal,
   Clipboard,
   FileCode,
+  Package,
+  Settings,
+  Play,
 } from "lucide-react";
 import { Code } from "@/components/ui/code";
+import { motion } from "framer-motion";
 
 export function VitePage() {
   const installCommand = `# Using npm
@@ -215,9 +219,46 @@ module.exports = {
   }
 }`;
 
+  const steps = [
+    {
+      number: "1",
+      title: "Create a New Vite Project",
+      description:
+        "First, create a new Vite project with React and TypeScript template.",
+      icon: <Package className="w-5 h-5" />,
+      code: installCommand,
+      tip: "Replace 'my-div-ine-app' with your preferred project name. The '--template react-ts' flag ensures your project is set up with React and TypeScript.",
+    },
+    {
+      number: "2",
+      title: "Install Dependencies",
+      description:
+        "Install the Div-ine UI CLI tool and initialize your project.",
+      icon: <Settings className="w-5 h-5" />,
+      code: divIneInstallCommand,
+      tip: "This will install the Div-ine UI CLI tool and initialize your project with the necessary configuration files.",
+    },
+    {
+      number: "3",
+      title: "Add Components",
+      description: "Add Div-ine UI components to your project using the CLI.",
+      icon: <FileCode className="w-5 h-5" />,
+      code: addComponentsCommand,
+      tip: "The CLI will add the selected components to your project in the 'src/components/ui' directory.",
+    },
+    {
+      number: "4",
+      title: "Start Using Components",
+      description: "Import and use the components in your React application.",
+      icon: <Play className="w-5 h-5" />,
+      code: basicUsageCode,
+      tip: "You can now use the components in your application. Each component is fully customizable.",
+    },
+  ];
+
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-white w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -225,41 +266,57 @@ module.exports = {
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-white w-full h-screen overflow-y-auto">
             <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+              <Card className="bg-[#222831]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
+                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/10 text-[#00ADB5] border-[#00ADB5]/30 hover:bg-[#00ADB5]/20">
                     Installation
                   </Badge>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
+                  >
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80">
                       Vite
                     </span>{" "}
                     Installation
-                  </h1>
+                  </motion.h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
-                    <p className="text-lg sm:text-xl leading-relaxed text-center">
+                  <div className="prose max-w-4xl mx-auto text-[#EEEEEE] space-y-8">
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="text-lg sm:text-xl leading-relaxed text-center"
+                    >
                       This guide will walk you through setting up a new React
                       project with Vite and integrating Div-ine UI components.
                       Vite offers an extremely fast development experience.
-                    </p>
+                    </motion.p>
 
-                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+                    <div className="border-t border-[#00ADB5]/10 pt-4 mt-6"></div>
 
-                    <div className="bg-[#0d101e]/60 rounded-lg p-6 border border-[#a2a3f5]/20">
-                      <h2 className="text-2xl font-bold text-[#a2a3f5] mb-4 flex items-center">
-                        <Terminal className="w-6 h-6 mr-2 text-[#678aee]" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="bg-[#393E46]/60 rounded-lg p-6 border border-[#00ADB5]/20"
+                    >
+                      <h2 className="text-2xl font-bold text-[#00ADB5] mb-4 flex items-center">
+                        <Terminal className="w-6 h-6 mr-2" />
                         Prerequisites
                       </h2>
-                      <ul className="space-y-3 pl-6 list-disc text-base">
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
+                      <ul className="space-y-3">
+                        <li className="flex items-center">
+                          <Check className="w-4 h-4 text-[#00ADB5] mr-2" />
+                          <span>
+                            <span className="text-[#00ADB5] font-medium">
                               Node.js
                             </span>{" "}
                             - Version 14.18+ or 16+. Download from{" "}
@@ -267,24 +324,26 @@ module.exports = {
                               href="https://nodejs.org"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[#678aee] hover:underline inline-flex items-center"
+                              className="text-[#00ADB5] hover:underline inline-flex items-center"
                             >
                               nodejs.org
                               <ExternalLink className="w-3 h-3 ml-1" />
                             </a>
                           </span>
                         </li>
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
+                        <li className="flex items-center">
+                          <Check className="w-4 h-4 text-[#00ADB5] mr-2" />
+                          <span>
+                            <span className="text-[#00ADB5] font-medium">
                               Package Manager
                             </span>{" "}
                             - npm (comes with Node.js), pnpm, or yarn
                           </span>
                         </li>
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
+                        <li className="flex items-center">
+                          <Check className="w-4 h-4 text-[#00ADB5] mr-2" />
+                          <span>
+                            <span className="text-[#00ADB5] font-medium">
                               Code Editor
                             </span>{" "}
                             - We recommend{" "}
@@ -292,7 +351,7 @@ module.exports = {
                               href="https://code.visualstudio.com/"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-[#678aee] hover:underline inline-flex items-center"
+                              className="text-[#00ADB5] hover:underline inline-flex items-center"
                             >
                               Visual Studio Code
                               <ExternalLink className="w-3 h-3 ml-1" />
@@ -300,288 +359,105 @@ module.exports = {
                           </span>
                         </li>
                       </ul>
-                    </div>
+                    </motion.div>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        1
-                      </span>
-                      Create a New Vite Project
-                    </h2>
+                    {steps.map((step, index) => (
+                      <motion.div
+                        key={step.number}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                      >
+                        <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20 flex items-center">
+                          <span className="flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-r from-[#00ADB5]/20 to-[#00ADB5]/10 text-[#00ADB5] border border-[#00ADB5]/30 mr-3 text-sm">
+                            {step.number}
+                          </span>
+                          {step.title}
+                        </h2>
 
-                    <p className="text-base leading-relaxed">
-                      First, create a new Vite project with React and TypeScript
-                      template. Open your terminal and run one of the following
-                      commands:
-                    </p>
+                        <p className="text-base leading-relaxed mt-4">
+                          {step.description}
+                        </p>
 
-                    <Code filename="terminal" language="bash">
-                      {installCommand}
-                    </Code>
+                        <Code filename="terminal" language="bash">
+                          {step.code}
+                        </Code>
 
-                    <div className="bg-[#0d101e]/40 rounded-lg p-4 border-l-4 border-[#678aee]">
-                      <div className="flex">
-                        <div className="flex-shrink-0">
-                          <FileCode
-                            className="h-5 w-5 text-[#678aee]"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <div className="ml-3">
-                          <h3 className="text-sm font-medium text-[#a2a3f5]">
-                            Pro Tip
-                          </h3>
-                          <div className="mt-2 text-sm text-[#bfc9f2]">
-                            <p>
-                              Replace{" "}
-                              <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                                my-div-ine-app
-                              </code>{" "}
-                              with your preferred project name. The{" "}
-                              <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                                --template react-ts
-                              </code>{" "}
-                              flag ensures your project is set up with React and
-                              TypeScript.
-                            </p>
+                        <div className="flex mt-4">
+                          <div className="flex-shrink-0">
+                            <div className="rounded-full bg-[#00ADB5]/10 p-2 text-[#00ADB5]">
+                              {step.icon}
+                            </div>
+                          </div>
+                          <div className="ml-3">
+                            <h3 className="text-sm font-medium text-[#00ADB5]">
+                              Pro Tip
+                            </h3>
+                            <div className="mt-2 text-sm text-[#EEEEEE]">
+                              <p>{step.tip}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </motion.div>
+                    ))}
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        2
-                      </span>
-                      Install Dependencies
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      After creating your project, navigate to the project
-                      directory and install the required dependencies:
-                    </p>
-
-                    <Code filename="terminal" language="bash">
-                      {divIneInstallCommand}
-                    </Code>
-
-                    <p className="text-base leading-relaxed">
-                      This will install the Div-ine UI CLI tool and initialize
-                      your project with the necessary configuration files. The
-                      initialization process will:
-                    </p>
-
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Configure Tailwind CSS
-                        </span>{" "}
-                        - Setup Tailwind with the appropriate plugins and
-                        configuration
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Add CSS Variables
-                        </span>{" "}
-                        - Create the base CSS file with design tokens and
-                        variables
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Update Project Files
-                        </span>{" "}
-                        - Modify the necessary configuration files to support
-                        Div-ine UI
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          Create Utility Functions
-                        </span>{" "}
-                        - Add helper functions used by the components
-                      </li>
-                    </ul>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        3
-                      </span>
-                      Add Components
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Now that your project is set up, you can add Div-ine UI
-                      components using the CLI:
-                    </p>
-
-                    <Code filename="terminal" language="bash">
-                      {addComponentsCommand}
-                    </Code>
-
-                    <p className="text-base leading-relaxed">
-                      The CLI will add the selected components to your project
-                      in the{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        src/components/ui
-                      </code>{" "}
-                      directory. Each component is added with its complete
-                      source code, allowing you to fully customize it as needed.
-                    </p>
-
-                    <div className="bg-[#0d101e]/40 rounded-lg p-4 border-l-4 border-[#678aee]">
-                      <div className="flex">
-                        <div className="flex-shrink-0">
-                          <Check
-                            className="h-5 w-5 text-[#678aee]"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <div className="ml-3">
-                          <h3 className="text-sm font-medium text-[#a2a3f5]">
-                            Components Added
-                          </h3>
-                          <div className="mt-2 text-sm text-[#bfc9f2]">
-                            <p>
-                              When you add a component, all of its dependencies
-                              are also automatically added. For example, adding
-                              a{" "}
-                              <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                                dropdown-menu
-                              </code>{" "}
-                              component will also add any required utility
-                              functions and sub-components.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        4
-                      </span>
-                      Start Using Components
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Now you can import and use the components in your React
-                      application:
-                    </p>
-
-                    <Code filename="src/App.tsx" language="tsx">
-                      {basicUsageCode}
-                    </Code>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        5
-                      </span>
-                      Start the Development Server
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Start your development server to see your app in action:
-                    </p>
-
-                    <Code filename="terminal" language="bash">
-                      {`# Using npm
-npm run dev
-
-# Using pnpm
-pnpm dev
-
-# Using yarn
-yarn dev`}
-                    </Code>
-
-                    <p className="text-base leading-relaxed">
-                      Your Vite server will start, and you can view your
-                      application at{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        http://localhost:5173
-                      </code>{" "}
-                      (or a different port if 5173 is already in use).
-                    </p>
-
-                    <h2 className="text-2xl font-bold mt-12 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20">
-                      Configuration Details
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Below are the key configuration files that the Div-ine UI
-                      initialization creates or modifies:
-                    </p>
-
-                    <h3 className="text-xl font-bold mt-6 text-[#a2a3f5] flex items-center">
-                      <Clipboard className="w-5 h-5 mr-2 text-[#678aee]" />
-                      Tailwind Configuration
-                    </h3>
-
-                    <p className="text-base leading-relaxed">
-                      The{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        tailwind.config.js
-                      </code>{" "}
-                      file configures your design system:
-                    </p>
-
-                    <Code filename="tailwind.config.js" language="javascript">
-                      {configTailwindCode}
-                    </Code>
-
-                    <h3 className="text-xl font-bold mt-6 text-[#a2a3f5] flex items-center">
-                      <Clipboard className="w-5 h-5 mr-2 text-[#678aee]" />
-                      CSS Variables
-                    </h3>
-
-                    <p className="text-base leading-relaxed">
-                      The global CSS file (
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        src/index.css
-                      </code>
-                      ) that defines your design tokens:
-                    </p>
-
-                    <Code filename="src/index.css" language="css">
-                      {cssVariablesCode}
-                    </Code>
-
-                    <div className="bg-[#678aee]/10 rounded-lg p-6 border border-[#a2a3f5]/20 mt-12">
-                      <h3 className="text-lg font-semibold text-[#a2a3f5] mb-2">
-                        Need More Help?
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 1.2 }}
+                      className="bg-[#00ADB5]/10 rounded-lg p-6 border border-[#00ADB5]/20 mt-8"
+                    >
+                      <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
+                        Configuration Details
                       </h3>
-                      <p className="text-[#bfc9f2]">
-                        Check out our comprehensive documentation for more
-                        details on customizing components, working with themes,
-                        and advanced usage patterns. If you encounter any
-                        issues, our active community forum is a great place to
-                        get help.
+                      <p className="text-[#EEEEEE]">
+                        Below are the key configuration files that the Div-ine
+                        UI initialization creates or modifies:
                       </p>
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
-                          View Complete Documentation
-                          <ExternalLink className="w-4 h-4" />
-                        </Button>
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
-                          Join Community Forum
-                          <ExternalLink className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
 
-                    <div className="flex justify-center mt-10">
+                      <div className="mt-6">
+                        <h4 className="text-base font-medium text-[#00ADB5] flex items-center">
+                          <Clipboard className="w-5 h-5 mr-2" />
+                          Tailwind Configuration
+                        </h4>
+                        <Code
+                          filename="tailwind.config.js"
+                          language="javascript"
+                        >
+                          {configTailwindCode}
+                        </Code>
+                      </div>
+
+                      <div className="mt-6">
+                        <h4 className="text-base font-medium text-[#00ADB5] flex items-center">
+                          <Clipboard className="w-5 h-5 mr-2" />
+                          CSS Variables
+                        </h4>
+                        <Code filename="src/index.css" language="css">
+                          {cssVariablesCode}
+                        </Code>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 1.4 }}
+                      className="flex justify-center mt-10"
+                    >
                       <Button
-                        className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base"
+                        className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80 hover:from-[#00ADB5]/90 hover:to-[#00ADB5] text-[#222831] rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
                         asChild
                       >
                         <a
-                          href="/components"
-                          className="flex items-center gap-3"
+                          href="/docs/components"
+                          className="flex items-center gap-2"
                         >
                           Explore Components
                           <ArrowRight className="w-4 h-4" />
                         </a>
                       </Button>
-                    </div>
+                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
