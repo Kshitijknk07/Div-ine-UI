@@ -32,15 +32,15 @@ const data = {
       items: [
         {
           title: "Overview",
-          url: "/home",
+          url: "/docs/home",
         },
         {
           title: "Philosophy",
-          url: "/philosophy",
+          url: "/docs/philosophy",
         },
         {
           title: "Getting Started",
-          url: "/getting-started",
+          url: "/docs/getting-started",
         },
       ],
     },
@@ -51,19 +51,19 @@ const data = {
       items: [
         {
           title: "Open Code",
-          url: "/open-code",
+          url: "/docs/open-code",
         },
         {
           title: "Composition",
-          url: "/composition",
+          url: "/docs/composition",
         },
         {
           title: "Distribution",
-          url: "/distribution",
+          url: "/docs/distribution",
         },
         {
           title: "Beautiful Defaults",
-          url: "/beautiful-defaults",
+          url: "/docs/beautiful-defaults",
         },
       ],
     },
@@ -74,15 +74,15 @@ const data = {
       items: [
         {
           title: "Vite",
-          url: "/installation/vite",
+          url: "/docs/installation/vite",
         },
         {
           title: "Next.js",
-          url: "/installation/nextjs",
+          url: "/docs/installation/nextjs",
         },
         {
           title: "Manual Setup",
-          url: "/installation/manual",
+          url: "/docs/installation/manual",
         },
       ],
     },
@@ -93,11 +93,11 @@ const data = {
       items: [
         {
           title: "Button",
-          url: "/components/button",
+          url: "/docs/components/button",
         },
         {
           title: "Card",
-          url: "/components/card",
+          url: "/docs/components/card",
         },
         {
           title: "Sidebar",
@@ -109,7 +109,7 @@ const data = {
         },
         {
           title: "All Components",
-          url: "/components",
+          url: "/docs/components",
         },
       ],
     },

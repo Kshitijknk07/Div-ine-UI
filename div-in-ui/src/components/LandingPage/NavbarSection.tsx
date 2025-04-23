@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Components", href: "/components" },
+  { name: "Docs", href: "/docs/home" },
   {
     name: "GitHub",
     href: "https://github.com/Kshitijknk07/Div-ine-UI",
@@ -85,9 +85,7 @@ export function NavbarSection() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <NavigationMenuLink
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
+                      asChild
                       className={cn(
                         "px-4 py-2 rounded-md text-sm font-medium transition-all duration-300",
                         activeLink === link.href
@@ -95,7 +93,20 @@ export function NavbarSection() {
                           : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
                       )}
                     >
-                      {link.name}
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link to={link.href} className="block">
+                          {link.name}
+                        </Link>
+                      )}
                     </NavigationMenuLink>
                   </motion.div>
                 </NavigationMenuItem>
@@ -109,7 +120,7 @@ export function NavbarSection() {
               size="sm"
               className="rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
             >
-              <Link to="/home" className="flex items-center">
+              <Link to="/docs/home" className="flex items-center">
                 Get Started
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -147,17 +158,29 @@ export function NavbarSection() {
             <div className="mt-6">
               <nav className="flex flex-col gap-2">
                 {navLinks.map((link) => (
-                  <motion.a
+                  <motion.div
                     key={link.name}
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors"
                     whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {link.name}
-                  </motion.a>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </motion.div>
                 ))}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -170,7 +193,7 @@ export function NavbarSection() {
                     className="w-full rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
                   >
                     <Link
-                      to="/home"
+                      to="/docs/home"
                       className="flex items-center justify-center"
                     >
                       Get Started

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/Landing_Page";
 import IntroductionPage from "./components/HomePage/Introduction/IntroductionPage";
 import PhilosophyPage from "./components/HomePage/Philosophy/PhilosophyPage";
@@ -19,19 +19,30 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<IntroductionPage />} />
-        <Route path="/philosophy" element={<PhilosophyPage />} />
-        <Route path="/getting-started" element={<GettingStartedPage />} />
-        <Route path="/open-code" element={<OpenCodePage />} />
-        <Route path="/components" element={<ComponentsPage />} />
-        <Route path="/composition" element={<CompositionPage />} />
-        <Route path="/distribution" element={<DistributionPage />} />
-        <Route path="/beautiful-defaults" element={<BeautifulDefaultsPage />} />
-        <Route path="/installation/vite" element={<VitePage />} />
-        <Route path="/installation/nextjs" element={<NextJSPage />} />
-        <Route path="/installation/manual" element={<ManualSetupPage />} />
-        <Route path="/components/button" element={<ButtonPage />} />
-        <Route path="/components/card" element={<CardPage />} />
+        <Route path="/docs">
+          <Route index element={<Navigate to="/docs/home" replace />} />
+          <Route path="home" element={<IntroductionPage />} />
+          <Route path="philosophy" element={<PhilosophyPage />} />
+          <Route path="getting-started" element={<GettingStartedPage />} />
+          <Route path="open-code" element={<OpenCodePage />} />
+          <Route path="components">
+            <Route index element={<ComponentsPage />} />
+            <Route path="button" element={<ButtonPage />} />
+            <Route path="card" element={<CardPage />} />
+          </Route>
+          <Route path="composition" element={<CompositionPage />} />
+          <Route path="distribution" element={<DistributionPage />} />
+          <Route
+            path="beautiful-defaults"
+            element={<BeautifulDefaultsPage />}
+          />
+          <Route path="installation">
+            <Route path="vite" element={<VitePage />} />
+            <Route path="nextjs" element={<NextJSPage />} />
+            <Route path="manual" element={<ManualSetupPage />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

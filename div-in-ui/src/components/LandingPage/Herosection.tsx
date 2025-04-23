@@ -205,7 +205,7 @@ export function HeroSection() {
               className="w-full sm:w-auto rounded-full gap-2 px-8 bg-gradient-to-r from-[#00ADB5] to-[#00ADB5] hover:from-[#00ADB5] hover:to-[#00ADB5] border-0 text-[#222831] font-medium shadow-lg hover:shadow-xl transition-all"
             >
               <Link
-                to="/home"
+                to="/docs/home"
                 className="flex items-center justify-center gap-2"
               >
                 Get Started
