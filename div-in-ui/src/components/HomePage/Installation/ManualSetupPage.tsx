@@ -2,16 +2,17 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
-  ExternalLink,
   Terminal,
   FileCode,
   Layers,
   Settings,
+  Package,
+  Download,
+  CheckCircle2,
 } from "lucide-react";
 import { Code } from "@/components/ui/code";
+import { motion } from "framer-motion";
 
 export function ManualSetupPage() {
   const dependenciesCommand = `# Using npm
@@ -255,7 +256,7 @@ export { Button, buttonVariants }`;
 
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -263,352 +264,206 @@ export { Button, buttonVariants }`;
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
-            <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
+            >
+              <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
-                    Installation
-                  </Badge>
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
+                      Manual Setup
+                    </Badge>
+                  </motion.div>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
+                  >
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Manual
-                    </span>{" "}
-                    Setup
-                  </h1>
+                    </span>
+                    Setup Guide
+                  </motion.h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
-                    <p className="text-lg sm:text-xl leading-relaxed text-center">
-                      This guide will walk you through manually setting up
-                      Div-ine UI components in your React project. This approach
-                      gives you full control over your component implementation.
-                    </p>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6"
+                  >
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                      className="text-lg sm:text-xl leading-relaxed text-center"
+                    >
+                      Set up{" "}
+                      <span className="text-[#00ADB5] font-medium">
+                        Div-ine UI
+                      </span>{" "}
+                      manually in your project with these step-by-step
+                      instructions.
+                    </motion.p>
 
-                    <div className="border-t border-[#a2a3f5]/10 pt-4 mt-6"></div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                      className="border-t border-[#00ADB5]/30 pt-4 mt-6"
+                    ></motion.div>
 
-                    <div className="bg-[#0d101e]/60 rounded-lg p-6 border border-[#a2a3f5]/20">
-                      <h2 className="text-2xl font-bold text-[#a2a3f5] mb-4 flex items-center">
-                        <Terminal className="w-6 h-6 mr-2 text-[#678aee]" />
-                        Prerequisites
-                      </h2>
-                      <ul className="space-y-3 pl-6 list-disc text-base">
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
-                              Node.js
-                            </span>{" "}
-                            - Version 14+ or higher. Download from{" "}
-                            <a
-                              href="https://nodejs.org"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[#678aee] hover:underline inline-flex items-center"
-                            >
-                              nodejs.org
-                              <ExternalLink className="w-3 h-3 ml-1" />
-                            </a>
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
-                              React Project
-                            </span>{" "}
-                            - An existing React project where you want to add
-                            the components
-                          </span>
-                        </li>
-                        <li>
-                          <span className="text-[#bfc9f2]">
-                            <span className="text-[#a2a3f5] font-medium">
-                              Basic Knowledge
-                            </span>{" "}
-                            - Familiarity with React, TypeScript, and Tailwind
-                            CSS
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        1
-                      </span>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Download className="w-5 h-5" />
                       Install Dependencies
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-base leading-relaxed">
-                      First, install the necessary dependencies for Div-ine UI
-                      components:
-                    </p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                      className="space-y-4"
+                    >
+                      <Code filename="terminal" language="bash">
+                        {dependenciesCommand}
+                      </Code>
+                    </motion.div>
 
-                    <Code filename="terminal" language="bash">
-                      {dependenciesCommand}
-                    </Code>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Terminal className="w-5 h-5" />
+                      Initialize Tailwind CSS
+                    </motion.h2>
 
-                    <p className="text-base leading-relaxed">
-                      These packages provide the foundation for the component
-                      system:
-                    </p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                      className="space-y-4"
+                    >
+                      <Code filename="terminal" language="bash">
+                        {initTailwindCommand}
+                      </Code>
+                    </motion.div>
 
-                    <ul className="space-y-3 pl-6 list-disc text-base leading-relaxed">
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          tailwindcss, postcss, autoprefixer
-                        </span>{" "}
-                        - Core Tailwind CSS packages
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          @radix-ui
-                        </span>{" "}
-                        - Accessible UI primitives for components
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          clsx, class-variance-authority, tailwind-merge
-                        </span>{" "}
-                        - Utilities for composing class names and creating
-                        variants
-                      </li>
-                      <li>
-                        <span className="text-[#678aee] font-medium">
-                          lucide-react
-                        </span>{" "}
-                        - Icon library used in components
-                      </li>
-                    </ul>
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.9 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <FileCode className="w-5 h-5" />
+                      Configure Your Project
+                    </motion.h2>
 
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        2
-                      </span>
-                      Set Up Tailwind CSS
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Initialize Tailwind CSS in your project:
-                    </p>
-
-                    <Code filename="terminal" language="bash">
-                      {initTailwindCommand}
-                    </Code>
-
-                    <p className="text-base leading-relaxed">
-                      Update your Tailwind configuration file with the Div-ine
-                      UI design system settings:
-                    </p>
-
-                    <Code filename="tailwind.config.js" language="javascript">
-                      {tailwindConfigCode}
-                    </Code>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        3
-                      </span>
-                      Add CSS Variables
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Add the following CSS variables to your global CSS file
-                      (e.g.,{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        index.css
-                      </code>{" "}
-                      or{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        globals.css
-                      </code>
-                      ):
-                    </p>
-
-                    <Code filename="index.css" language="css">
-                      {cssVariablesCode}
-                    </Code>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        4
-                      </span>
-                      Create Utility Functions
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Create a{" "}
-                      <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                        utils.ts
-                      </code>{" "}
-                      file in your project's lib directory:
-                    </p>
-
-                    <Code filename="lib/utils.ts" language="typescript">
-                      {cnUtilCode}
-                    </Code>
-
-                    <div className="bg-[#0d101e]/40 rounded-lg p-4 border-l-4 border-[#678aee]">
-                      <div className="flex">
-                        <div className="flex-shrink-0">
-                          <FileCode
-                            className="h-5 w-5 text-[#678aee]"
-                            aria-hidden="true"
-                          />
-                        </div>
-                        <div className="ml-3">
-                          <h3 className="text-sm font-medium text-[#a2a3f5]">
-                            Important
-                          </h3>
-                          <div className="mt-2 text-sm text-[#bfc9f2]">
-                            <p>
-                              Make sure your project has a proper path alias
-                              setup for{" "}
-                              <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                                @/lib/utils
-                              </code>{" "}
-                              in your{" "}
-                              <code className="bg-[#070814]/60 rounded px-1 py-0.5">
-                                tsconfig.json
-                              </code>{" "}
-                              file. If not, use relative imports instead.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        5
-                      </span>
-                      Create Component Files
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Create a directory structure for your components. We
-                      recommend organizing them like this:
-                    </p>
-
-                    <Code filename="directory" language="bash">
-                      {`src/
-  ├── components/
-  │   └── ui/
-  │       ├── button.tsx
-  │       ├── card.tsx
-  │       └── ...more components
-  └── lib/
-      └── utils.ts`}
-                    </Code>
-
-                    <p className="text-base leading-relaxed">
-                      Here's an example of a Button component implementation:
-                    </p>
-
-                    <Code filename="components/ui/button.tsx" language="tsx">
-                      {buttonComponentCode}
-                    </Code>
-
-                    <h2 className="text-2xl font-bold mt-8 text-[#a2a3f5] pb-1 border-b border-[#a2a3f5]/20 flex items-center">
-                      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#678aee]/20 text-[#a2a3f5] border border-[#a2a3f5]/30 mr-3 text-sm">
-                        6
-                      </span>
-                      Usage in Your Project
-                    </h2>
-
-                    <p className="text-base leading-relaxed">
-                      Now you can use your components in your React application:
-                    </p>
-
-                    <Code filename="App.tsx" language="tsx">
-                      {`import { Button } from './components/ui/button';
-
-function App() {
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">My Div-ine UI App</h1>
-      <div className="flex gap-4">
-        <Button>Default Button</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
-      </div>
-    </div>
-  );
-}
-
-export default App;`}
-                    </Code>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-                      <div className="bg-[#0d101e]/60 rounded-lg p-5 border border-[#a2a3f5]/20">
-                        <h3 className="text-lg font-bold text-[#a2a3f5] mb-2 flex items-center">
-                          <Layers className="w-5 h-5 mr-2 text-[#678aee]" />
-                          Modular Approach
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1 }}
+                      className="space-y-6"
+                    >
+                      <div className="bg-[#222831] p-6 rounded-lg border border-[#00ADB5]/20">
+                        <h3 className="text-lg font-medium text-[#00ADB5] mb-4 flex items-center gap-2">
+                          <Settings className="w-5 h-5" />
+                          Utility Function
                         </h3>
-                        <p className="text-[#bfc9f2] text-sm">
-                          This manual approach gives you full control over your
-                          components. You can add only what you need and
-                          customize each component to fit your project
-                          requirements.
-                        </p>
+                        <Code filename="lib/utils.ts" language="typescript">
+                          {cnUtilCode}
+                        </Code>
                       </div>
-                      <div className="bg-[#0d101e]/60 rounded-lg p-5 border border-[#a2a3f5]/20">
-                        <h3 className="text-lg font-bold text-[#a2a3f5] mb-2 flex items-center">
-                          <Settings className="w-5 h-5 mr-2 text-[#678aee]" />
-                          Customization
+
+                      <div className="bg-[#222831] p-6 rounded-lg border border-[#00ADB5]/20">
+                        <h3 className="text-lg font-medium text-[#00ADB5] mb-4 flex items-center gap-2">
+                          <Layers className="w-5 h-5" />
+                          Tailwind Configuration
                         </h3>
-                        <p className="text-[#bfc9f2] text-sm">
-                          You can modify the components' code directly to align
-                          with your project's design system, add or remove
-                          variants, and tailor the behavior to your specific
-                          requirements.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="bg-[#678aee]/10 rounded-lg p-6 border border-[#a2a3f5]/20 mt-12">
-                      <h3 className="text-lg font-semibold text-[#a2a3f5] mb-2">
-                        Need More Help?
-                      </h3>
-                      <p className="text-[#bfc9f2]">
-                        For more advanced components and additional
-                        customization options, check out our comprehensive
-                        documentation or component reference.
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
-                          Component Reference
-                          <ExternalLink className="w-4 h-4" />
-                        </Button>
-                        <Button className="bg-[#678aee]/20 hover:bg-[#678aee]/30 text-[#a2a3f5] border border-[#a2a3f5]/30 flex items-center gap-2">
-                          Advanced Customization
-                          <ExternalLink className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className="flex justify-center mt-10">
-                      <Button
-                        className="bg-gradient-to-r from-[#678aee] to-[#a2a3f5] hover:from-[#a2a3f5] hover:to-[#678aee] text-white rounded-full px-6 py-2 font-medium text-base"
-                        asChild
-                      >
-                        <a
-                          href="/components"
-                          className="flex items-center gap-3"
+                        <Code
+                          filename="tailwind.config.js"
+                          language="javascript"
                         >
-                          Explore Components
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
+                          {tailwindConfigCode}
+                        </Code>
+                      </div>
+
+                      <div className="bg-[#222831] p-6 rounded-lg border border-[#00ADB5]/20">
+                        <h3 className="text-lg font-medium text-[#00ADB5] mb-4 flex items-center gap-2">
+                          <FileCode className="w-5 h-5" />
+                          CSS Variables
+                        </h3>
+                        <Code filename="globals.css" language="css">
+                          {cssVariablesCode}
+                        </Code>
+                      </div>
+                    </motion.div>
+
+                    <motion.h2
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.1 }}
+                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                    >
+                      <Package className="w-5 h-5" />
+                      Create Components
+                    </motion.h2>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.2 }}
+                      className="space-y-4"
+                    >
+                      <Code
+                        filename="components/ui/button.tsx"
+                        language="typescript"
+                      >
+                        {buttonComponentCode}
+                      </Code>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.3 }}
+                      className="mt-8 p-6 rounded-lg bg-[#00ADB5]/5 border border-[#00ADB5]/20"
+                    >
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-[#00ADB5] mt-1" />
+                        <div>
+                          <h3 className="text-lg font-medium text-[#00ADB5]">
+                            Ready to Build?
+                          </h3>
+                          <p className="mt-2 text-[#7b7b7b]">
+                            You've successfully set up Div-ine UI in your
+                            project. Start building beautiful interfaces with
+                            our components.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </section>
         </SidebarInset>
       </div>

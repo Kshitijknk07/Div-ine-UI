@@ -257,10 +257,6 @@ export function GettingStartedPage() {
                             Check out our comprehensive documentation for
                             detailed guides, examples, and API references.
                           </p>
-                          <Button className="mt-4 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center gap-2">
-                            View Documentation
-                            <ArrowRight className="w-4 h-4" />
-                          </Button>
                         </div>
                       </div>
                     </motion.div>
