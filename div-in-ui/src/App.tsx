@@ -13,6 +13,7 @@ import { NextJSPage } from "./components/HomePage/Installation/NextJSPage";
 import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupPage";
 import { ButtonPage } from "./components/HomePage/Components/ButtonPage";
 import { CardPage } from "./components/HomePage/Components/CardPage";
+import { BadgePage } from "./components/HomePage/Components/BadgePage";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route index element={<ComponentsPage />} />
             <Route path="button" element={<ButtonPage />} />
             <Route path="card" element={<CardPage />} />
+            <Route path="badge" element={<BadgePage />} />
           </Route>
           <Route path="composition" element={<CompositionPage />} />
           <Route path="distribution" element={<DistributionPage />} />

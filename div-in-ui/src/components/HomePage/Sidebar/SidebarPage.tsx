@@ -105,7 +105,7 @@ const data = {
         },
         {
           title: "Badge",
-          url: "#",
+          url: "/docs/components/badge",
         },
         {
           title: "All Components",
