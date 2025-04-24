@@ -14,6 +14,8 @@ import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupP
 import { ButtonPage } from "./components/HomePage/Components/ButtonPage";
 import { CardPage } from "./components/HomePage/Components/CardPage";
 import { BadgePage } from "./components/HomePage/Components/BadgePage";
+import { DocumentationPage } from "./components/HomePage/Documentation/DocumentationPage";
+import { ExamplesPage } from "./components/HomePage/Examples/ExamplesPage";
 
 const App = () => {
   return (
@@ -43,6 +45,8 @@ const App = () => {
             <Route path="nextjs" element={<NextJSPage />} />
             <Route path="manual" element={<ManualSetupPage />} />
           </Route>
+          <Route path="documentation" element={<DocumentationPage />} />
+          <Route path="examples" element={<ExamplesPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

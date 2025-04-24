@@ -242,6 +242,127 @@ export function BadgeDemo() {
                         </Code>
                       </TabsContent>
                     </Tabs>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                      className="mt-8 space-y-6"
+                    >
+                      <h2 className="text-2xl font-bold text-[#EEEEEE]">
+                        Features
+                      </h2>
+                      <ul className="space-y-4">
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-[#00ADB5] mr-2 mt-1" />
+                          <div>
+                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
+                              Multiple Variants
+                            </h3>
+                            <p className="text-[#7b7b7b]">
+                              Choose from default, secondary, destructive,
+                              outline, success, warning, error, and info
+                              variants.
+                            </p>
+                          </div>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-[#00ADB5] mr-2 mt-1" />
+                          <div>
+                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
+                              Icon Support
+                            </h3>
+                            <p className="text-[#7b7b7b]">
+                              Add icons to your badges for better visual
+                              communication.
+                            </p>
+                          </div>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-[#00ADB5] mr-2 mt-1" />
+                          <div>
+                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
+                              Custom Styling
+                            </h3>
+                            <p className="text-[#7b7b7b]">
+                              Extend and customize badges with your own styles
+                              using className prop.
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                      className="mt-8 space-y-6"
+                    >
+                      <h2 className="text-2xl font-bold text-[#EEEEEE]">
+                        Props
+                      </h2>
+                      <div className="overflow-x-auto">
+                        <table className="w-full border-collapse">
+                          <thead>
+                            <tr className="border-b border-[#00ADB5]/30">
+                              <th className="py-2 px-4 text-left text-[#EEEEEE]">
+                                Prop
+                              </th>
+                              <th className="py-2 px-4 text-left text-[#EEEEEE]">
+                                Type
+                              </th>
+                              <th className="py-2 px-4 text-left text-[#EEEEEE]">
+                                Default
+                              </th>
+                              <th className="py-2 px-4 text-left text-[#EEEEEE]">
+                                Description
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-[#00ADB5]/10">
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                variant
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                'default' | 'secondary' | 'destructive' |
+                                'outline' | 'success' | 'warning' | 'error' |
+                                'info'
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                'default'
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                Visual style variant
+                              </td>
+                            </tr>
+                            <tr className="border-b border-[#00ADB5]/10">
+                              <td className="py-2 px-4 text-[#7b7b7b]">icon</td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                React.ReactNode
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">-</td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                Optional icon to display
+                              </td>
+                            </tr>
+                            <tr className="border-b border-[#00ADB5]/10">
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                className
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                string
+                              </td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">-</td>
+                              <td className="py-2 px-4 text-[#7b7b7b]">
+                                Additional CSS classes
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </motion.div>
                   </motion.div>
                 </div>
               </div>

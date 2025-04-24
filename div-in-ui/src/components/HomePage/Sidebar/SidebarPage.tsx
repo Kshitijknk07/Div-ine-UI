@@ -6,7 +6,7 @@ import {
   Code,
   Package,
   Users,
-  FileText,
+  BookOpen,
 } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -100,10 +100,6 @@ const data = {
           url: "/docs/components/card",
         },
         {
-          title: "Sidebar",
-          url: "#",
-        },
-        {
           title: "Badge",
           url: "/docs/components/badge",
         },
@@ -114,21 +110,21 @@ const data = {
       ],
     },
     {
-      title: "Resources",
-      icon: <FileText className="w-4 h-4" />,
+      title: "Documentation",
+      icon: <BookOpen className="w-4 h-4" />,
       url: "#",
       items: [
         {
-          title: "Documentation",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
+          title: "API Reference",
+          url: "/docs/documentation",
         },
         {
           title: "Schema Reference",
-          url: "#",
+          url: "/docs/schema",
+        },
+        {
+          title: "Examples",
+          url: "/docs/examples",
         },
       ],
     },
@@ -139,15 +135,15 @@ const data = {
       items: [
         {
           title: "Contribution Guide",
-          url: "#",
+          url: "/docs/contribution",
         },
         {
           title: "GitHub",
-          url: "#",
+          url: "https://github.com/your-org/div-ine-ui",
         },
         {
           title: "Discord",
-          url: "#",
+          url: "https://discord.gg/your-discord",
         },
       ],
     },
