@@ -16,6 +16,7 @@ import { CardPage } from "./components/HomePage/Components/CardPage";
 import { BadgePage } from "./components/HomePage/Components/BadgePage";
 import { DocumentationPage } from "./components/HomePage/Documentation/DocumentationPage";
 import { ExamplesPage } from "./components/HomePage/Examples/ExamplesPage";
+import { SchemaPage } from "./components/HomePage/Schema/SchemaPage";
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
             <Route path="manual" element={<ManualSetupPage />} />
           </Route>
           <Route path="documentation" element={<DocumentationPage />} />
+          <Route path="schema" element={<SchemaPage />} />
           <Route path="examples" element={<ExamplesPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

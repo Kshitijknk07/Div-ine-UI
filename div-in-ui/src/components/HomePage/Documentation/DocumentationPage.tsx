@@ -4,7 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Code } from "@/components/ui/code";
 import { motion } from "framer-motion";
-import { BookOpen, Code2, FileText, Terminal } from "lucide-react";
+import {
+  BookOpen,
+  Code2,
+  FileText,
+  Terminal,
+  ChevronRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function DocumentationPage() {
   const features = [
@@ -37,6 +44,93 @@ export function DocumentationPage() {
       color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
   ];
+
+  const apiReference = {
+    Button: {
+      props: [
+        {
+          name: "variant",
+          type: "'default' | 'outline' | 'solid' | 'destructive' | 'success' | 'secondary' | 'ghost' | 'link' | 'soft' | 'glossy'",
+          default: "'default'",
+          description: "Visual style variant of the button",
+        },
+        {
+          name: "size",
+          type: "'default' | 'sm' | 'lg' | 'xl' | 'icon' | 'pill' | 'sm-pill' | 'lg-pill' | 'xl-pill'",
+          default: "'default'",
+          description: "Size of the button",
+        },
+        {
+          name: "icon",
+          type: "ReactNode",
+          default: "undefined",
+          description: "Optional icon to display",
+        },
+        {
+          name: "iconPosition",
+          type: "'left' | 'right'",
+          default: "'left'",
+          description: "Position of the icon",
+        },
+        {
+          name: "loading",
+          type: "boolean",
+          default: "false",
+          description: "Shows loading spinner when true",
+        },
+        {
+          name: "animation",
+          type: "'none' | 'pulse' | 'bounce' | 'glow'",
+          default: "'none'",
+          description: "Animation effect",
+        },
+        {
+          name: "disabled",
+          type: "boolean",
+          default: "false",
+          description: "Disables the button",
+        },
+        {
+          name: "asChild",
+          type: "boolean",
+          default: "false",
+          description: "Merge props onto child element",
+        },
+      ],
+    },
+    Badge: {
+      props: [
+        {
+          name: "variant",
+          type: "'default' | 'secondary' | 'destructive' | 'outline'",
+          default: "'default'",
+          description: "Visual style variant of the badge",
+        },
+        {
+          name: "size",
+          type: "'default' | 'sm' | 'lg'",
+          default: "'default'",
+          description: "Size of the badge",
+        },
+      ],
+    },
+    Card: {
+      props: [
+        {
+          name: "variant",
+          type: "'default' | 'outline' | 'ghost'",
+          default: "'default'",
+          description: "Visual style variant of the card",
+        },
+        {
+          name: "size",
+          type: "'default' | 'sm' | 'lg'",
+          default: "'default'",
+          description: "Size of the card",
+        },
+      ],
+    },
+  };
 
   const quickStartCode = `# Install Div-ine UI
 npm install @div-ine/ui
@@ -105,7 +199,7 @@ export function MyComponent() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3, delay: 0.2 }}
-                    className="prose max-w-4xl mx-auto text-[#7b7b7b] space-y-6"
+                    className="prose max-w-4xl mx-auto text-[#EEEEEE] space-y-6"
                   >
                     <motion.p
                       initial={{ opacity: 0, y: 10 }}
@@ -122,13 +216,6 @@ export function MyComponent() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: 0.4 }}
-                      className="border-t border-[#00ADB5]/30 pt-4 mt-6"
-                    ></motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.5 }}
                       className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"
                     >
                       {features.map((feature, index) => (
@@ -138,7 +225,7 @@ export function MyComponent() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{
                             duration: 0.3,
-                            delay: 0.6 + index * 0.1,
+                            delay: 0.5 + index * 0.1,
                           }}
                           className="bg-[#222831]/50 p-6 rounded-lg border border-[#00ADB5]/20 hover:border-[#00ADB5]/40 transition-colors"
                         >
@@ -159,74 +246,190 @@ export function MyComponent() {
                       ))}
                     </motion.div>
 
-                    <Tabs defaultValue="quickstart" className="w-full mt-8">
-                      <TabsList className="grid w-full grid-cols-2 bg-[#222831] rounded-lg mb-2">
-                        <TabsTrigger
-                          value="quickstart"
-                          className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
-                        >
-                          Quick Start
-                        </TabsTrigger>
-                        <TabsTrigger
-                          value="usage"
-                          className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
-                        >
-                          Component Usage
-                        </TabsTrigger>
-                      </TabsList>
-                      <TabsContent value="quickstart" className="mt-4">
-                        <Code filename="quickstart.sh" language="bash">
-                          {quickStartCode}
-                        </Code>
-                      </TabsContent>
-                      <TabsContent value="usage" className="mt-4">
-                        <Code filename="MyComponent.tsx" language="typescript">
-                          {componentUsageCode}
-                        </Code>
-                      </TabsContent>
-                    </Tabs>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.9 }}
+                      className="mt-12"
+                    >
+                      <h2 className="text-2xl font-bold text-[#EEEEEE] mb-6">
+                        API Reference
+                      </h2>
+                      <div className="space-y-8">
+                        {Object.entries(apiReference).map(
+                          ([component, { props }]) => (
+                            <motion.div
+                              key={component}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="bg-[#222831]/50 rounded-lg border border-[#00ADB5]/20 p-6"
+                            >
+                              <h3 className="text-xl font-semibold text-[#00ADB5] mb-4">
+                                {component}
+                              </h3>
+                              <div className="overflow-x-auto">
+                                <table className="w-full">
+                                  <thead>
+                                    <tr className="border-b border-[#00ADB5]/20">
+                                      <th className="text-left py-2 px-4 text-[#EEEEEE]">
+                                        Prop
+                                      </th>
+                                      <th className="text-left py-2 px-4 text-[#EEEEEE]">
+                                        Type
+                                      </th>
+                                      <th className="text-left py-2 px-4 text-[#EEEEEE]">
+                                        Default
+                                      </th>
+                                      <th className="text-left py-2 px-4 text-[#EEEEEE]">
+                                        Description
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {props.map((prop) => (
+                                      <tr
+                                        key={prop.name}
+                                        className="border-b border-[#00ADB5]/10 last:border-0"
+                                      >
+                                        <td className="py-2 px-4 text-[#00ADB5] font-mono">
+                                          {prop.name}
+                                        </td>
+                                        <td className="py-2 px-4 text-[#7b7b7b] font-mono">
+                                          {prop.type}
+                                        </td>
+                                        <td className="py-2 px-4 text-[#7b7b7b] font-mono">
+                                          {prop.default}
+                                        </td>
+                                        <td className="py-2 px-4 text-[#7b7b7b]">
+                                          {prop.description}
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            </motion.div>
+                          )
+                        )}
+                      </div>
+                    </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.7 }}
-                      className="mt-8 space-y-6"
+                      transition={{ duration: 0.3, delay: 1 }}
+                      className="mt-12"
                     >
-                      <h2 className="text-2xl font-bold text-[#EEEEEE]">
+                      <h2 className="text-2xl font-bold text-[#EEEEEE] mb-6">
+                        Quick Start
+                      </h2>
+                      <Tabs defaultValue="quickstart" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 bg-[#222831]/70 rounded-lg mb-2">
+                          <TabsTrigger
+                            value="quickstart"
+                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
+                          >
+                            Installation
+                          </TabsTrigger>
+                          <TabsTrigger
+                            value="usage"
+                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
+                          >
+                            Component Usage
+                          </TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="quickstart" className="mt-4">
+                          <Code filename="quickstart.sh" language="bash">
+                            {quickStartCode}
+                          </Code>
+                        </TabsContent>
+                        <TabsContent value="usage" className="mt-4">
+                          <Code
+                            filename="MyComponent.tsx"
+                            language="typescript"
+                          >
+                            {componentUsageCode}
+                          </Code>
+                        </TabsContent>
+                      </Tabs>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 1.1 }}
+                      className="mt-12"
+                    >
+                      <h2 className="text-2xl font-bold text-[#EEEEEE] mb-6">
                         Getting Started
                       </h2>
-                      <ol className="space-y-4 list-decimal list-inside text-[#7b7b7b]">
-                        <li className="flex items-start">
-                          <div>
-                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
-                              Installation
-                            </h3>
-                            <p>
-                              Install Div-ine UI using your preferred package
-                              manager.
-                            </p>
-                          </div>
-                        </li>
-                        <li className="flex items-start">
-                          <div>
-                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
-                              Setup
-                            </h3>
-                            <p>
-                              Configure your project to use Div-ine UI
-                              components.
-                            </p>
-                          </div>
-                        </li>
-                        <li className="flex items-start">
-                          <div>
-                            <h3 className="text-lg font-semibold text-[#EEEEEE]">
-                              Usage
-                            </h3>
-                            <p>Start using components in your application.</p>
-                          </div>
-                        </li>
-                      </ol>
+                      <div className="space-y-6">
+                        <div className="bg-[#222831]/50 rounded-lg border border-[#00ADB5]/20 p-6">
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-4">
+                            Installation
+                          </h3>
+                          <p className="text-[#7b7b7b] mb-4">
+                            Install Div-ine UI using your preferred package
+                            manager.
+                          </p>
+                          <Button
+                            className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
+                            asChild
+                          >
+                            <a
+                              href="/docs/installation"
+                              className="flex items-center gap-2"
+                            >
+                              Installation Guide
+                              <ChevronRight className="w-4 h-4" />
+                            </a>
+                          </Button>
+                        </div>
+
+                        <div className="bg-[#222831]/50 rounded-lg border border-[#00ADB5]/20 p-6">
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-4">
+                            Components
+                          </h3>
+                          <p className="text-[#7b7b7b] mb-4">
+                            Explore our collection of beautifully designed
+                            components.
+                          </p>
+                          <Button
+                            className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
+                            asChild
+                          >
+                            <a
+                              href="/docs/components"
+                              className="flex items-center gap-2"
+                            >
+                              View Components
+                              <ChevronRight className="w-4 h-4" />
+                            </a>
+                          </Button>
+                        </div>
+
+                        <div className="bg-[#222831]/50 rounded-lg border border-[#00ADB5]/20 p-6">
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-4">
+                            Examples
+                          </h3>
+                          <p className="text-[#7b7b7b] mb-4">
+                            Check out real-world examples and use cases.
+                          </p>
+                          <Button
+                            className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
+                            asChild
+                          >
+                            <a
+                              href="/docs/examples"
+                              className="flex items-center gap-2"
+                            >
+                              View Examples
+                              <ChevronRight className="w-4 h-4" />
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
                     </motion.div>
                   </motion.div>
                 </div>

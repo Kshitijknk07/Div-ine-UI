@@ -9,6 +9,7 @@ import { Code } from "@/components/ui/code";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type ComponentType = {
   name: string;
@@ -251,7 +252,7 @@ export function BadgeExample() {
 
   return (
     <SidebarProvider
-      className="bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full"
+      className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
       style={{
         ["--sidebar-width" as any]: "19rem",
       }}
@@ -259,81 +260,115 @@ export function BadgeExample() {
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
         <SidebarInset className="flex-1 flex flex-col w-full">
-          <section className="flex-1 bg-gradient-to-b from-[#070814] to-[#09092d] text-white w-full h-screen overflow-y-auto">
-            <div className="w-full animate-fade-in-up">
-              <Card className="bg-[#070814]/60 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
+          <section className="flex-1 bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full h-screen overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="w-full"
+            >
+              <Card className="bg-[#222831]/80 backdrop-blur-sm border-0 shadow-xl overflow-hidden w-full rounded-none min-h-screen">
                 <CardHeader className="pb-0 pt-6 px-6 lg:px-16">
-                  <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#678aee]/10 text-[#a2a3f5] border-[#a2a3f5]/30 hover:bg-[#678aee]/20">
-                    Components
-                  </Badge>
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Badge className="w-fit mx-auto mb-3 px-4 py-1.5 text-sm font-medium bg-[#00ADB5]/20 text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/30">
+                      Components
+                    </Badge>
+                  </motion.div>
 
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#678aee] to-[#a2a3f5]">
+                  <motion.h1
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
+                  >
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Explore
                     </span>{" "}
                     Components
-                  </h1>
+                  </motion.h1>
                 </CardHeader>
 
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
-                  <div className="prose max-w-4xl mx-auto text-[#bfc9f2] space-y-6">
-                    <p className="text-lg sm:text-xl leading-relaxed text-center">
+                  <div className="prose max-w-4xl mx-auto text-[#EEEEEE] space-y-6">
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="text-lg sm:text-xl leading-relaxed text-center"
+                    >
                       Browse our collection of beautifully designed, accessible
                       components. Each component comes with full source code
                       that you can copy and customize.
-                    </p>
+                    </motion.p>
 
-                    <div className="relative my-8 max-w-md mx-auto">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#bfc9f2]" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      className="relative my-8 max-w-md mx-auto"
+                    >
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00ADB5]" />
                       <Input
                         type="search"
                         placeholder="Search components..."
-                        className="w-full pl-10 bg-[#070814]/50 border-[#a2a3f5]/30 focus:border-[#678aee] placeholder:text-white/50 text-white"
+                        className="w-full pl-10 bg-[#222831]/50 border-[#00ADB5]/30 focus:border-[#00ADB5] placeholder:text-[#EEEEEE]/50 text-[#EEEEEE]"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                       />
-                    </div>
+                    </motion.div>
 
                     <div className="space-y-10">
                       {filteredComponents.length === 0 ? (
-                        <div className="text-center py-10">
-                          <p className="text-lg text-[#bfc9f2]/70">
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.5 }}
+                          className="text-center py-10"
+                        >
+                          <p className="text-lg text-[#EEEEEE]/70">
                             No components found matching your search.
                           </p>
-                        </div>
+                        </motion.div>
                       ) : (
-                        filteredComponents.map((component) => (
-                          <div
+                        filteredComponents.map((component, index) => (
+                          <motion.div
                             key={component.name}
-                            className="border border-[#a2a3f5]/20 rounded-lg p-6 bg-[#070814]/40"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="border border-[#00ADB5]/20 rounded-lg p-6 bg-[#222831]/40 hover:bg-[#222831]/60 transition-colors duration-200"
                           >
-                            <h2 className="text-2xl font-bold text-[#a2a3f5] mb-3">
+                            <h2 className="text-2xl font-bold text-[#00ADB5] mb-3">
                               {component.name}
                             </h2>
-                            <p className="mb-4 text-[#bfc9f2]">
+                            <p className="mb-4 text-[#EEEEEE]">
                               {component.description}
                             </p>
 
-                            <div className="bg-[#0d101e]/40 rounded-lg p-4 mb-6">
-                              <h3 className="text-[#678aee] font-medium mb-3">
+                            <div className="bg-[#222831]/60 rounded-lg p-4 mb-6">
+                              <h3 className="text-[#00ADB5] font-medium mb-3">
                                 Preview
                               </h3>
-                              <div className="p-4 border border-[#a2a3f5]/20 rounded-md bg-[#070814]/70 flex items-center justify-center min-h-16">
+                              <div className="p-4 border border-[#00ADB5]/20 rounded-md bg-[#222831]/70 flex items-center justify-center min-h-16">
                                 {component.preview}
                               </div>
                             </div>
 
                             <Tabs defaultValue="code" className="w-full">
-                              <TabsList className="grid w-full grid-cols-2 bg-[#0d101e]/70 rounded-lg mb-2">
+                              <TabsList className="grid w-full grid-cols-2 bg-[#222831]/70 rounded-lg mb-2">
                                 <TabsTrigger
                                   value="code"
-                                  className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md"
+                                  className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
                                 >
                                   Component Code
                                 </TabsTrigger>
                                 <TabsTrigger
                                   value="usage"
-                                  className="data-[state=active]:bg-[#678aee]/20 data-[state=active]:text-[#a2a3f5] rounded-md"
+                                  className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
                                 >
                                   Usage Example
                                 </TabsTrigger>
@@ -354,14 +389,14 @@ export function BadgeExample() {
                                 </Code>
                               </TabsContent>
                             </Tabs>
-                          </div>
+                          </motion.div>
                         ))
                       )}
                     </div>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           </section>
         </SidebarInset>
       </div>

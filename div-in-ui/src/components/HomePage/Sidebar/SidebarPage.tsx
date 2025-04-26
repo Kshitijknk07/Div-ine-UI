@@ -134,16 +134,12 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Contribution Guide",
-          url: "/docs/contribution",
-        },
-        {
           title: "GitHub",
-          url: "https://github.com/your-org/div-ine-ui",
+          url: "https://github.com/div-ine/ui",
         },
         {
           title: "Discord",
-          url: "https://discord.gg/your-discord",
+          url: "https://discord.gg/div-ine",
         },
       ],
     },
