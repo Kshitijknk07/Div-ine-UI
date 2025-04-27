@@ -3,20 +3,103 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Code } from "@/components/ui/code";
 import { motion } from "framer-motion";
 import {
-  Download,
-  Terminal,
-  Package,
-  FileCode,
-  Settings,
-  Play,
-  CheckCircle2,
   ArrowRight,
-  Github,
+  FileCode,
+  Rocket,
+  Terminal,
+  Zap,
+  Package,
+  CheckCircle,
 } from "lucide-react";
 
 export function GettingStartedPage() {
+  const installCode = `# Using npm
+npm install @div-ine/ui
+
+# Using yarn
+yarn add @div-ine/ui
+
+# Using pnpm
+pnpm add @div-ine/ui`;
+
+  const setupCode = `// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+}`;
+
+  const usageCode = `import { Button } from "@div-ine/ui/button";
+import { Badge } from "@div-ine/ui/badge";
+
+export default function App() {
+  return (
+    <div>
+      <Badge>New Feature</Badge>
+      <Button>Click me</Button>
+    </div>
+  );
+}`;
+
+  const steps = [
+    {
+      title: "Installation",
+      description:
+        "Install the Div-ine UI package using your preferred package manager.",
+      icon: <Package className="w-5 h-5" />,
+      code: installCode,
+    },
+    {
+      title: "Configuration",
+      description: "Configure your project to use Div-ine UI components.",
+      icon: <FileCode className="w-5 h-5" />,
+      code: setupCode,
+    },
+    {
+      title: "Usage",
+      description: "Start using Div-ine UI components in your project.",
+      icon: <Zap className="w-5 h-5" />,
+      code: usageCode,
+    },
+  ];
+
   return (
     <SidebarProvider
       className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
@@ -53,9 +136,9 @@ export function GettingStartedPage() {
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
                   >
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
-                      Div
-                    </span>
-                    -ine UI Quick Start
+                      Getting
+                    </span>{" "}
+                    Started
                   </motion.h1>
                 </CardHeader>
 
@@ -72,11 +155,9 @@ export function GettingStartedPage() {
                       transition={{ duration: 0.3, delay: 0.3 }}
                       className="text-lg sm:text-xl leading-relaxed text-center"
                     >
-                      Get started with{" "}
-                      <span className="text-[#00ADB5] font-medium">
-                        Div-ine UI
-                      </span>{" "}
-                      in just a few simple steps.
+                      Start building beautiful interfaces with Div-ine UI in
+                      just a few minutes. Follow these simple steps to get up
+                      and running quickly.
                     </motion.p>
 
                     <motion.div
@@ -86,178 +167,227 @@ export function GettingStartedPage() {
                       className="border-t border-[#00ADB5]/30 pt-4 mt-6"
                     ></motion.div>
 
-                    <motion.h2
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: 0.5 }}
-                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
+                      className="mt-8"
                     >
-                      <Download className="w-5 h-5" />
-                      Installation
-                    </motion.h2>
+                      <div className="flex items-center gap-2 mb-6">
+                        <Rocket className="w-6 h-6 text-[#00ADB5]" />
+                        <h2 className="text-2xl font-bold text-[#00ADB5] m-0">
+                          Quick Start Guide
+                        </h2>
+                      </div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.6 }}
-                      className="space-y-4"
-                    >
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button className="flex-1 h-12 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center justify-center gap-2">
-                          <Package className="w-5 h-5" />
-                          npm install div-in-ui
-                        </Button>
-                        <Button className="flex-1 h-12 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center justify-center gap-2">
-                          <Github className="w-5 h-5" />
-                          Clone Repository
-                        </Button>
+                      <div className="space-y-12 mt-8">
+                        {steps.map((step, index) => (
+                          <motion.div
+                            key={step.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.5,
+                              delay: 0.6 + index * 0.1,
+                            }}
+                            className="relative"
+                          >
+                            <div className="flex items-start gap-4">
+                              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00ADB5]/20 flex items-center justify-center text-[#00ADB5]">
+                                {step.icon}
+                              </div>
+                              <div className="flex-1">
+                                <h3 className="text-xl font-bold text-[#EEEEEE] mb-2">
+                                  {index + 1}. {step.title}
+                                </h3>
+                                <p className="text-[#7b7b7b] mb-4">
+                                  {step.description}
+                                </p>
+                                <div className="bg-[#222831] rounded-lg p-1">
+                                  <Code
+                                    language={
+                                      index === 0 ? "bash" : "javascript"
+                                    }
+                                  >
+                                    {step.code}
+                                  </Code>
+                                </div>
+                              </div>
+                            </div>
+                            {index < steps.length - 1 && (
+                              <div className="absolute left-5 top-16 bottom-0 w-[1px] bg-[#00ADB5]/20"></div>
+                            )}
+                          </motion.div>
+                        ))}
                       </div>
                     </motion.div>
 
-                    <motion.h2
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.7 }}
-                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
-                    >
-                      <Terminal className="w-5 h-5" />
-                      Quick Start Guide
-                    </motion.h2>
-
-                    <motion.ul
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.8 }}
-                      className="space-y-6 pl-6 list-none text-base leading-relaxed"
-                    >
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <FileCode className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Step 1: Import Components
-                          </span>
-                          <p className="mt-1 text-sm bg-[#222831] p-3 rounded-lg font-mono">
-                            import {"{ Button }"} from "div-in-ui";
-                          </p>
-                        </div>
-                      </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Settings className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Step 2: Configure Your Project
-                          </span>
-                          <p className="mt-1 text-sm bg-[#222831] p-3 rounded-lg font-mono">
-                            // Add to your tailwind.config.js
-                            <br />
-                            plugins: [require("div-in-ui")],
-                          </p>
-                        </div>
-                      </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Play className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Step 3: Start Building
-                          </span>
-                          <p className="mt-1 text-sm bg-[#222831] p-3 rounded-lg font-mono">
-                            {"<Button>Click me</Button>"}
-                          </p>
-                        </div>
-                      </motion.li>
-                    </motion.ul>
-
-                    <motion.h2
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.9 }}
-                      className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
-                    >
-                      <Package className="w-5 h-5" />
-                      Available Components
-                    </motion.h2>
-
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 1 }}
-                      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                      transition={{ duration: 0.5, delay: 1 }}
+                      className="mt-12 bg-[#222831]/50 rounded-lg border border-[#00ADB5]/20 p-6"
                     >
-                      {[
-                        {
-                          name: "Buttons",
-                          icon: <Button className="w-4 h-4" />,
-                        },
-                        { name: "Cards", icon: <Card className="w-4 h-4" /> },
-                        {
-                          name: "Forms",
-                          icon: <FileCode className="w-4 h-4" />,
-                        },
-                        {
-                          name: "Modals",
-                          icon: <Settings className="w-4 h-4" />,
-                        },
-                        {
-                          name: "Navigation",
-                          icon: <ArrowRight className="w-4 h-4" />,
-                        },
-                        {
-                          name: "Layout",
-                          icon: <Package className="w-4 h-4" />,
-                        },
-                      ].map((component, index) => (
-                        <motion.div
-                          key={component.name}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            delay: 1.1 + index * 0.1,
-                          }}
-                          className="p-4 rounded-lg bg-[#222831] hover:bg-[#00ADB5]/5 transition-colors flex items-center gap-3"
-                        >
-                          <div className="p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                            {component.icon}
+                      <h3 className="text-xl font-bold text-[#00ADB5] mb-4 flex items-center gap-2">
+                        <Terminal className="w-5 h-5" />
+                        Framework-Specific Setup
+                      </h3>
+
+                      <Tabs defaultValue="next" className="w-full">
+                        <TabsList className="grid w-full grid-cols-3 bg-[#222831] rounded-lg mb-4">
+                          <TabsTrigger
+                            value="next"
+                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
+                          >
+                            Next.js
+                          </TabsTrigger>
+                          <TabsTrigger
+                            value="vite"
+                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
+                          >
+                            Vite
+                          </TabsTrigger>
+                          <TabsTrigger
+                            value="cra"
+                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
+                          >
+                            Create React App
+                          </TabsTrigger>
+                        </TabsList>
+
+                        <TabsContent value="next" className="mt-2">
+                          <p className="text-[#7b7b7b] mb-4">
+                            For Next.js projects, follow these additional steps:
+                          </p>
+                          <Code language="bash">
+                            {`# Install dependencies
+                                npm install tailwindcss postcss autoprefixer
+                                npx tailwindcss init -p`}
+                          </Code>
+                          <div className="mt-4">
+                            <Button
+                              variant="outline"
+                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
+                              icon={<ArrowRight className="w-4 h-4" />}
+                              iconPosition="right"
+                            >
+                              View Next.js Setup Guide
+                            </Button>
                           </div>
-                          <span className="text-[#EEEEEE]">
-                            {component.name}
-                          </span>
-                        </motion.div>
-                      ))}
+                        </TabsContent>
+
+                        <TabsContent value="vite" className="mt-2">
+                          <p className="text-[#7b7b7b] mb-4">
+                            For Vite projects, follow these additional steps:
+                          </p>
+                          <Code language="bash">
+                            {`# Install dependencies
+                                npm install tailwindcss postcss autoprefixer
+                                npx tailwindcss init -p`}
+                          </Code>
+                          <div className="mt-4">
+                            <Button
+                              variant="outline"
+                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
+                              icon={<ArrowRight className="w-4 h-4" />}
+                              iconPosition="right"
+                            >
+                              View Vite Setup Guide
+                            </Button>
+                          </div>
+                        </TabsContent>
+
+                        <TabsContent value="cra" className="mt-2">
+                          <p className="text-[#7b7b7b] mb-4">
+                            For Create React App projects, follow these
+                            additional steps:
+                          </p>
+                          <Code language="bash">
+                            {`# Install dependencies
+                                npm install tailwindcss postcss autoprefixer
+                                npx tailwindcss init -p
+
+                                # Install CRACO for configuration overrides
+                                npm install @craco/craco`}
+                          </Code>
+                          <div className="mt-4">
+                            <Button
+                              variant="outline"
+                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
+                              icon={<ArrowRight className="w-4 h-4" />}
+                              iconPosition="right"
+                            >
+                              View CRA Setup Guide
+                            </Button>
+                          </div>
+                        </TabsContent>
+                      </Tabs>
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 1.7 }}
-                      className="mt-8 p-6 rounded-lg bg-[#00ADB5]/5 border border-[#00ADB5]/20"
+                      transition={{ duration: 0.5, delay: 1.1 }}
+                      className="mt-12"
                     >
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#00ADB5] mt-1" />
-                        <div>
-                          <h3 className="text-lg font-medium text-[#00ADB5]">
-                            Ready to Get Started?
-                          </h3>
-                          <p className="mt-2 text-[#7b7b7b]">
-                            Check out our comprehensive documentation for
-                            detailed guides, examples, and API references.
-                          </p>
-                        </div>
+                      <h3 className="text-xl font-bold text-[#00ADB5] mb-4 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5" />
+                        Next Steps
+                      </h3>
+
+                      <ul className="space-y-4 mt-6">
+                        <li className="flex items-start gap-3">
+                          <div className="mt-1 p-1 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <span className="text-[#EEEEEE]">
+                              Explore components
+                            </span>{" "}
+                            - Browse our component library to see what's
+                            available.
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="mt-1 p-1 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <span className="text-[#EEEEEE]">
+                              Read the documentation
+                            </span>{" "}
+                            - Learn about component APIs and customization
+                            options.
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <div className="mt-1 p-1 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <span className="text-[#EEEEEE]">
+                              Join our community
+                            </span>{" "}
+                            - Get help and share your creations with other
+                            developers.
+                          </div>
+                        </li>
+                      </ul>
+
+                      <div className="flex flex-wrap gap-4 mt-8">
+                        <Button
+                          className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/90"
+                          icon={<Zap className="w-4 h-4" />}
+                        >
+                          Explore Components
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
+                          icon={<FileCode className="w-4 h-4" />}
+                        >
+                          View Documentation
+                        </Button>
                       </div>
                     </motion.div>
                   </motion.div>
