@@ -14,7 +14,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -46,10 +45,7 @@ export function NavbarSection() {
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <header
       className={cn(
         "fixed top-0 left-0 w-full z-30 transition-all duration-300",
         scrolled
@@ -59,11 +55,9 @@ export function NavbarSection() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
-        <motion.a
+        <a
           href="/"
-          className="flex items-center gap-2"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-2 hover:scale-105 transition-transform"
         >
           <div className="flex items-center">
             <span className="text-[#00ADB5] mr-1 text-2xl font-bold tracking-tighter">
@@ -73,77 +67,68 @@ export function NavbarSection() {
               -ine UI
             </span>
           </div>
-        </motion.a>
+        </a>
 
         <div className="hidden md:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList className="gap-2">
               {navLinks.map((link) => (
                 <NavigationMenuItem key={link.name}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <NavigationMenuLink
+                    asChild
+                    className={cn(
+                      "px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:scale-105",
+                      activeLink === link.href
+                        ? "bg-[#00ADB5]/10 text-[#00ADB5]"
+                        : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
+                    )}
                   >
-                    <NavigationMenuLink
-                      asChild
-                      className={cn(
-                        "px-4 py-2 rounded-md text-sm font-medium transition-all duration-300",
-                        activeLink === link.href
-                          ? "bg-[#00ADB5]/10 text-[#00ADB5]"
-                          : "text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]"
-                      )}
-                    >
-                      {link.external ? (
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block"
-                        >
-                          {link.name}
-                        </a>
-                      ) : (
-                        <Link to={link.href} className="block">
-                          {link.name}
-                        </Link>
-                      )}
-                    </NavigationMenuLink>
-                  </motion.div>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link to={link.href} className="block">
+                        {link.name}
+                      </Link>
+                    )}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
           </NavigationMenu>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              asChild
-              size="sm"
-              className="rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
-            >
-              <Link to="/docs/home" className="flex items-center">
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-          </motion.div>
+          <Button
+            asChild
+            size="sm"
+            className="rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium hover:scale-105 transition-transform"
+          >
+            <Link to="/docs/home" className="flex items-center">
+              Get Started
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
 
         <Sheet>
           <SheetTrigger asChild>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden text-[#00ADB5] hover:bg-[#00ADB5]/10"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </motion.div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden text-[#00ADB5] hover:bg-[#00ADB5]/10 hover:scale-110 transition-transform"
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="bg-[#222831] border-l-[#00ADB5]/20"
+            className="bg-[#222831] border-none shadow-none"
           >
             <SheetHeader>
               <SheetTitle className="text-left text-[#EEEEEE]">
@@ -158,39 +143,31 @@ export function NavbarSection() {
             <div className="mt-6">
               <nav className="flex flex-col gap-2">
                 {navLinks.map((link) => (
-                  <motion.div
-                    key={link.name}
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
+                  <div key={link.name}>
                     {link.external ? (
                       <a
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block"
+                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block hover:translate-x-1"
                       >
                         {link.name}
                       </a>
                     ) : (
                       <Link
                         to={link.href}
-                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block"
+                        className="px-4 py-2 rounded-md text-sm font-medium text-[#EEEEEE] hover:bg-[#00ADB5]/10 hover:text-[#00ADB5] transition-colors block hover:translate-x-1"
                       >
                         {link.name}
                       </Link>
                     )}
-                  </motion.div>
+                  </div>
                 ))}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-4"
-                >
+                <div className="mt-4">
                   <Button
                     asChild
                     size="sm"
-                    className="w-full rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
+                    className="w-full rounded-full gap-2 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium hover:scale-105 transition-transform"
                   >
                     <Link
                       to="/docs/home"
@@ -200,13 +177,13 @@ export function NavbarSection() {
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
-                </motion.div>
+                </div>
               </nav>
             </div>
           </SheetContent>
         </Sheet>
       </div>
-    </motion.header>
+    </header>
   );
 }
 
