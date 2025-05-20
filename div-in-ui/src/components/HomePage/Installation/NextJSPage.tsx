@@ -2,22 +2,21 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Code } from "@/components/ui/code";
+import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ExternalLink,
-  Check,
   Terminal,
   Package,
   Settings,
   FileCode,
   Play,
   Info,
+  Check,
+  ExternalLink,
 } from "lucide-react";
-import { Code } from "@/components/ui/code";
-import { motion } from "framer-motion";
 
 export function NextJSPage() {
+  // Command to create a new Next.js project
   const installCommand = `# Using npm
 npx create-next-app@latest my-div-ine-app
 cd my-div-ine-app
@@ -30,6 +29,7 @@ cd my-div-ine-app
 yarn create next-app my-div-ine-app
 cd my-div-ine-app`;
 
+  // Prompt options during Next.js project creation
   const promptOptions = `✔ Would you like to use TypeScript? … Yes
 ✔ Would you like to use ESLint? … Yes
 ✔ Would you like to use Tailwind CSS? … Yes
@@ -37,6 +37,7 @@ cd my-div-ine-app`;
 ✔ Would you like to use App Router? (recommended) … Yes
 ✔ Would you like to customize the default import alias (@/*)? … Yes`;
 
+  // Command to install Div-ine UI CLI and initialize the project
   const divIneInstallCommand = `# Using npm
 npm install @div-ine/cli
 npx div-ine init --next
@@ -49,6 +50,7 @@ pnpm dlx div-ine init --next
 yarn add @div-ine/cli
 yarn dlx div-ine init --next`;
 
+  // Command to add components using the CLI
   const addComponentsCommand = `# Add button component
 npx div-ine add button
 
@@ -58,6 +60,7 @@ npx div-ine add button card badge
 # Add with specific configuration
 npx div-ine add button --with-variants --with-animations`;
 
+  // Example of using a component in a Next.js project
   const basicUsageCode = `import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -316,26 +319,6 @@ export default function Home() {
                         ))}
                       </div>
                     </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 1.8 }}
-                      className="flex justify-center mt-10"
-                    >
-                      <Button
-                        className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80 hover:from-[#00ADB5]/90 hover:to-[#00ADB5] text-[#222831] rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
-                        asChild
-                      >
-                        <a
-                          href="/docs/components"
-                          className="flex items-center gap-2"
-                        >
-                          Explore Components
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
@@ -346,3 +329,5 @@ export default function Home() {
     </SidebarProvider>
   );
 }
+
+export default NextJSPage;

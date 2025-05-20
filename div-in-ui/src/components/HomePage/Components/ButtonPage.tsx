@@ -21,8 +21,9 @@ import { motion } from "framer-motion";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+// Button Variants Configuration
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -78,38 +79,13 @@ const buttonVariants = cva(
   }
 );
 
+// Button Component
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
   icon?: React.ReactNode;
-  className?: string;
-  variant?:
-    | "default"
-    | "solid"
-    | "outline"
-    | "destructive"
-    | "success"
-    | "secondary"
-    | "ghost"
-    | "link"
-    | "soft"
-    | "glossy";
-  size?:
-    | "default"
-    | "sm"
-    | "lg"
-    | "xl"
-    | "icon"
-    | "pill"
-    | "sm-pill"
-    | "lg-pill"
-    | "xl-pill";
-  animation?: "none" | "pulse" | "bounce" | "glow" | "float";
-  iconPosition?: "none" | "left" | "right";
-  children?: React.ReactNode;
-  disabled?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -185,37 +161,29 @@ Button.displayName = "Button";
 
 export { Button, buttonVariants };
 
+// ButtonPage Component
 export function ButtonPage() {
-  const buttonCode = `import * as React from "react";
+  const buttonCode = `// Button Component Code
+import * as React from "react";
 import { forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: 
-          "bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/90 text-white shadow-lg hover:shadow-xl hover:from-[#00ADB5]/90 hover:to-[#00ADB5]",
-        solid: 
-          "bg-[#00ADB5] text-white hover:bg-[#00ADB5]/90",
-        outline: 
-          "border border-[#00ADB5] text-[#00ADB5] hover:bg-[#00ADB5]/10",
-        destructive: 
-          "bg-red-500 text-white hover:bg-red-600",
-        success: 
-          "bg-green-500 text-white hover:bg-green-600",
-        secondary: 
-          "bg-[#00ADB5]/20 text-[#00ADB5] hover:bg-[#00ADB5]/30",
-        ghost: 
-          "hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]",
-        link: 
-          "text-[#00ADB5] underline-offset-4 hover:underline",
-        soft: 
-          "bg-[#00ADB5]/10 text-[#00ADB5] hover:bg-[#00ADB5]/20",
-        glossy: 
-          "bg-gradient-to-b from-white/10 to-white/5 border border-white/20 backdrop-blur-sm text-white shadow-inner",
+        default: "bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/90 text-white shadow-lg hover:shadow-xl hover:from-[#00ADB5]/90 hover:to-[#00ADB5]",
+        solid: "bg-[#00ADB5] text-white hover:bg-[#00ADB5]/90",
+        outline: "border border-[#00ADB5] text-[#00ADB5] hover:bg-[#00ADB5]/10",
+        destructive: "bg-red-500 text-white hover:bg-red-600",
+        success: "bg-green-500 text-white hover:bg-green-600",
+        secondary: "bg-[#00ADB5]/20 text-[#00ADB5] hover:bg-[#00ADB5]/30",
+        ghost: "hover:bg-[#00ADB5]/10 hover:text-[#00ADB5]",
+        link: "text-[#00ADB5] underline-offset-4 hover:underline",
+        soft: "bg-[#00ADB5]/10 text-[#00ADB5] hover:bg-[#00ADB5]/20",
+        glossy: "bg-gradient-to-b from-white/10 to-white/5 border border-white/20 backdrop-blur-sm text-white shadow-inner",
       },
       size: {
         default: "h-10 px-4 py-2 rounded-lg",
@@ -238,21 +206,21 @@ const buttonVariants = cva(
       iconPosition: {
         none: "",
         left: "flex-row",
-        right: "flex-row-reverse"
-      }
+        right: "flex-row-reverse",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
       animation: "none",
-      iconPosition: "none"
+      iconPosition: "none",
     },
     compoundVariants: [
       {
         iconPosition: ["left", "right"],
-        className: "gap-2"
-      }
-    ]
+        className: "gap-2",
+      },
+    ],
   }
 );
 
@@ -265,29 +233,32 @@ export interface ButtonProps
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ 
-    className, 
-    variant, 
-    size, 
-    animation,
-    iconPosition,
-    loading = false,
-    icon,
-    children,
-    disabled,
-    ...props 
-  }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      animation,
+      iconPosition,
+      loading = false,
+      icon,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
     const isDisabled = disabled || loading;
-    
+
     return (
       <button
         className={cn(
-          buttonVariants({ 
-            variant, 
-            size, 
+          buttonVariants({
+            variant,
+            size,
             animation,
-            iconPosition: icon ? (iconPosition || "left") : "none"
-          }), 
+            iconPosition: icon ? iconPosition || "left" : "none",
+          }),
           className
         )}
         ref={ref}
@@ -296,15 +267,35 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading && (
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <svg
+              className="animate-spin h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
             </svg>
           </span>
         )}
-        {icon && iconPosition !== "right" && <span className={loading ? "invisible" : ""}>{icon}</span>}
+        {icon && iconPosition !== "right" && (
+          <span className={loading ? "invisible" : ""}>{icon}</span>
+        )}
         <span className={loading ? "invisible" : ""}>{children}</span>
-        {icon && iconPosition === "right" && <span className={loading ? "invisible" : ""}>{icon}</span>}
+        {icon && iconPosition === "right" && (
+          <span className={loading ? "invisible" : ""}>{icon}</span>
+        )}
       </button>
     );
   }
@@ -314,32 +305,21 @@ Button.displayName = "Button";
 
 export { Button, buttonVariants };`;
 
-  const buttonUsageCode = `import { Button } from "./button";
+  const buttonUsageCode = `// Button Usage Example
+import { Button } from "@/components/ui/button";
+import { Sparkles, Trash2, ArrowRight } from "lucide-react";
 
 export function ButtonDemo() {
   return (
     <div className="flex flex-col gap-4">
-      {/* Aurora Button */}
-      <Button variant="aurora" icon={<Sparkles className="h-4 w-4" />}>
-        Aurora Button
+      <Button variant="default" icon={<Sparkles className="h-4 w-4" />}>
+        Default Button
       </Button>
-
-      {/* Glass Button */}
-      <Button variant="glass" icon={<Zap className="h-4 w-4" />}>
-        Glass Button
-      </Button>
-
-      {/* Neon Button */}
-      <Button variant="neon" icon={<ArrowRight className="h-4 w-4" />}>
-        Neon Button
-      </Button>
-
-      {/* Loading Button */}
-      <Button loading>Processing</Button>
-
-      {/* Destructive Button */}
       <Button variant="destructive" icon={<Trash2 className="h-4 w-4" />}>
         Delete
+      </Button>
+      <Button variant="link" icon={<ArrowRight className="h-4 w-4" />} iconPosition="right">
+        Learn More
       </Button>
     </div>
   );
@@ -382,7 +362,7 @@ export function ButtonDemo() {
                   >
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Button
-                    </span>
+                    </span>{" "}
                     Components
                   </motion.h1>
                 </CardHeader>

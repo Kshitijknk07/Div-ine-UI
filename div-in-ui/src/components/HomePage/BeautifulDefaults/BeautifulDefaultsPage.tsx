@@ -2,16 +2,8 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ExternalLink,
-  Paintbrush,
-  Palette,
-  Sparkles,
-  Wand2,
-} from "lucide-react";
 import { motion } from "framer-motion";
+import { Paintbrush, Palette, Sparkles, Wand2 } from "lucide-react";
 
 export function BeautifulDefaultsPage() {
   const features = [
@@ -20,28 +12,24 @@ export function BeautifulDefaultsPage() {
       title: "Design Language",
       description:
         "A cohesive visual system with consistent spacing, typography, and interactive states that creates harmony across all components.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <Palette className="w-5 h-5" />,
       title: "Color Theory",
       description:
         "Carefully selected color palettes that work well together and provide appropriate contrast for accessibility.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <Sparkles className="w-5 h-5" />,
       title: "Subtle Animation",
       description:
         "Thoughtful motion design that enhances usability and adds delight without being distracting or overwhelming.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <Wand2 className="w-5 h-5" />,
       title: "Refined Details",
       description:
         "Precise shadows, borders, and states that create depth and hierarchy while maintaining a clean aesthetic.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
   ];
 
@@ -89,14 +77,8 @@ export function BeautifulDefaultsPage() {
                   </Badge>
 
                   <motion.h1
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
                   >
@@ -110,18 +92,9 @@ export function BeautifulDefaultsPage() {
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
                   <div className="prose max-w-4xl mx-auto text-[#EEEEEE] space-y-8">
                     <motion.p
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.2,
-                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
                       className="text-lg sm:text-xl leading-relaxed text-center"
                     >
                       <span className="text-[#00ADB5] font-medium">
@@ -135,18 +108,9 @@ export function BeautifulDefaultsPage() {
                     <div className="border-t border-[#00ADB5]/10 pt-4 mt-6"></div>
 
                     <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.4,
-                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
                     >
                       <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20">
                         Why Beautiful Defaults Matter
@@ -162,31 +126,16 @@ export function BeautifulDefaultsPage() {
                     </motion.div>
 
                     <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.6,
-                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
                       className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"
                     >
                       {features.map((feature, index) => (
                         <motion.div
                           key={feature.title}
-                          initial={{
-                            opacity: 0,
-                            y: 20,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            y: 0,
-                          }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
                           transition={{
                             duration: 0.5,
                             delay: 0.8 + index * 0.1,
@@ -195,35 +144,24 @@ export function BeautifulDefaultsPage() {
                           className="bg-[#393E46]/60 rounded-lg p-6 border border-[#00ADB5]/20 hover:border-[#00ADB5]/40 transition-all duration-300"
                         >
                           <div className="flex items-center mb-4">
-                            <div
-                              className={`rounded-full bg-gradient-to-r ${feature.color} p-2 mr-3`}
-                            >
-                              {feature.icon}{" "}
+                            <div className="rounded-full bg-[#00ADB5]/10 p-2 mr-3 text-[#00ADB5]">
+                              {feature.icon}
                             </div>
                             <h3 className="text-xl font-bold text-[#00ADB5]">
-                              {feature.title}{" "}
+                              {feature.title}
                             </h3>
                           </div>
                           <p className="text-[#EEEEEE]">
-                            {feature.description}{" "}
+                            {feature.description}
                           </p>
                         </motion.div>
-                      ))}{" "}
+                      ))}
                     </motion.div>
 
                     <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 1.2,
-                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 1.2 }}
                     >
                       <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20">
                         Our Design Principles
@@ -233,14 +171,8 @@ export function BeautifulDefaultsPage() {
                         {designPrinciples.map((principle, index) => (
                           <motion.div
                             key={principle.number}
-                            initial={{
-                              opacity: 0,
-                              y: 20,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              y: 0,
-                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{
                               duration: 0.5,
                               delay: 1.4 + index * 0.1,
@@ -248,91 +180,21 @@ export function BeautifulDefaultsPage() {
                             className="flex gap-6"
                           >
                             <div className="flex-shrink-0">
-                              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#00ADB5]/20 to-[#00ADB5]/10 flex items-center justify-center text-xl font-bold text-[#00ADB5] border border-[#00ADB5]/30">
-                                {principle.number}{" "}
+                              <div className="w-12 h-12 rounded-full bg-[#00ADB5]/10 flex items-center justify-center text-xl font-bold text-[#00ADB5] border border-[#00ADB5]/30">
+                                {principle.number}
                               </div>
                             </div>
                             <div>
                               <h3 className="text-xl font-bold text-[#00ADB5] mb-2">
-                                {principle.title}{" "}
+                                {principle.title}
                               </h3>
                               <p className="text-[#EEEEEE]">
-                                {principle.description}{" "}
+                                {principle.description}
                               </p>
                             </div>
                           </motion.div>
-                        ))}{" "}
+                        ))}
                       </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 2,
-                      }}
-                      className="bg-[#00ADB5]/10 rounded-lg p-6 border border-[#00ADB5]/20 mt-8"
-                    >
-                      <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
-                        Customize Your Aesthetics
-                      </h3>
-                      <p className="text-[#EEEEEE]">
-                        While our defaults are designed to look great right
-                        away, every aspect of the design system can be
-                        customized to match your brand's identity. Our design
-                        token system makes it easy to change colors, typography,
-                        spacing, and more.
-                      </p>
-                      <div className="mt-4">
-                        <Button
-                          className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
-                          asChild
-                        >
-                          <a
-                            href="/docs/components"
-                            className="flex items-center gap-2"
-                          >
-                            Read the Customization Guide
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 2.2,
-                      }}
-                      className="flex justify-center mt-10"
-                    >
-                      <Button
-                        className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80 hover:from-[#00ADB5]/90 hover:to-[#00ADB5] text-[#222831] rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
-                        asChild
-                      >
-                        <a
-                          href="/docs/components"
-                          className="flex items-center gap-2"
-                        >
-                          Explore Components
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      </Button>
                     </motion.div>
                   </div>
                 </CardContent>
@@ -344,3 +206,5 @@ export function BeautifulDefaultsPage() {
     </SidebarProvider>
   );
 }
+
+export default BeautifulDefaultsPage;

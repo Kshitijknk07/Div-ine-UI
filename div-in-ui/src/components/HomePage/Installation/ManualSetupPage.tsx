@@ -15,6 +15,7 @@ import { Code } from "@/components/ui/code";
 import { motion } from "framer-motion";
 
 export function ManualSetupPage() {
+  // Commands to install dependencies
   const dependenciesCommand = `# Using npm
 npm install tailwindcss postcss autoprefixer
 npm install @radix-ui/react-dialog @radix-ui/react-slot clsx class-variance-authority tailwind-merge
@@ -30,9 +31,11 @@ yarn add tailwindcss postcss autoprefixer
 yarn add @radix-ui/react-dialog @radix-ui/react-slot clsx class-variance-authority tailwind-merge
 yarn add lucide-react`;
 
+  // Command to initialize Tailwind CSS
   const initTailwindCommand = `# Initialize Tailwind CSS
 npx tailwindcss init -p`;
 
+  // Utility function for class merging
   const cnUtilCode = `// lib/utils.ts
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -41,6 +44,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }`;
 
+  // Tailwind configuration file
   const tailwindConfigCode = `// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -119,6 +123,7 @@ module.exports = {
   plugins: [require("tailwindcss-animate")],
 }`;
 
+  // CSS variables for theming
   const cssVariablesCode = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -196,12 +201,13 @@ module.exports = {
   }
 }`;
 
+  // Example button component
   const buttonComponentCode = `// components/ui/button.tsx
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -230,29 +236,29 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
+Button.displayName = "Button";
 
-export { Button, buttonVariants }`;
+export { Button, buttonVariants };`;
 
   return (
     <SidebarProvider
@@ -291,7 +297,7 @@ export { Button, buttonVariants }`;
                   >
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]">
                       Manual
-                    </span>
+                    </span>{" "}
                     Setup Guide
                   </motion.h1>
                 </CardHeader>
@@ -336,7 +342,7 @@ export { Button, buttonVariants }`;
 
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.6 }}
                       className="space-y-4"
                     >
@@ -347,7 +353,7 @@ export { Button, buttonVariants }`;
 
                     <motion.h2
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.7 }}
                       className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
                     >
@@ -357,7 +363,7 @@ export { Button, buttonVariants }`;
 
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.8 }}
                       className="space-y-4"
                     >
@@ -368,7 +374,7 @@ export { Button, buttonVariants }`;
 
                     <motion.h2
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.9 }}
                       className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/30 flex items-center gap-2"
                     >
@@ -378,7 +384,7 @@ export { Button, buttonVariants }`;
 
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 1 }}
                       className="space-y-6"
                     >

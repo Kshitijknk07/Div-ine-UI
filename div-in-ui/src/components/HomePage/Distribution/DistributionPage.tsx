@@ -2,23 +2,21 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Code } from "@/components/ui/code";
+import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  ExternalLink,
   Package,
-  FileCode,
   Terminal,
+  FileCode,
   RefreshCw,
   Code2,
   GitBranch,
   Layers,
   Share2,
 } from "lucide-react";
-import { Code } from "@/components/ui/code";
-import { motion } from "framer-motion";
 
 export function DistributionPage() {
+  // JSON schema example for a component
   const schemaCode = `{
   "$schema": "https://div-ine-ui.dev/schema.json",
   "name": "button",
@@ -27,14 +25,8 @@ export function DistributionPage() {
   "framework": ["react", "vue", "svelte", "solid"],
   "dependencies": ["@div-ine/utils"],
   "files": [
-    {
-      "name": "button.tsx",
-      "path": "./src/button.tsx"
-    },
-    {
-      "name": "button.css",
-      "path": "./src/button.css"
-    }
+    { "name": "button.tsx", "path": "./src/button.tsx" },
+    { "name": "button.css", "path": "./src/button.css" }
   ],
   "exports": {
     "default": "./src/button.tsx",
@@ -56,6 +48,7 @@ export function DistributionPage() {
   }
 }`;
 
+  // CLI commands for managing components
   const cliCode = `# Install the Div-ine UI CLI
 npm install -g @div-ine/cli
 
@@ -74,37 +67,35 @@ div-ine export my-custom-card
 # Share your component with others
 div-ine publish my-custom-card`;
 
+  // Features of the distribution system
   const features = [
     {
       icon: <Package className="w-5 h-5" />,
       title: "Component Schema",
       description:
         "A standardized JSON schema that defines a component's properties, dependencies, and implementation files.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <Terminal className="w-5 h-5" />,
       title: "CLI Tool",
       description:
         "A powerful command-line interface for adding, creating, and publishing components with cross-framework support.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <FileCode className="w-5 h-5" />,
       title: "Open Registry",
       description:
         "A central repository of components that anyone can publish to and consume from, fostering community collaboration.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
     {
       icon: <RefreshCw className="w-5 h-5" />,
       title: "Framework Adapters",
       description:
         "Automatic translation layers that convert components between different frameworks while preserving their behavior.",
-      color: "from-[#00ADB5] to-[#00ADB5]/80",
     },
   ];
 
+  // Benefits of the distribution system
   const benefits = [
     {
       icon: <Code2 className="w-5 h-5" />,
@@ -192,7 +183,7 @@ div-ine publish my-custom-card`;
                         different projects and frameworks. Unlike traditional
                         component libraries that restrict you to a single
                         framework, our distribution system allows components to
-                        work across React, Vue, Svel, and more.
+                        work across React, Vue, Svelte, and more.
                       </p>
                     </motion.div>
 
@@ -215,9 +206,7 @@ div-ine publish my-custom-card`;
                           className="bg-[#393E46]/60 rounded-lg p-6 border border-[#00ADB5]/20 hover:border-[#00ADB5]/40 transition-all duration-300"
                         >
                           <div className="flex items-center mb-4">
-                            <div
-                              className={`rounded-full bg-gradient-to-r ${feature.color} p-2 mr-3`}
-                            >
+                            <div className="rounded-full bg-[#00ADB5]/10 p-2 mr-3 text-[#00ADB5]">
                               {feature.icon}
                             </div>
                             <h3 className="text-xl font-bold text-[#00ADB5]">
@@ -251,12 +240,6 @@ div-ine publish my-custom-card`;
                           {schemaCode}
                         </Code>
                       </div>
-
-                      <p className="text-base leading-relaxed mt-4">
-                        This schema allows our tools to understand the
-                        component's requirements, dependencies, and usage
-                        patterns across different frameworks.
-                      </p>
                     </motion.div>
 
                     <motion.div
@@ -317,57 +300,6 @@ div-ine publish my-custom-card`;
                         ))}
                       </div>
                     </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 2 }}
-                      className="bg-[#00ADB5]/10 rounded-lg p-6 border border-[#00ADB5]/20 mt-8"
-                    >
-                      <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
-                        Create and Share Your Own Components
-                      </h3>
-                      <p className="text-[#EEEEEE]">
-                        Ready to contribute to the ecosystem? Create your own
-                        components and share them with the community. Our
-                        distribution system makes it easy to publish your work
-                        and get feedback from other developers.
-                      </p>
-                      <div className="mt-4">
-                        <Button
-                          className="bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-[#222831] font-medium"
-                          asChild
-                        >
-                          <a
-                            href="/docs/components"
-                            className="flex items-center gap-2"
-                          >
-                            Read the Publishing Guide
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 2.2 }}
-                      className="flex justify-center mt-10"
-                    >
-                      <Button
-                        className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80 hover:from-[#00ADB5]/90 hover:to-[#00ADB5] text-[#222831] rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
-                        asChild
-                      >
-                        <a
-                          href="/docs/components"
-                          className="flex items-center gap-2"
-                        >
-                          Explore Components
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
@@ -378,3 +310,5 @@ div-ine publish my-custom-card`;
     </SidebarProvider>
   );
 }
+
+export default DistributionPage;

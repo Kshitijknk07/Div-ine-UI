@@ -2,17 +2,14 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  Boxes,
   Layers,
   Puzzle,
   Blocks,
   Code2,
   GitBranch,
   Package,
-  ArrowRight,
   Component,
   LayoutGrid,
   Settings,
@@ -264,30 +261,6 @@ export function CompositionPage() {
                         </div>
                       </motion.li>
                     </motion.ul>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 1.3 }}
-                      className="mt-8 p-6 rounded-lg bg-[#00ADB5]/5 border border-[#00ADB5]/20"
-                    >
-                      <div className="flex items-start gap-3">
-                        <Boxes className="w-5 h-5 text-[#00ADB5] mt-1" />
-                        <div>
-                          <h3 className="text-lg font-medium text-[#00ADB5]">
-                            Start Composing
-                          </h3>
-                          <p className="mt-2 text-[#7b7b7b]">
-                            Explore our component library and start building
-                            your next great interface.
-                          </p>
-                          <Button className="mt-4 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center gap-2">
-                            View Components
-                            <ArrowRight className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </motion.div>
                   </motion.div>
                 </CardContent>
               </Card>

@@ -2,22 +2,12 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ExternalLink,
-  Check,
-  Terminal,
-  Clipboard,
-  FileCode,
-  Package,
-  Settings,
-  Play,
-} from "lucide-react";
+import { ExternalLink, Check, Terminal, Clipboard } from "lucide-react";
 import { Code } from "@/components/ui/code";
 import { motion } from "framer-motion";
 
 export function VitePage() {
+  // Command to create a new Vite project
   const installCommand = `# Using npm
 npm create vite my-div-ine-app --template react-ts
 cd my-div-ine-app
@@ -30,6 +20,7 @@ cd my-div-ine-app
 yarn create vite my-div-ine-app --template react-ts
 cd my-div-ine-app`;
 
+  // Command to install Div-ine UI CLI and initialize the project
   const divIneInstallCommand = `# Using npm
 npm install @div-ine/cli
 npx div-ine init
@@ -42,7 +33,8 @@ pnpm dlx div-ine init
 yarn add @div-ine/cli
 yarn dlx div-ine init`;
 
-  const addComponentsCommand = `# Add button component
+  // Command to add components using the CLI
+  const addComponentsCommand = `# Add a button component
 npx div-ine add button
 
 # Add multiple components at once
@@ -51,6 +43,7 @@ npx div-ine add button card badge
 # Add with specific configuration
 npx div-ine add button --with-variants --with-animations`;
 
+  // Example of using a component in the project
   const basicUsageCode = `import { Button } from '@/components/ui/button';
 
 function App() {
@@ -64,6 +57,7 @@ function App() {
 
 export default App;`;
 
+  // Tailwind configuration file
   const configTailwindCode = `// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -142,6 +136,7 @@ module.exports = {
   plugins: [require("tailwindcss-animate")],
 }`;
 
+  // CSS variables for theming
   const cssVariablesCode = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -218,43 +213,6 @@ module.exports = {
     @apply bg-background text-foreground;
   }
 }`;
-
-  const steps = [
-    {
-      number: "1",
-      title: "Create a New Vite Project",
-      description:
-        "First, create a new Vite project with React and TypeScript template.",
-      icon: <Package className="w-5 h-5" />,
-      code: installCommand,
-      tip: "Replace 'my-div-ine-app' with your preferred project name. The '--template react-ts' flag ensures your project is set up with React and TypeScript.",
-    },
-    {
-      number: "2",
-      title: "Install Dependencies",
-      description:
-        "Install the Div-ine UI CLI tool and initialize your project.",
-      icon: <Settings className="w-5 h-5" />,
-      code: divIneInstallCommand,
-      tip: "This will install the Div-ine UI CLI tool and initialize your project with the necessary configuration files.",
-    },
-    {
-      number: "3",
-      title: "Add Components",
-      description: "Add Div-ine UI components to your project using the CLI.",
-      icon: <FileCode className="w-5 h-5" />,
-      code: addComponentsCommand,
-      tip: "The CLI will add the selected components to your project in the 'src/components/ui' directory.",
-    },
-    {
-      number: "4",
-      title: "Start Using Components",
-      description: "Import and use the components in your React application.",
-      icon: <Play className="w-5 h-5" />,
-      code: basicUsageCode,
-      tip: "You can now use the components in your application. Each component is fully customizable.",
-    },
-  ];
 
   return (
     <SidebarProvider
@@ -361,45 +319,53 @@ module.exports = {
                       </ul>
                     </motion.div>
 
-                    {steps.map((step, index) => (
-                      <motion.div
-                        key={step.number}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      >
-                        <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20 flex items-center">
-                          <span className="flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-r from-[#00ADB5]/20 to-[#00ADB5]/10 text-[#00ADB5] border border-[#00ADB5]/30 mr-3 text-sm">
-                            {step.number}
-                          </span>
-                          {step.title}
-                        </h2>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                    >
+                      <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20">
+                        Steps to Get Started
+                      </h2>
 
-                        <p className="text-base leading-relaxed mt-4">
-                          {step.description}
-                        </p>
-
-                        <Code filename="terminal" language="bash">
-                          {step.code}
-                        </Code>
-
-                        <div className="flex mt-4">
-                          <div className="flex-shrink-0">
-                            <div className="rounded-full bg-[#00ADB5]/10 p-2 text-[#00ADB5]">
-                              {step.icon}
-                            </div>
-                          </div>
-                          <div className="ml-3">
-                            <h3 className="text-sm font-medium text-[#00ADB5]">
-                              Pro Tip
-                            </h3>
-                            <div className="mt-2 text-sm text-[#EEEEEE]">
-                              <p>{step.tip}</p>
-                            </div>
-                          </div>
+                      <div className="space-y-8 mt-6">
+                        <div>
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
+                            Step 1: Create a New Vite Project
+                          </h3>
+                          <Code filename="terminal" language="bash">
+                            {installCommand}
+                          </Code>
                         </div>
-                      </motion.div>
-                    ))}
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
+                            Step 2: Install Div-ine UI CLI
+                          </h3>
+                          <Code filename="terminal" language="bash">
+                            {divIneInstallCommand}
+                          </Code>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
+                            Step 3: Add Components
+                          </h3>
+                          <Code filename="terminal" language="bash">
+                            {addComponentsCommand}
+                          </Code>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
+                            Step 4: Start Using Components
+                          </h3>
+                          <Code filename="App.js" language="javascript">
+                            {basicUsageCode}
+                          </Code>
+                        </div>
+                      </div>
+                    </motion.div>
 
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -438,26 +404,6 @@ module.exports = {
                         </Code>
                       </div>
                     </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 1.4 }}
-                      className="flex justify-center mt-10"
-                    >
-                      <Button
-                        className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/80 hover:from-[#00ADB5]/90 hover:to-[#00ADB5] text-[#222831] rounded-full px-6 py-2 font-medium text-base flex items-center gap-2"
-                        asChild
-                      >
-                        <a
-                          href="/docs/components"
-                          className="flex items-center gap-2"
-                        >
-                          Explore Components
-                          <ArrowRight className="w-4 h-4" />
-                        </a>
-                      </Button>
-                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
@@ -468,3 +414,5 @@ module.exports = {
     </SidebarProvider>
   );
 }
+
+export default VitePage;
