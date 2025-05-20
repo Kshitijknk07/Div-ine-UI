@@ -17,62 +17,53 @@ import {
 } from "lucide-react";
 
 export function GettingStartedPage() {
-  const installCode = `# Using npm
+  const installCode = `# Install Div-ine UI using npm
 npm install @div-ine/ui
 
-# Using yarn
+# Or using yarn
 yarn add @div-ine/ui
 
-# Using pnpm
+# Or using pnpm
 pnpm add @div-ine/ui`;
 
   const setupCode = `// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ["class"], // Enables dark mode support
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx}', // Include all pages
+    './components/**/*.{ts,tsx}', // Include all components
+    './app/**/*.{ts,tsx}', // Include app directory
+    './src/**/*.{ts,tsx}', // Include src directory
   ],
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(var(--primary))", // Primary color
+          foreground: "hsl(var(--primary-foreground))", // Primary text color
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(var(--secondary))", // Secondary color
+          foreground: "hsl(var(--secondary-foreground))", // Secondary text color
         },
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate")], // Adds animation utilities
 }`;
 
-  const usageCode = `import { Button } from "@div-ine/ui/button";
+  const usageCode = `// Import components from Div-ine UI
+import { Button } from "@div-ine/ui/button";
 import { Badge } from "@div-ine/ui/badge";
 
 export default function App() {
   return (
     <div>
+      {/* Display a badge */}
       <Badge>New Feature</Badge>
+
+      {/* Display a button */}
       <Button>Click me</Button>
     </div>
   );
@@ -233,14 +224,8 @@ export default function App() {
                         Framework-Specific Setup
                       </h3>
 
-                      <Tabs defaultValue="next" className="w-full">
-                        <TabsList className="grid w-full grid-cols-3 bg-[#222831] rounded-lg mb-4">
-                          <TabsTrigger
-                            value="next"
-                            className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
-                          >
-                            Next.js
-                          </TabsTrigger>
+                      <Tabs defaultValue="vite" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 bg-[#222831] rounded-lg mb-4">
                           <TabsTrigger
                             value="vite"
                             className="data-[state=active]:bg-[#00ADB5]/20 data-[state=active]:text-[#00ADB5] rounded-md"
@@ -255,46 +240,15 @@ export default function App() {
                           </TabsTrigger>
                         </TabsList>
 
-                        <TabsContent value="next" className="mt-2">
-                          <p className="text-[#7b7b7b] mb-4">
-                            For Next.js projects, follow these additional steps:
-                          </p>
-                          <Code language="bash">
-                            {`# Install dependencies
-                                npm install tailwindcss postcss autoprefixer
-                                npx tailwindcss init -p`}
-                          </Code>
-                          <div className="mt-4">
-                            <Button
-                              variant="outline"
-                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
-                              icon={<ArrowRight className="w-4 h-4" />}
-                              iconPosition="right"
-                            >
-                              View Next.js Setup Guide
-                            </Button>
-                          </div>
-                        </TabsContent>
-
                         <TabsContent value="vite" className="mt-2">
                           <p className="text-[#7b7b7b] mb-4">
                             For Vite projects, follow these additional steps:
                           </p>
                           <Code language="bash">
                             {`# Install dependencies
-                                npm install tailwindcss postcss autoprefixer
-                                npx tailwindcss init -p`}
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss init -p`}
                           </Code>
-                          <div className="mt-4">
-                            <Button
-                              variant="outline"
-                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
-                              icon={<ArrowRight className="w-4 h-4" />}
-                              iconPosition="right"
-                            >
-                              View Vite Setup Guide
-                            </Button>
-                          </div>
                         </TabsContent>
 
                         <TabsContent value="cra" className="mt-2">
@@ -304,22 +258,12 @@ export default function App() {
                           </p>
                           <Code language="bash">
                             {`# Install dependencies
-                                npm install tailwindcss postcss autoprefixer
-                                npx tailwindcss init -p
+npm install tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 
-                                # Install CRACO for configuration overrides
-                                npm install @craco/craco`}
+# Install CRACO for configuration overrides
+npm install @craco/craco`}
                           </Code>
-                          <div className="mt-4">
-                            <Button
-                              variant="outline"
-                              className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"
-                              icon={<ArrowRight className="w-4 h-4" />}
-                              iconPosition="right"
-                            >
-                              View CRA Setup Guide
-                            </Button>
-                          </div>
                         </TabsContent>
                       </Tabs>
                     </motion.div>
@@ -375,12 +319,6 @@ export default function App() {
                       </ul>
 
                       <div className="flex flex-wrap gap-4 mt-8">
-                        <Button
-                          className="bg-gradient-to-r from-[#00ADB5] to-[#00ADB5]/90"
-                          icon={<Zap className="w-4 h-4" />}
-                        >
-                          Explore Components
-                        </Button>
                         <Button
                           variant="outline"
                           className="text-[#00ADB5] border-[#00ADB5]/50 hover:bg-[#00ADB5]/10"

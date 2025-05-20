@@ -2,10 +2,8 @@ import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   Code,
   FileCode,
   GitBranch,
@@ -74,12 +72,14 @@ export function OpenCodePage() {
                       transition={{ duration: 0.3, delay: 0.3 }}
                       className="text-lg sm:text-xl leading-relaxed text-center"
                     >
-                      Experience the power of{" "}
+                      At{" "}
                       <span className="text-[#00ADB5] font-medium">
                         Div-ine UI
-                      </span>{" "}
-                      with complete access to the source code. Modify, extend,
-                      and customize to your heart's content.
+                      </span>
+                      , we believe in complete transparency and collaboration.
+                      Our open-source philosophy ensures that every component is
+                      accessible, modifiable, and reusable, empowering
+                      developers to create exceptional user interfaces.
                     </motion.p>
 
                     <motion.div
@@ -105,10 +105,7 @@ export function OpenCodePage() {
                       transition={{ duration: 0.3, delay: 0.6 }}
                       className="space-y-6 pl-6 list-none text-base leading-relaxed"
                     >
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Code className="w-4 h-4" />
                         </div>
@@ -120,10 +117,7 @@ export function OpenCodePage() {
                           inspection and modification.
                         </div>
                       </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <FileCode className="w-4 h-4" />
                         </div>
@@ -135,10 +129,7 @@ export function OpenCodePage() {
                           abstraction layers.
                         </div>
                       </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Lock className="w-4 h-4" />
                         </div>
@@ -177,33 +168,27 @@ export function OpenCodePage() {
                       transition={{ duration: 0.3, delay: 0.9 }}
                       className="space-y-4 pl-6 list-none text-base leading-relaxed"
                     >
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Github className="w-4 h-4" />
                         </div>
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Git Integration
-                          </span>
-                          : Track changes and manage versions using your
+                          </span>{" "}
+                          - Track changes and manage versions using your
                           preferred version control system.
                         </div>
                       </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Package className="w-4 h-4" />
                         </div>
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Package Management
-                          </span>
-                          : Use npm, yarn, or pnpm to manage dependencies and
+                          </span>{" "}
+                          - Use npm, yarn, or pnpm to manage dependencies and
                           updates.
                         </div>
                       </motion.li>
@@ -234,61 +219,31 @@ export function OpenCodePage() {
                       transition={{ duration: 0.3, delay: 1.2 }}
                       className="space-y-4 pl-6 list-none text-base leading-relaxed"
                     >
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Share2 className="w-4 h-4" />
                         </div>
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Share Your Modifications
-                          </span>
-                          : Contribute back to the community with your
+                          </span>{" "}
+                          - Contribute back to the community with your
                           improvements.
                         </div>
                       </motion.li>
-                      <motion.li
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
-                      >
+                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
                         <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
                           <Terminal className="w-4 h-4" />
                         </div>
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Open Source
-                          </span>
-                          : Everything is open source and available for everyone
+                          </span>{" "}
+                          - Everything is open source and available for everyone
                           to use and improve.
                         </div>
                       </motion.li>
                     </motion.ul>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 1.3 }}
-                      className="mt-8 p-6 rounded-lg bg-[#00ADB5]/5 border border-[#00ADB5]/20"
-                    >
-                      <div className="flex items-start gap-3">
-                        <Unlock className="w-5 h-5 text-[#00ADB5] mt-1" />
-                        <div>
-                          <h3 className="text-lg font-medium text-[#00ADB5]">
-                            Ready to Dive In?
-                          </h3>
-                          <p className="mt-2 text-[#7b7b7b]">
-                            Explore our GitHub repository to see the source code
-                            and start contributing.
-                          </p>
-                          <Button className="mt-4 bg-[#00ADB5] hover:bg-[#00ADB5]/90 text-white flex items-center gap-2">
-                            View on GitHub
-                            <ArrowRight className="w-4 h-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </motion.div>
                   </motion.div>
                 </CardContent>
               </Card>

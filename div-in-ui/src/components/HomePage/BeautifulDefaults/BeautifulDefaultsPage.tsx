@@ -75,9 +75,7 @@ export function BeautifulDefaultsPage() {
   return (
     <SidebarProvider
       className="bg-gradient-to-b from-[#222831] to-[#393E46] text-white w-full"
-      style={{
-        ["--sidebar-width" as any]: "19rem",
-      }}
+      style={{ ["--sidebar-width" as any]: "19rem" }}
     >
       <div className="flex h-screen w-full overflow-hidden">
         <SidebarPage />
@@ -91,8 +89,14 @@ export function BeautifulDefaultsPage() {
                   </Badge>
 
                   <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
                     transition={{ duration: 0.5 }}
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 text-center"
                   >
@@ -106,9 +110,18 @@ export function BeautifulDefaultsPage() {
                 <CardContent className="px-6 sm:px-8 lg:px-16 py-5">
                   <div className="prose max-w-4xl mx-auto text-[#EEEEEE] space-y-8">
                     <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.2,
+                      }}
                       className="text-lg sm:text-xl leading-relaxed text-center"
                     >
                       <span className="text-[#00ADB5] font-medium">
@@ -122,9 +135,18 @@ export function BeautifulDefaultsPage() {
                     <div className="border-t border-[#00ADB5]/10 pt-4 mt-6"></div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.4,
+                      }}
                     >
                       <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20">
                         Why Beautiful Defaults Matter
@@ -140,16 +162,31 @@ export function BeautifulDefaultsPage() {
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.6,
+                      }}
                       className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"
                     >
                       {features.map((feature, index) => (
                         <motion.div
                           key={feature.title}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
+                          initial={{
+                            opacity: 0,
+                            y: 20,
+                          }}
+                          animate={{
+                            opacity: 1,
+                            y: 0,
+                          }}
                           transition={{
                             duration: 0.5,
                             delay: 0.8 + index * 0.1,
@@ -161,23 +198,32 @@ export function BeautifulDefaultsPage() {
                             <div
                               className={`rounded-full bg-gradient-to-r ${feature.color} p-2 mr-3`}
                             >
-                              {feature.icon}
+                              {feature.icon}{" "}
                             </div>
                             <h3 className="text-xl font-bold text-[#00ADB5]">
-                              {feature.title}
+                              {feature.title}{" "}
                             </h3>
                           </div>
                           <p className="text-[#EEEEEE]">
-                            {feature.description}
+                            {feature.description}{" "}
                           </p>
                         </motion.div>
-                      ))}
+                      ))}{" "}
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 1.2 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 1.2,
+                      }}
                     >
                       <h2 className="text-2xl font-bold mt-8 text-[#00ADB5] pb-1 border-b border-[#00ADB5]/20">
                         Our Design Principles
@@ -187,8 +233,14 @@ export function BeautifulDefaultsPage() {
                         {designPrinciples.map((principle, index) => (
                           <motion.div
                             key={principle.number}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{
+                              opacity: 0,
+                              y: 20,
+                            }}
+                            animate={{
+                              opacity: 1,
+                              y: 0,
+                            }}
                             transition={{
                               duration: 0.5,
                               delay: 1.4 + index * 0.1,
@@ -197,26 +249,35 @@ export function BeautifulDefaultsPage() {
                           >
                             <div className="flex-shrink-0">
                               <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#00ADB5]/20 to-[#00ADB5]/10 flex items-center justify-center text-xl font-bold text-[#00ADB5] border border-[#00ADB5]/30">
-                                {principle.number}
+                                {principle.number}{" "}
                               </div>
                             </div>
                             <div>
                               <h3 className="text-xl font-bold text-[#00ADB5] mb-2">
-                                {principle.title}
+                                {principle.title}{" "}
                               </h3>
                               <p className="text-[#EEEEEE]">
-                                {principle.description}
+                                {principle.description}{" "}
                               </p>
                             </div>
                           </motion.div>
-                        ))}
+                        ))}{" "}
                       </div>
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 2 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 2,
+                      }}
                       className="bg-[#00ADB5]/10 rounded-lg p-6 border border-[#00ADB5]/20 mt-8"
                     >
                       <h3 className="text-lg font-semibold text-[#00ADB5] mb-2">
@@ -246,9 +307,18 @@ export function BeautifulDefaultsPage() {
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 2.2 }}
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 2.2,
+                      }}
                       className="flex justify-center mt-10"
                     >
                       <Button

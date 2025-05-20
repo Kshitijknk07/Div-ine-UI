@@ -78,7 +78,9 @@ export function PhilosophyPage() {
                         Div-ine UI
                       </span>{" "}
                       is built on a foundation of core principles that guide
-                      every aspect of its design and development.
+                      every aspect of its design and development. Our goal is to
+                      empower developers to create stunning, accessible, and
+                      reusable components with ease.
                     </motion.p>
 
                     <motion.div
@@ -115,9 +117,9 @@ export function PhilosophyPage() {
                           <span className="text-[#00ADB5] font-medium">
                             Simplicity First
                           </span>{" "}
-                          - We believe in the power of simplicity. Every
-                          component should be intuitive and straightforward to
-                          use.
+                          - Every component is designed to be intuitive and
+                          straightforward, ensuring a seamless developer
+                          experience.
                         </div>
                       </motion.li>
                       <motion.li
@@ -131,8 +133,8 @@ export function PhilosophyPage() {
                           <span className="text-[#00ADB5] font-medium">
                             Purpose-Driven Design
                           </span>{" "}
-                          - Every component serves a specific purpose and solves
-                          a real problem.
+                          - Each component solves a specific problem and serves
+                          a clear purpose.
                         </div>
                       </motion.li>
                       <motion.li
@@ -146,8 +148,8 @@ export function PhilosophyPage() {
                           <span className="text-[#00ADB5] font-medium">
                             User-Centric Approach
                           </span>{" "}
-                          - We design with the end-user in mind, ensuring
-                          accessibility and usability for everyone.
+                          - Accessibility and usability are at the heart of
+                          every design decision.
                         </div>
                       </motion.li>
                     </motion.ul>
@@ -168,8 +170,8 @@ export function PhilosophyPage() {
                       transition={{ duration: 0.3, delay: 0.8 }}
                       className="text-base leading-relaxed"
                     >
-                      Our development approach is guided by several key
-                      principles:
+                      Our development philosophy emphasizes clean, maintainable
+                      code and modularity:
                     </motion.p>
 
                     <motion.ul
@@ -188,9 +190,9 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Clean Code
-                          </span>
-                          : We prioritize clean, maintainable code that's easy
-                          to understand and modify.
+                          </span>{" "}
+                          - We prioritize readability and maintainability in
+                          every line of code.
                         </div>
                       </motion.li>
                       <motion.li
@@ -203,9 +205,9 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Modular Architecture
-                          </span>
-                          : Components are designed to be independent and
-                          reusable.
+                          </span>{" "}
+                          - Components are designed to be independent and
+                          reusable across projects.
                         </div>
                       </motion.li>
                       <motion.li
@@ -218,9 +220,9 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Continuous Improvement
-                          </span>
-                          : We constantly refine and improve our components
-                          based on feedback and new insights.
+                          </span>{" "}
+                          - We evolve based on user feedback and emerging
+                          trends.
                         </div>
                       </motion.li>
                     </motion.ul>
@@ -241,8 +243,8 @@ export function PhilosophyPage() {
                       transition={{ duration: 0.3, delay: 1.1 }}
                       className="text-base leading-relaxed"
                     >
-                      Our design philosophy focuses on creating components that
-                      are both beautiful and functional:
+                      Our design philosophy ensures that components are both
+                      visually appealing and highly functional:
                     </motion.p>
 
                     <motion.ul
@@ -261,8 +263,8 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Minimalist Aesthetics
-                          </span>
-                          : Clean, uncluttered designs that focus on
+                          </span>{" "}
+                          - Clean, uncluttered designs that prioritize
                           functionality.
                         </div>
                       </motion.li>
@@ -276,8 +278,8 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Consistent Language
-                          </span>
-                          : A unified design language across all components.
+                          </span>{" "}
+                          - A unified design language across all components.
                         </div>
                       </motion.li>
                       <motion.li
@@ -290,9 +292,9 @@ export function PhilosophyPage() {
                         <div>
                           <span className="text-[#00ADB5] font-medium">
                             Adaptable Design
-                          </span>
-                          : Components that work seamlessly across different
-                          contexts and use cases.
+                          </span>{" "}
+                          - Components that seamlessly fit into various contexts
+                          and use cases.
                         </div>
                       </motion.li>
                     </motion.ul>
