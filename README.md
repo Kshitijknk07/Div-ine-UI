@@ -1,7 +1,7 @@
 # Div-ine UI
 
 <p align="center">
-  <strong>A magical, component-driven UI system for modern React applications</strong>
+  <strong>A magical, component-driven UI system for modern React applications (Coming Soon)</strong>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## Introduction
 
-Div-ine UI is a meticulously crafted React component library designed to bring magical experiences to your web applications. Built with modern technologies and a focus on developer experience, Div-ine UI offers a comprehensive set of customizable components that are both beautiful and functional.
+Div-ine UI is a meticulously crafted React component library (currently in development) designed to bring magical experiences to your web applications. Built with modern technologies and a focus on developer experience, Div-ine UI will offer a comprehensive set of customizable components that are both beautiful and functional.
 
 ### Philosophy
 
@@ -41,6 +41,8 @@ At the core of Div-ine UI is a belief that UI development should be:
 - 🛠️ **TypeScript Ready** - Full type definitions for enhanced development
 
 ## Installation
+
+> **Note**: Div-ine UI is currently in development and not yet published to npm. The installation instructions below are for future reference.
 
 ### Prerequisites
 
@@ -355,7 +357,28 @@ pnpm dev
 pnpm build
 ```
 
+## Development Status
 
+Div-ine UI is currently in active development. While the documentation and design system are being finalized, the actual package is not yet available for installation. We're working hard to bring this magical UI system to life, and we'll announce its release soon!
+
+### Current Status
+- ✅ Design System Documentation
+- ✅ Component Architecture Planning
+- ✅ API Design
+- 🚧 Package Development
+- 🚧 Testing Infrastructure
+- 🚧 Documentation Site
+- 🚧 Example Applications
+
+### Roadmap
+1. Complete core component development
+2. Implement comprehensive testing
+3. Create documentation site
+4. Build example applications
+5. Initial npm release
+6. Community feedback and improvements
+
+Stay tuned for updates on our progress and the official release!
 
 ## Acknowledgements
 
@@ -364,3 +387,11 @@ pnpm build
 - [class-variance-authority](https://cva.style/docs)
 - [Lucide Icons](https://lucide.dev/)
 - [Radix UI Primitives](https://www.radix-ui.com/) 
+
+## Contributing
+
+While Div-ine UI is not yet open for contributions, we're excited to welcome contributors once we reach our initial release. Please check back later for contribution guidelines and development setup instructions.
+
+## License
+
+This project is currently in development. License information will be provided upon release.
