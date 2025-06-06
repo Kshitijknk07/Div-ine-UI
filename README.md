@@ -388,10 +388,3 @@ Stay tuned for updates on our progress and the official release!
 - [Lucide Icons](https://lucide.dev/)
 - [Radix UI Primitives](https://www.radix-ui.com/) 
 
-## Contributing
-
-While Div-ine UI is not yet open for contributions, we're excited to welcome contributors once we reach our initial release. Please check back later for contribution guidelines and development setup instructions.
-
-## License
-
-This project is currently in development. License information will be provided upon release.
