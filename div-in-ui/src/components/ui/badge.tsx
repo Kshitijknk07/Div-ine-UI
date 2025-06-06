@@ -1,8 +1,11 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 
+/**
+ * Badge component variants configuration using class-variance-authority
+ * @see https://cva.style/docs
+ */
 const badgeVariants = cva(
   "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
@@ -30,12 +33,33 @@ const badgeVariants = cva(
   }
 );
 
+/**
+ * Badge component props interface
+ * @extends React.HTMLAttributes<HTMLDivElement>
+ * @extends VariantProps<typeof badgeVariants>
+ */
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {
+  /** Optional icon to display before the badge text */
   icon?: React.ReactNode;
 }
 
+/**
+ * A versatile badge component that can be used to highlight status, labels, or counts.
+ *
+ * @example
+ * ```tsx
+ * <Badge variant="success">Active</Badge>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <Badge variant="warning" icon={<AlertIcon />}>
+ *   Warning
+ * </Badge>
+ * ```
+ */
 function Badge({ className, variant, icon, children, ...props }: BadgeProps) {
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, type ReactElement } from "react";
 import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
@@ -21,7 +21,10 @@ import { motion } from "framer-motion";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-// Button Variants Configuration
+/**
+ * Button component variants configuration using class-variance-authority
+ * @see https://cva.style/docs
+ */
 const buttonVariants = cva(
   "relative inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
   {
@@ -79,15 +82,39 @@ const buttonVariants = cva(
   }
 );
 
-// Button Component
+/**
+ * Button component props interface
+ * @extends React.ButtonHTMLAttributes<HTMLButtonElement>
+ * @extends VariantProps<typeof buttonVariants>
+ */
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /** Whether to render as a child component */
   asChild?: boolean;
+  /** Whether the button is in a loading state */
   loading?: boolean;
+  /** Icon to display in the button */
   icon?: React.ReactNode;
 }
 
+/**
+ * A versatile button component with multiple variants, sizes, and states.
+ *
+ * @example
+ * ```tsx
+ * <Button variant="default" size="lg" icon={<Icon />}>
+ *   Click me
+ * </Button>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * <Button variant="destructive" loading>
+ *   Delete
+ * </Button>
+ * ```
+ */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -161,8 +188,11 @@ Button.displayName = "Button";
 
 export { Button, buttonVariants };
 
-// ButtonPage Component
-export function ButtonPage() {
+/**
+ * ButtonPage component that showcases the Button component and its variants
+ * @returns {ReactElement} A page demonstrating the Button component
+ */
+export function ButtonPage(): ReactElement {
   const buttonCode = `// Button Component Code
 import * as React from "react";
 import { forwardRef } from "react";

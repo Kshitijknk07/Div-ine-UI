@@ -1,24 +1,32 @@
+import { type ReactElement } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/Landing_Page";
-import IntroductionPage from "./components/HomePage/Introduction/IntroductionPage";
-import PhilosophyPage from "./components/HomePage/Philosophy/PhilosophyPage";
-import GettingStartedPage from "./components/HomePage/GettingStarted/GettingStartedPage";
-import { OpenCodePage } from "./components/HomePage/OpenCode/OpenCodePage";
-import { ComponentsPage } from "./components/HomePage/Components/ComponentsPage";
-import { CompositionPage } from "./components/HomePage/Composition/CompositionPage";
-import { DistributionPage } from "./components/HomePage/Distribution/DistributionPage";
-import { BeautifulDefaultsPage } from "./components/HomePage/BeautifulDefaults/BeautifulDefaultsPage";
-import { VitePage } from "./components/HomePage/Installation/VitePage";
-import { NextJSPage } from "./components/HomePage/Installation/NextJSPage";
-import { ManualSetupPage } from "./components/HomePage/Installation/ManualSetupPage";
-import { ButtonPage } from "./components/HomePage/Components/ButtonPage";
-import { CardPage } from "./components/HomePage/Components/CardPage";
-import { BadgePage } from "./components/HomePage/Components/BadgePage";
-import { DocumentationPage } from "./components/HomePage/Documentation/DocumentationPage";
-import { ExamplesPage } from "./components/HomePage/Examples/ExamplesPage";
-import { SchemaPage } from "./components/HomePage/Schema/SchemaPage";
+import {
+  IntroductionPage,
+  PhilosophyPage,
+  GettingStartedPage,
+  OpenCodePage,
+  ComponentsPage,
+  CompositionPage,
+  DistributionPage,
+  BeautifulDefaultsPage,
+  VitePage,
+  NextJSPage,
+  ManualSetupPage,
+  ButtonPage,
+  CardPage,
+  BadgePage,
+  DocumentationPage,
+  ExamplesPage,
+  SchemaPage,
+} from "./components/HomePage";
 
-const App = () => {
+/**
+ * Main application component that handles routing
+ *
+ * @returns {ReactElement} The application component
+ */
+const App = (): ReactElement => {
   return (
     <BrowserRouter>
       <Routes>

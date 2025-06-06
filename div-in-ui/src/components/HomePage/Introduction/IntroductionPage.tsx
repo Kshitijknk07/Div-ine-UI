@@ -1,3 +1,4 @@
+import { type ReactElement } from "react";
 import { SidebarPage } from "../Sidebar/SidebarPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
@@ -5,7 +6,54 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Code, Palette, Box, Share2 } from "lucide-react";
 
-export function IntroductionPage() {
+/**
+ * Feature item interface for the introduction page
+ */
+interface FeatureItem {
+  /** Icon component for the feature */
+  icon: ReactElement;
+  /** Title of the feature */
+  title: string;
+  /** Description of the feature */
+  description: string;
+}
+
+/**
+ * Introduction page component that showcases the key features of Div-ine UI
+ *
+ * @returns {ReactElement} The introduction page component
+ *
+ * @example
+ * ```tsx
+ * <IntroductionPage />
+ * ```
+ */
+export function IntroductionPage(): ReactElement {
+  const features: FeatureItem[] = [
+    {
+      icon: <Code className="w-4 h-4" />,
+      title: "Open Code",
+      description: "Access and customize component code easily.",
+    },
+    {
+      icon: <Palette className="w-4 h-4" />,
+      title: "Composable Design",
+      description: "Reusable components with predictable interfaces.",
+    },
+    {
+      icon: <Box className="w-4 h-4" />,
+      title: "Beautiful Defaults",
+      description:
+        "Components look great out of the box and are easy to adapt.",
+    },
+    {
+      icon: <Share2 className="w-4 h-4" />,
+      title: "Easy Distribution",
+      description:
+        "Share components across projects with a simple schema and CLI.",
+    },
+  ];
+
   return (
     <SidebarProvider
       className="bg-gradient-to-b from-[#222831] to-[#393E46] text-[#EEEEEE] w-full"
@@ -100,52 +148,28 @@ export function IntroductionPage() {
                       transition={{ duration: 0.3, delay: 0.7 }}
                       className="space-y-6 pl-6 list-none text-base leading-relaxed"
                     >
-                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Code className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Open Code
-                          </span>{" "}
-                          - Access and customize component code easily.
-                        </div>
-                      </motion.li>
-                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Palette className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Composable Design
-                          </span>{" "}
-                          - Reusable components with predictable interfaces.
-                        </div>
-                      </motion.li>
-                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Box className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Beautiful Defaults
-                          </span>{" "}
-                          - Components look great out of the box and are easy to
-                          adapt.
-                        </div>
-                      </motion.li>
-                      <motion.li className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors">
-                        <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
-                          <Share2 className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <span className="text-[#00ADB5] font-medium">
-                            Easy Distribution
-                          </span>{" "}
-                          - Share components across projects with a simple
-                          schema and CLI.
-                        </div>
-                      </motion.li>
+                      {features.map((feature, index) => (
+                        <motion.li
+                          key={feature.title}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: 0.7 + index * 0.1,
+                          }}
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#00ADB5]/5 transition-colors"
+                        >
+                          <div className="mt-1 p-2 rounded-full bg-[#00ADB5]/10 text-[#00ADB5]">
+                            {feature.icon}
+                          </div>
+                          <div>
+                            <span className="text-[#00ADB5] font-medium">
+                              {feature.title}
+                            </span>{" "}
+                            - {feature.description}
+                          </div>
+                        </motion.li>
+                      ))}
                     </motion.ul>
                   </motion.div>
                 </CardContent>
